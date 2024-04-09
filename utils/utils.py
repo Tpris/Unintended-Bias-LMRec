@@ -1,12 +1,14 @@
 import re
+import os
 import pandas as pd
 import pickle
 import numpy as np
 import tensorflow as tf
-from tokenizers.implementations import BertWordPieceTokenizer
-from tensorflow import keras
-from tensorflow.keras import layers
-from transformers import TFBertModel
+from tokenizers import BertWordPieceTokenizer
+# from tensorflow 
+import keras
+from keras import layers
+from transformers import TFBertModel, BertTokenizer
 
 
 def pickle_load(path):
@@ -99,6 +101,12 @@ def multireplace(string, replacements):
 
 # convert input text phrase to tokens and attention mask
 def get_input_list(review_list, max_len):
+    slow_tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
+    save_path = "bert_base_uncased/"
+    if not os.path.exists(save_path):
+        os.makedirs(save_path)
+    slow_tokenizer.save_pretrained(save_path)
+
     tokenizer = BertWordPieceTokenizer("bert_base_uncased/vocab.txt", lowercase=True)
     input_id_list = list()
     attention_mask_list = list()

@@ -194,7 +194,7 @@ def get_price_ratio_df_wFold(df_names, fold=10):
 def getOccupation_df(city_list, bias_placeholder_dir, use_folds, fold_number=10):
     df_occupation = concat_city_df(city_list, bias_placeholder_dir, 'yelp_qa_occupations.csv')
     df_add = concat_city_df(city_list, bias_placeholder_dir, 'yelp_qa_additionalOccupations.csv')
-    df_occupation = df_occupation.append(df_add)
+    df_occupation = pd.concat([df_occupation, df_add])
 
     # remove farm and institution
     df_occupation = df_occupation[df_occupation['example_label'].isin(['farm', 'institution', 'bar', 'chemical lab']) == False]

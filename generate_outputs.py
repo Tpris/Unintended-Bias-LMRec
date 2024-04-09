@@ -109,7 +109,7 @@ if __name__ == "__main__":
                     if p.test_neutralization:
                         row['input_sentence'] = text_input
 
-                    qa_df = qa_df.append(row, ignore_index=True)
+                    qa_df.loc[len(qa_df)]= row
                 if index > 200 and index % 200 == 0:
                     print(index)
                     qa_df.to_csv(save_path + '/yelp_qa_' + current_bais + '.csv')

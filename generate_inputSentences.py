@@ -28,7 +28,7 @@ def main(args):
         # read in corresponding bias phrases file
         # try:
         if '_' not in bias_type and bias_type != 'relationships':
-            current_df = pd.DataFrame()
+            current_df = pd.DataFrame(columns=["input_sentence", "label", "example_label"])
             example_labels = json_load(args.exampleLabels_dir + '{}.json'.format(bias_type))
             for input_sentence in sentence_list:
                 for sub_bias_type in example_labels.keys():
@@ -38,7 +38,7 @@ def main(args):
                         df_row = {"input_sentence": input_sentence.format(each_label),
                                   "label": sub_bias_type,
                                   "example_label": each_label}
-                        current_df = current_df.append(df_row, ignore_index=True)
+                        current_df.loc[len(current_df)] = df_row
 
         '''save dataframe for the above scenarios'''
         print('saving dataframe to:', args.save_dir + '{}.csv'.format(bias_type))
@@ -46,7 +46,7 @@ def main(args):
 
         # checking LGBTQ
         if '_' not in bias_type and bias_type == 'relationships':
-            current_df = pd.DataFrame()
+            current_df = pd.DataFrame(columns=["input_sentence", "label", "example_label", "secondary_label", 'secondary_example_label'])
             example_labels = json_load(args.exampleLabels_dir + '{}.json'.format(bias_type))
             pronoun_dict = {
                 "female": "her",
@@ -73,7 +73,7 @@ def main(args):
                                       "secondary_label": relation_dict[second_relation],
                                       'secondary_example_label': second_relation}
 
-                            current_df = current_df.append(df_row, ignore_index=True)
+                            current_df.loc[len(current_df)] = df_row
 
             '''save dataframe for the above scenarios'''
             print('saving dataframe to:', args.save_dir + '{}.csv'.format(bias_type))

@@ -122,14 +122,13 @@ if __name__ == "__main__":
     # loop through each city to create the plot
     for c_idx, c in enumerate(df_avg_city_plot.city.unique()):
         g = sns.barplot(x="price_lvl", y="ratio", hue='label',
-                        data=df_avg_city_plot[(df_avg_city_plot['bias'] == 'race') & (df_avg_city_plot['city'] == c)], ax=axes[c_idx],
-                        saturation=1)
+                        data=df_avg_city_plot[(df_avg_city_plot['bias'] == 'race') & (df_avg_city_plot['city'] == c)], ax=axes[c_idx])
         # Neutralization line
         g.axhline(0.5, ls='--', c='gray', label='neutral reference')
 
         f = sns.pointplot(x="price_lvl", y="ratio", hue='label',
                           data=df_avg_city_plot[(df_avg_city_plot['bias'] == 'race') & (df_avg_city_plot['city'] == c)], ax=axes[c_idx],
-                          legend=False, saturation=1)
+                          legend=False)
 
         # calculate slope and correlation coefficient
         cur_city = df_avg_city_plot[(df_avg_city_plot['city'] == c) & (df_avg_city_plot['bias'] == 'race')]
@@ -191,7 +190,7 @@ if __name__ == "__main__":
     # concatenate all dataframes
     df_avg_city_joint_plot = pd.concat(df_list_joint, ignore_index=True)
 
-    df_price_ratio_joint = pd.DataFrame()
+    df_price_ratio_joint = pd.DataFrame(columns=['city', 'label', 'price_lvl', 'avg_stars', 'rank', 'joint_bias'])
     for name in df_avg_city_joint_plot.example_label.unique():
         # retrieve entries for current name
         current_df = df_avg_city_joint_plot[df_avg_city_joint_plot['example_label'] == name][['city', 'label', 'price_lvl', 'avg_stars', 'rank']]
@@ -201,11 +200,11 @@ if __name__ == "__main__":
         if len(current_biases) != 2:
             continue
         current_df['joint_bias'] = ', '.join(current_biases)
-        df_price_ratio_joint = df_price_ratio_joint.append(current_df, ignore_index=True)
+        df_price_ratio_joint= pd.concat([df_price_ratio_joint,current_df])
 
     # calculate the ratio
     df_price_ratio_joint_groupby = df_price_ratio_joint.groupby(by=['city', 'label', 'joint_bias', 'price_lvl']).size().reset_index(name='counts')
-    df_price_ratio_joint_plot = pd.DataFrame()
+    df_price_ratio_joint_plot = pd.DataFrame(columns=['city', 'label', 'joint_bias', 'price_lvl', 'ratio'])
     for idx, row in df_price_ratio_joint_groupby.iterrows():
         price = row['price_lvl']
         bias = row['joint_bias']
@@ -214,13 +213,16 @@ if __name__ == "__main__":
                        (df_price_ratio_joint_groupby['price_lvl'] == price) & (df_price_ratio_joint_groupby['city'] == city)].counts) / 2
         ratio = row['counts'] / deno
         row['ratio'] = ratio
-        df_price_ratio_joint_plot = df_price_ratio_joint_plot.append(row)
+        df_price_ratio_joint_plot.loc[len(df_price_ratio_joint_plot)] = row
 
     # for all plots
     df_price_ratio_joint_plot_Avgcities = df_price_ratio_joint_plot.copy()
     df_price_ratio_joint_plot_Avgcities['city'] = all
     df_price_ratio_joint_plot['ratio'] = df_price_ratio_joint_plot['ratio'] * 100
     sns.set_style("white")
+
+    print(df_price_ratio_joint_plot)
+
 
     f = sns.catplot(x="price_lvl", y="ratio", hue='joint_bias', kind='point', col='label', units='city',
                     data=df_price_ratio_joint_plot[df_price_ratio_joint_plot['label'].isin(['female', 'male'])], ci=90,
@@ -265,18 +267,19 @@ if __name__ == "__main__":
     for split_num in range(split_number):
         df_temp = df_city_all_plot[df_city_all_plot['rank'] <= rank_bar]
         df_temp['fold'] = np.random.randint(0, fold_number, df_temp.shape[0])
+        print(df_temp)
 
         if df_cat_all is None:
             df_cat_all = df_temp.copy()
         else:
-            df_cat_all = df_cat_all.append(df_temp, ignore_index=True)
+            df_cat_all = pd.concat([df_cat_all, df_temp])
 
         df_temp_sum = df_temp.groupby(by=['label', 'fold']).size().reset_index(name='counts')
 
         if df_sum_all is None:
             df_sum_all = df_temp_sum.copy()
         else:
-            df_sum_all = df_sum_all.append(df_temp_sum, ignore_index=True)
+            df_sum_all = pd.concat([df_sum_all, df_temp_sum])
             # df_sum_all = pd.concat(df_sum_all,df_temp_sum)
 
     # nested dictionary
@@ -297,7 +300,7 @@ if __name__ == "__main__":
             innerDict[fold_n] = mostInnerDict
             jointCount_dict[cat] = innerDict
 
-    plot_df_all = pd.DataFrame()
+    plot_df_all = pd.DataFrame(columns=['category', 'score', 'err', 'kind', 'bottom', 'top'])
 
     # use the difference
     point_list = []
@@ -336,19 +339,19 @@ if __name__ == "__main__":
         y_val, y_err = mean_confidence_interval(yVal_list, confidence=0.90, n=len(xVal_list) * split_number)
 
         point_list.append([name, x_val, y_val, x_err, y_err])
-        plot_df_all = plot_df_all.append({'category': name,
+        plot_df_all = pd.concat([plot_df_all, pd.DataFrame([{'category': name,
                                           'score': x_val,
                                           'err': x_err,
                                           'kind': 'race',
                                           'bottom': 'black',
-                                          'top': 'white'}, ignore_index=True)
+                                          'top': 'white'}])])
 
-        plot_df_all = plot_df_all.append({'category': name,
+        plot_df_all = pd.concat([plot_df_all, pd.DataFrame([{'category': name,
                                           'score': y_val,
                                           'err': y_err,
                                           'kind': 'gender',
                                           'bottom': 'male',
-                                          'top': 'female'}, ignore_index=True)
+                                          'top': 'female'}])])
         # texts.append(plt.text(x_val, y_val, name))
 
     # For saving the image.
@@ -468,14 +471,14 @@ if __name__ == "__main__":
         if df_sex_orien_all is None:
             df_sex_orien_all = df_temp.copy()
         else:
-            df_sex_orien_all = df_sex_orien_all.append(df_temp, ignore_index=True)
+            df_sex_orien_all = pd.concat([df_sex_orien_all, df_temp])
 
         df_temp_sum = df_temp.groupby(by=['label', 'fold']).size().reset_index(name='counts')
 
         if df_sum_sex_orien_all is None:
             df_sum_sex_orien_all = df_temp_sum.copy()
         else:
-            df_sum_sex_orien_all = df_sum_sex_orien_all.append(df_temp_sum, ignore_index=True)
+            df_sum_sex_orien_all = pd.concat([df_sum_sex_orien_all, df_temp_sum])
 
     lst = df_sex_orien_all.categories.values.tolist()
     lst = list(set(lst))
@@ -544,19 +547,19 @@ if __name__ == "__main__":
         y_val, y_err = mean_confidence_interval(yVal_list, confidence=0.90, n=jointY_count * split_number)
 
         point_list.append([name, x_val, y_val, x_err, y_err])
-        plot_df_all = plot_df_all.append({'category': name,
+        plot_df_all = pd.concat([plot_df_all, pd.DataFrame([{'category': name,
                                           'score': x_val,
                                           'err': x_err,
                                           'kind': 'first_gender',
                                           'bottom': 'male',
-                                          'top': 'female'}, ignore_index=True)
+                                          'top': 'female'}])])
 
-        plot_df_all = plot_df_all.append({'category': name,
+        plot_df_all = pd.concat([plot_df_all, pd.DataFrame([{'category': name,
                                           'score': y_val,
                                           'err': y_err,
                                           'kind': 'second_gender',
                                           'bottom': 'male',
-                                          'top': 'female'}, ignore_index=True)
+                                          'top': 'female'}])])
 
     plt.rcParams['mathtext.default'] = 'regular'
 
