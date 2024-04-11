@@ -14,17 +14,19 @@ import pickle
 import numpy as np
 import pandas as pd
 import tensorflow as tf
+import torch
+from tqdm import tqdm
 
 from utils.utils import create_model, get_input_list
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--data_dir', type=str, default='data/Yelp_cities')
-    parser.add_argument('--city_name', type=str, default='Austin')
+    parser.add_argument('--city_name', type=str, default='Atlanta')
     parser.add_argument('--topk', type=str, default=20, help='top number of recommendations to retrieve')
     parser.add_argument('--test_neutralization', action='store_true', help='whether to perform test-side neutralization towards the results')
     parser.add_argument('--use_tpu', action='store_true', help='whether to use tpu')
-    parser.add_argument('--model_dir_root', type=str, default='models/{}/model.h5')
+    parser.add_argument('--model_dir_root', type=str, default='models/{}/model.pt')
     parser.add_argument('--label_dir_root', type=str, default='data/Yelp_cities/{}_trainValidTest/')
     parser.add_argument('--biasAnalysis_path', type=str, default='data/bias_analysis/yelp/')
     p = parser.parse_args()
@@ -34,6 +36,9 @@ if __name__ == "__main__":
     label_dir = p.label_dir_root.format(p.city_name)
     print('Model directory', model_dir)
     print('Label directory', label_dir)
+
+    # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = "cpu"
 
     # Get input sentence path
     input_path = p.biasAnalysis_path + 'input_sentences/'
@@ -48,10 +53,11 @@ if __name__ == "__main__":
     print('saving to:', save_path)
 
     # Set maximum len for input text
-    if p.city_name == 'Boston':
-        max_len = 500
-    else:
-        max_len = 400
+    # if p.city_name == 'Boston':
+    #     max_len = 500
+    # else:
+    #     max_len = 400
+    max_len = 512
 
     # load data frame
     city_df = pd.read_csv('{}/{}_reviews.csv'.format(p.data_dir, p.city_name), lineterminator='\n')
@@ -72,31 +78,48 @@ if __name__ == "__main__":
 
     """Load model and labels"""
     labels = pickle.load(open(label_dir + "labels.pickle", 'rb'))
+    # df = pd.read_csv('data/Yelp_cities/'+p.city_name+'_reviews.csv')
+    # df_count = df.groupby('business_id').count()
+    # df_count = df_count[df_count.index.isin(labels)]
+    # df = df[df.business_id.isin(df_count.index)]
+    # df['review_date'] = pd.to_datetime(df['review_date'])  
+    # df = df.loc[(df['review_date'] > '2008-01-01') & (df['review_date'] <= '2020-01-01')]
+    # labels = list(df['business_id'].unique())
 
-    # Create distribution strategy
-    if p.use_tpu:
-        tpu = tf.distribute.cluster_resolver.TPUClusterResolver()
-        tf.config.experimental_connect_to_cluster(tpu)
-        tf.tpu.experimental.initialize_tpu_system(tpu)
-        strategy = tf.distribute.TPUStrategy(tpu)
-        with strategy.scope():
-            loaded_model = create_model(max_len=max_len, labels=labels)
-    else:
-        loaded_model = create_model(max_len=max_len, labels=labels)
+    loaded_model = create_model(max_len=max_len, labels=labels, device=device)
 
-    loaded_model.load_weights(model_dir)
-    print(loaded_model.summary())
+    # loaded_model.load_weights(model_dir)
+    loaded_model.load_state_dict(torch.load(model_dir))
+    loaded_model.eval()
+    print(loaded_model)
 
     for filename in os.listdir(input_path):
         print(filename)
         if filename.endswith(".csv"):
             current_df = pd.read_csv(input_path + filename)
             current_bais = filename.split('.csv')[0]
-            qa_df = pd.DataFrame(columns=current_df.columns)
+            qa_df = pd.DataFrame()
 
-            pred = loaded_model.predict(get_input_list(current_df['input_sentence'].to_list(), max_len))
+            pred_list = ()
+            list_sent = current_df['input_sentence'].to_list()
+            print(len(list_sent))
+            STEP = 500
+            for i in tqdm(range(0, len(list_sent), STEP)):
+                max = i+STEP if i+STEP <len(list_sent) else len(list_sent)
+                input = get_input_list(list_sent[i:max], max_len, device)
+                pred = loaded_model(input)
+                pred_list += (pred.cpu().detach().numpy(),)
+
+            # inp_list = torch.split(input, 50)
+            # for inp in inp_list:
+            #     pred = loaded_model(inp)
+            #     pred_list += (pred.cpu().detach().numpy(),)
+            pred = np.concatenate(pred_list)
+            print(pred.shape)
             sorted_prediction = np.argsort(-pred)[:, :p.topk]
             restaurant_ids_list = [np.array(labels)[pred] for pred in sorted_prediction]
+
+            # print(current_df)
 
             for index, row in current_df.iterrows():
                 text_input = row['input_sentence']
@@ -109,9 +132,12 @@ if __name__ == "__main__":
                     if p.test_neutralization:
                         row['input_sentence'] = text_input
 
-                    qa_df.loc[len(qa_df)]= row
+                    # print(row)
+                    # qa_df.loc[len(qa_df)]= row
+                    qa_df = pd.concat([qa_df, row.to_frame().T])
+                    # print(qa_df)
                 if index > 200 and index % 200 == 0:
-                    print(index)
+                    # print(index)
                     qa_df.to_csv(save_path + '/yelp_qa_' + current_bais + '.csv')
             qa_df.to_csv(save_path + '/yelp_qa_' + current_bais + '.csv')
         else:

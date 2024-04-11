@@ -63,6 +63,8 @@ if __name__ == "__main__":
     parser.add_argument('--saveFigure_dir', type=str, default='bias_analysis/yelp/figures/')
     p = parser.parse_args()
 
+    p.save_figure = True
+
     """
     Settings
     """
@@ -221,8 +223,6 @@ if __name__ == "__main__":
     df_price_ratio_joint_plot['ratio'] = df_price_ratio_joint_plot['ratio'] * 100
     sns.set_style("white")
 
-    print(df_price_ratio_joint_plot)
-
 
     f = sns.catplot(x="price_lvl", y="ratio", hue='joint_bias', kind='point', col='label', units='city',
                     data=df_price_ratio_joint_plot[df_price_ratio_joint_plot['label'].isin(['female', 'male'])], ci=90,
@@ -267,7 +267,6 @@ if __name__ == "__main__":
     for split_num in range(split_number):
         df_temp = df_city_all_plot[df_city_all_plot['rank'] <= rank_bar]
         df_temp['fold'] = np.random.randint(0, fold_number, df_temp.shape[0])
-        print(df_temp)
 
         if df_cat_all is None:
             df_cat_all = df_temp.copy()

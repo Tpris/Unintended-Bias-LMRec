@@ -6,9 +6,10 @@ import numpy as np
 import tensorflow as tf
 from tokenizers import BertWordPieceTokenizer
 # from tensorflow 
-import keras
-from keras import layers
-from transformers import TFBertModel, BertTokenizer
+# import keras
+# from keras import layers
+from transformers import BertModel, BertTokenizer
+from torch import nn
 
 
 def pickle_load(path):
@@ -100,52 +101,92 @@ def multireplace(string, replacements):
 
 
 # convert input text phrase to tokens and attention mask
-def get_input_list(review_list, max_len):
+def get_input_list(review_list, max_len, device):
     slow_tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
     save_path = "bert_base_uncased/"
     if not os.path.exists(save_path):
         os.makedirs(save_path)
     slow_tokenizer.save_pretrained(save_path)
 
-    tokenizer = BertWordPieceTokenizer("bert_base_uncased/vocab.txt", lowercase=True)
-    input_id_list = list()
-    attention_mask_list = list()
-    for review in review_list:
-        # Process text
-        input_ids = tokenizer.encode(review).ids
-        attention_mask = [1] * len(input_ids)
-        padding_length = max_len - len(input_ids)
-        if padding_length > 0:  # pad
-            input_ids = input_ids + ([0] * padding_length)
-            attention_mask = attention_mask + ([0] * padding_length)
-        else:
-            input_ids = input_ids[0:max_len]
-            input_ids[-1] = 102  # separation token
-            attention_mask = attention_mask[0:max_len]
+    # tokenizer = BertWordPieceTokenizer("bert_base_uncased/vocab.txt", lowercase=True)
+    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+    # input_id_list = list()
+    # attention_mask_list = list()
+    # for review in review_list:
+    #     # Process text
+    #     input_ids = tokenizer.encode(review).ids
+    #     attention_mask = [1] * len(input_ids)
+    #     padding_length = max_len - len(input_ids)
+    #     if padding_length > 0:  # pad
+    #         input_ids = input_ids + ([0] * padding_length)
+    #         attention_mask = attention_mask + ([0] * padding_length)
+    #     else:
+    #         input_ids = input_ids[0:max_len]
+    #         input_ids[-1] = 102  # separation token
+    #         attention_mask = attention_mask[0:max_len]
 
-        input_id_list.append(input_ids)
-        attention_mask_list.append(attention_mask)
+    #     input_id_list.append(input_ids)
+    #     attention_mask_list.append(attention_mask)
+
+    wrapped_input = tokenizer(review_list, max_length=512, add_special_tokens=True, truncation=True,
+                          padding='max_length', return_tensors="pt").to(device)
+    return wrapped_input
     return [np.array(input_id_list), np.array(attention_mask_list)]
 
 
 # model
-def create_model(max_len, labels, learning_rate=5e-5, ):
-    encoder = TFBertModel.from_pretrained("bert-base-uncased")
-    input_ids = layers.Input(shape=(max_len,), dtype=tf.int32)
-    attention_mask = layers.Input(shape=(max_len,), dtype=tf.int32)
+def create_model(max_len, labels, device, learning_rate=5e-5):
+    # encoder = TFBertModel.from_pretrained("bert-base-uncased")
+    # input_ids = layers.Input(shape=(max_len,), dtype=tf.int32)
+    # attention_mask = layers.Input(shape=(max_len,), dtype=tf.int32)
 
-    embedding = encoder(
-        input_ids, attention_mask=attention_mask
-    )['pooler_output']
+    # embedding = encoder(
+    #     input_ids, attention_mask=attention_mask
+    # )['pooler_output']
 
-    dense = layers.Dense(1024, activation='relu')(embedding)
-    out = layers.Dense(len(labels), activation='softmax')(dense)
+    # dense = layers.Dense(1024, activation='relu')(embedding)
+    # out = layers.Dense(len(labels), activation='softmax')(dense)
 
-    model = keras.Model(
-        inputs=[input_ids, attention_mask],
-        outputs=out, )
+    # model = keras.Model(
+    #     inputs=[input_ids, attention_mask],
+    #     outputs=out, )
 
-    loss = keras.losses.SparseCategoricalCrossentropy()
-    optimizer = keras.optimizers.Adam(learning_rate=learning_rate)
-    model.compile(optimizer=optimizer, loss=loss, metrics=['accuracy'])
-    return model
+    # loss = keras.losses.SparseCategoricalCrossentropy()
+    # optimizer = keras.optimizers.Adam(learning_rate=learning_rate)
+    # model.compile(optimizer=optimizer, loss=loss, metrics=['accuracy'])
+    return BERT_classifier(len(labels)).to(device)
+
+class BERT_classifier(nn.Module):
+    def __init__(self, num_label):
+        super().__init__()
+        self.bert = BertModel.from_pretrained("bert-base-uncased")
+        for param in self.bert.parameters():
+            param.requires_grad = False
+        self.classifier = nn.Sequential(
+            nn.Linear(self.bert.config.hidden_size, 1024),
+            nn.ReLU(),
+            nn.Linear(1024, num_label),
+            # nn.ReLU(),
+            # nn.Linear(1500, 2000),
+            # nn.ReLU(),
+            # nn.Linear(2000, 2500),
+            # nn.ReLU(),
+            # nn.Linear(2500, num_label),
+            # nn.ReLU(),
+            # nn.Linear(3000, num_label),
+            # nn.ReLU(),
+            # nn.Linear(10000, 20000),
+            # nn.ReLU(),
+            # nn.Linear(20000, 40000),
+            # nn.ReLU(),
+            # nn.Linear(40000, num_label),
+            # nn.Softmax(1)
+        )
+
+    def forward(self, wrapped_input):
+        hidden = self.bert(**wrapped_input)
+        last_hidden_state, pooler_output = hidden[0], hidden[1]
+        logits = self.classifier(pooler_output)
+        # logits = self.softmax(logits)
+
+        return logits.squeeze()

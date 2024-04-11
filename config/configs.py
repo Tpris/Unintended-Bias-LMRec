@@ -5,7 +5,8 @@ confidence_interval_dict = {
     0.99: 2.576
 }
 
-city_list = ['Toronto', 'Boston', 'Atlanta', 'Austin', 'Columbus', 'Orlando', 'Portland']
+# city_list = ['Toronto', 'Boston', 'Atlanta', 'Austin', 'Columbus', 'Orlando', 'Portland']
+city_list = ['Atlanta']
 price_lvls = 4
 
 # unique category list here
