@@ -3,5 +3,9 @@
 *.h5
 *.pt
 data/Yelp_cities/*.csv
+data/Yelp_cities/data_map
 __pycache__
+.ipynb_checkpoints
 stanford-ner-2018-10-16/
+*_reviews.csv
+
