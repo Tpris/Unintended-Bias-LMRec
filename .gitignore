@@ -1,4 +1,7 @@
 /bert_base_uncased/
 .idea
 *.h5
+*.pt
 data/Yelp_cities/*.csv
+__pycache__
+stanford-ner-2018-10-16/
