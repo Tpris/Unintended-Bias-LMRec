@@ -10,6 +10,7 @@ from tokenizers import BertWordPieceTokenizer
 # from keras import layers
 from transformers import BertModel, BertTokenizer
 from torch import nn
+import torch
 
 
 def pickle_load(path):
@@ -156,6 +157,14 @@ def create_model(max_len, labels, device, learning_rate=5e-5):
     # model.compile(optimizer=optimizer, loss=loss, metrics=['accuracy'])
     return BERT_classifier(len(labels)).to(device)
 
+def create_model_mitigator(LMRec):
+    return Bert_mitigator(LMRec)
+
+def load_weight_mitigator(model, model_dir):
+    model.load_state_dict(torch.load(model_dir))
+    model.mitigator[-1] = nn.Identity()
+    return model
+
 class BERT_classifier(nn.Module):
     def __init__(self, num_label):
         super().__init__()
@@ -166,21 +175,6 @@ class BERT_classifier(nn.Module):
             nn.Linear(self.bert.config.hidden_size, 1024),
             nn.ReLU(),
             nn.Linear(1024, num_label),
-            # nn.ReLU(),
-            # nn.Linear(1500, 2000),
-            # nn.ReLU(),
-            # nn.Linear(2000, 2500),
-            # nn.ReLU(),
-            # nn.Linear(2500, num_label),
-            # nn.ReLU(),
-            # nn.Linear(3000, num_label),
-            # nn.ReLU(),
-            # nn.Linear(10000, 20000),
-            # nn.ReLU(),
-            # nn.Linear(20000, 40000),
-            # nn.ReLU(),
-            # nn.Linear(40000, num_label),
-            # nn.Softmax(1)
         )
 
     def forward(self, wrapped_input):
@@ -188,5 +182,28 @@ class BERT_classifier(nn.Module):
         last_hidden_state, pooler_output = hidden[0], hidden[1]
         logits = self.classifier(pooler_output)
         # logits = self.softmax(logits)
+
+        return logits.squeeze()
+    
+
+class Bert_mitigator(nn.Module):
+  def __init__(self, LMRec):
+    super().__init__()
+    self.LMRec = LMRec
+    for param in self.LMRec.parameters():
+        param.requires_grad = False
+
+    nb_output = self.LMRec.classifier[-1].out_features
+
+    self.mitigator = nn.Sequential(
+        nn.Linear(nb_output, nb_output),
+        nn.Softmax(0),
+        nn.Linear(nb_output, 4),
+    )
+
+
+  def forward(self, wrapped_input):
+        hidden = self.LMRec(wrapped_input)
+        logits = self.mitigator(hidden)
 
         return logits.squeeze()
