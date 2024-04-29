@@ -207,19 +207,19 @@ def association_score(bias_placeholder_dir, name_figure):
 
         ))
     # add neutralization point
-    # opacity_list = [1, 0.8, 0.6, 0.4, 0.2, 0.1]
-    # for idx, op in enumerate(opacity_list):
-    #     fig.add_trace(go.Scatter(
-    #         x=[0],
-    #         y=[0],
-    #         opacity=op,
-    #         mode="markers",
-    #         name='neutralization',
-    #         text=[''],
-    #         marker=dict(size=idx * 20, color='gray'),
-    #         textposition="bottom center",
-    #         showlegend=False,
-    #     ))
+    opacity_list = [1, 0.8, 0.6, 0.4, 0.2, 0.1]
+    for idx, op in enumerate(opacity_list):
+        fig.add_trace(go.Scatter(
+            x=[0],
+            y=[0],
+            opacity=op,
+            mode="markers",
+            name='neutralization',
+            text=[''],
+            marker=dict(size=idx * 10, color='gray'),
+            textposition="bottom center",
+            showlegend=False,
+        ))
 
     fig.update_layout(
         autosize=True,
@@ -367,3 +367,71 @@ fig.update_layout(
         size=8
     ))
 fig.write_image("{}distance_y.pdf".format(saveFigure_dir), scale=1)
+
+# white_b = merge[merge['x_base']>0]
+# black_b = merge[merge['x_base']<0]
+# man_b   = merge[merge['y_base']<0]
+# woman_b = merge[merge['y_base']>0]
+
+# white_m = merge[merge['x_mit']>0]
+# black_m = merge[merge['x_mit']<0]
+# man_m   = merge[merge['y_mit']<0]
+# woman_m = merge[merge['y_mit']>0]
+
+# wm_b = merge[(merge.isin(white_b)) & (merge.isin(man_b))]
+# print(wm_b)
+
+def init_cat(df_x, df_y):
+    if df_x ==0 and df_y == 0: # neutral
+        return 0
+    if df_x >0 and df_y >0: # white woman
+        return 1
+    if df_x >0 and df_y <0: # white man
+        return 2
+    if df_x <0 and df_y >0: # black woman
+        return 3
+    if df_x < 0 and df_y < 0: # black man
+        return 4
+    return -1 # error
+
+merge['init_cat'] = merge.apply(lambda r: init_cat(r.x_base, r.y_base), axis=1)
+merge['mit_cat'] = merge.apply(lambda r: init_cat(r.x_mit, r.y_mit), axis=1)
+
+print(merge)
+
+merge['name'] = merge.index
+cat = merge.groupby(['init_cat', 'mit_cat'])['name'].apply(list)
+print(cat)
+
+mat = np.zeros((5,5))
+
+for id, lst in cat.items():
+    mat[id[0]][id[1]] = len(lst)
+
+print(mat)
+
+lab = ['neutral', 'white woman', 'white man', 'black woman', 'black man']
+
+fig = px.imshow(mat,
+                labels=dict(x="Category after mitigation", y="Initial category"),
+                x=lab,
+                y=lab,
+                text_auto=True
+               )
+fig.update_xaxes(side="top")
+fig.write_image("{}confusion_matrix.pdf".format(saveFigure_dir))
+
+cat = cat.to_frame('categories')
+cat['categories'] = cat.categories.apply(lambda x: ', '.join([str(i) for i in x]))
+
+fig = go.Figure(data=[go.Table(
+    columnwidth=[1/10,1/10,8/10],
+    header=dict(values=['init_cat', 'mit_cat']+list(cat.columns),
+                fill_color='paleturquoise',
+                align='left'),
+    cells=dict(values=[cat.index.get_level_values('init_cat'), cat.index.get_level_values('mit_cat'), cat.categories],
+               fill_color='lavender',
+               align='left'))
+])
+fig.write_image("{}list_cat.pdf".format(saveFigure_dir))
+fig.show()
