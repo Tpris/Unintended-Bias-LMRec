@@ -32,6 +32,7 @@ stopwords = stopwords.words('english')
 sns.set_style("darkgrid")
 
 prob_choice_2d_plot = 'difference'
+# prob_choice_2d_plot = 'ratio'
 bias_placeholder_dir_base = 'data/bias_analysis/yelp/output_dataframes/save/Atlanta_output_dataframes_base/'
 bias_placeholder_dir_mit = 'data/bias_analysis/yelp/output_dataframes/save/Atlanta_output_dataframes_biased/'
 saveFigure_dir = 'bias_analysis/yelp/figures/'
@@ -121,35 +122,39 @@ def association_score(bias_placeholder_dir, name_figure):
             y_female, y_female_count, y_female_baseCount = get_counts_wFold(df_sum_all, jointCount_dict, name, label='female', fold_num=fold_num)
 
             if prob_choice_2d_plot == 'ratio':
-                x_val_temp = (1e-4 + x_white) / (x_black + 1e-4)
-                y_val_temp = (1e-4 + y_female) / (y_male + 1e-4)
+                x_val_temp = np.log(1e-4 + x_white / (x_black + 1e-4))
+                y_val_temp = np.log(1e-4 + y_female / (y_male + 1e-4))
             elif prob_choice_2d_plot == 'difference':
                 x_val_temp = (x_white - x_black) / (1e-4 + (x_white_count + x_black_count) / (1e-4 + x_white_baseCount + x_black_baseCount))
                 y_val_temp = (y_female - y_male) / (1e-4 + (y_female_count + y_male_count) / (1e-4 + y_male_baseCount + y_female_baseCount))
             else:
                 raise NotImplementedError('need to choose a valid probability type')
+            
+            # if x_val_temp !=0 and y_val_temp != 0:
             xVal_list.append(x_val_temp)
             yVal_list.append(y_val_temp)
 
+        
         # calculate the aggregated value and error bars
         x_val, x_err = mean_confidence_interval(xVal_list, confidence=0.90, n=len(xVal_list) * split_number)
         y_val, y_err = mean_confidence_interval(yVal_list, confidence=0.90, n=len(xVal_list) * split_number)
 
-        point_list.append([name, x_val, y_val, x_err, y_err])
-        plot_df_all = pd.concat([plot_df_all, pd.DataFrame([{'category': name,
-                                            'score': x_val,
-                                            'err': x_err,
-                                            'kind': 'race',
-                                            'bottom': 'black',
-                                            'top': 'white'}])])
+        if x_val !=0 and y_val != 0:
+            point_list.append([name, x_val, y_val, x_err, y_err])
+            plot_df_all = pd.concat([plot_df_all, pd.DataFrame([{'category': name,
+                                                'score': x_val,
+                                                'err': x_err,
+                                                'kind': 'race',
+                                                'bottom': 'black',
+                                                'top': 'white'}])])
 
-        plot_df_all = pd.concat([plot_df_all, pd.DataFrame([{'category': name,
-                                            'score': y_val,
-                                            'err': y_err,
-                                            'kind': 'gender',
-                                            'bottom': 'male',
-                                            'top': 'female'}])])
-        # texts.append(plt.text(x_val, y_val, name))
+            plot_df_all = pd.concat([plot_df_all, pd.DataFrame([{'category': name,
+                                                'score': y_val,
+                                                'err': y_err,
+                                                'kind': 'gender',
+                                                'bottom': 'male',
+                                                'top': 'female'}])])
+            # texts.append(plt.text(x_val, y_val, name))
 
     # For saving the image.
     unwrapped = plotly.io._orca.request_image_with_retrying.__wrapped__
@@ -230,13 +235,13 @@ def association_score(bias_placeholder_dir, name_figure):
             title=dict(
                 text=r"$ \Large\mathrm{black} \longleftarrow \longrightarrow \mathrm{white}$",
                 font=dict(size=40))
-            , range=[-1, 1]
+            # , range=[-1, 1]
         ),
         yaxis=dict(
             title=dict(
                 text=r"$ \Large\mathrm{male} \longleftarrow \longrightarrow \mathrm{female}$",
                 font=dict(size=40))
-            , range=[-1, 1]
+            # , range=[-1, 1]
         ),
         font=dict(
             family="Times New Roman",
@@ -244,6 +249,62 @@ def association_score(bias_placeholder_dir, name_figure):
         ))
 
     fig.write_image("{}{}.pdf".format(saveFigure_dir, name_figure), scale=1, width=1850, height=600)
+    fig.update_layout(
+    autosize=True,
+    height=600,
+    width=1800,
+    margin=go.layout.Margin(
+        l=0,
+        r=0,
+        b=0,
+        t=0,
+    ),
+    xaxis=dict(
+        title=dict(
+            text=r"$ \Large\mathrm{black} \longleftarrow \longrightarrow \mathrm{white}$",
+            font=dict(size=40))
+        , range=[-0.4, 0.4]
+    ),
+    yaxis=dict(
+        title=dict(
+            text=r"$ \Large\mathrm{male} \longleftarrow \longrightarrow \mathrm{female}$",
+            font=dict(size=40))
+        , range=[-0.4, 0.4]
+    ),
+    font=dict(
+        family="Times New Roman",
+        size=24
+    ))
+
+    fig.write_image("{}{}_ZOOM.pdf".format(saveFigure_dir, name_figure), scale=1, width=1850, height=600)
+    fig.update_layout(
+    autosize=True,
+    height=600,
+    width=1800,
+    margin=go.layout.Margin(
+        l=0,
+        r=0,
+        b=0,
+        t=0,
+    ),
+    xaxis=dict(
+        title=dict(
+            text=r"$ \Large\mathrm{black} \longleftarrow \longrightarrow \mathrm{white}$",
+            font=dict(size=40))
+        , range=[-0.2, 0.2]
+    ),
+    yaxis=dict(
+        title=dict(
+            text=r"$ \Large\mathrm{male} \longleftarrow \longrightarrow \mathrm{female}$",
+            font=dict(size=40))
+        , range=[-0.2, 0.2]
+    ),
+    font=dict(
+        family="Times New Roman",
+        size=24
+    ))
+
+    fig.write_image("{}{}_ZOOM2.pdf".format(saveFigure_dir, name_figure), scale=1, width=1850, height=600)
     return point_list
 
 
@@ -261,13 +322,20 @@ print('='*20)
 print(mit_point)
 print('='*20)
 
-merge = pd.concat([base_point, mit_point], axis=1)
+merge = pd.concat([base_point, mit_point], axis=1).replace(np.nan, 0)
+
+# merge_drop = merge[(merge['x_base'] == 0) & (merge['y_base'] == 0) & (merge['x_mit'] == 0) & (merge['y_mit'] == 0)].index
+# merge.drop(merge_drop, inplace=True)
+print(merge)
+print('='*20)
+
 
 merge['distance'] = merge.apply(lambda r: distance.euclidean((r.x_base,r.y_base),(r.x_mit,r.y_mit)), axis=1)
 merge['distance_x'] = merge.apply(lambda r: distance.euclidean((r.x_base,),(r.x_mit,)), axis=1)
 merge['distance_y'] = merge.apply(lambda r: distance.euclidean((r.y_base,),(r.y_mit,)), axis=1)
 print(merge)
-print('fast food\n', merge.loc['fast food'])
+print('='*20)
+# print('fast food\n', merge.loc['fast food'])
 
 df00 = merge.drop(['x_base', 'y_base','x_mit', 'y_mit'], axis=1)
 df00 = df00.sort_values(by=['distance'])
