@@ -43,6 +43,13 @@ name_fig_mit = 'all_categories_22D_mit'
 """3.The 2D plot for association score"""
 print('-' * 20 + '3/6: Generating 2D plot for association scores' + '-' * 20)
 
+def get_list_cat(df_city_all_plot):
+    cat = df_city_all_plot['categories'].to_numpy().flatten()
+    cat = [c.lower() for c in cat]
+    cat2 = []
+    for c in cat : cat2 += c.split(', ')
+    return list(set(cat2))
+
 def association_score(bias_placeholder_dir, name_figure):
     fold_number = 20
     split_number = 4
@@ -104,8 +111,9 @@ def association_score(bias_placeholder_dir, name_figure):
     # use the difference
     point_list = []
 
-    with open('data/bias_analysis/yelp/Category_set_2D.txt', 'rb') as f:
-        Category_set_2D = pickle.load(f)
+    # with open('data/bias_analysis/yelp/Category_set_2D.txt', 'rb') as f:
+    #     Category_set_2D = pickle.load(f)
+    Category_set_2D = get_list_cat(df_city_all_plot)
     for name in Category_set_2D:  # USE THIS FOR CLEANER VERSION
         xVal_list = list()
         yVal_list = list()
