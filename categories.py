@@ -31,6 +31,7 @@ nltk.download('stopwords')
 stopwords = stopwords.words('english')
 sns.set_style("darkgrid")
 
+remove_neutral = False
 prob_choice_2d_plot = 'difference'
 # prob_choice_2d_plot = 'ratio'
 bias_placeholder_dir_base = 'data/bias_analysis/yelp/output_dataframes/save/Atlanta_output_dataframes_base/'
@@ -137,9 +138,9 @@ def association_score(bias_placeholder_dir, name_figure):
         
         # calculate the aggregated value and error bars
         x_val, x_err = mean_confidence_interval(xVal_list, confidence=0.90, n=len(xVal_list) * split_number)
-        y_val, y_err = mean_confidence_interval(yVal_list, confidence=0.90, n=len(xVal_list) * split_number)
+        y_val, y_err = mean_confidence_interval(yVal_list, confidence=0.90, n=len(yVal_list) * split_number)
 
-        if x_val !=0 and y_val != 0:
+        if not remove_neutral or x_val !=0 and y_val != 0:
             point_list.append([name, x_val, y_val, x_err, y_err])
             plot_df_all = pd.concat([plot_df_all, pd.DataFrame([{'category': name,
                                                 'score': x_val,
@@ -247,8 +248,10 @@ def association_score(bias_placeholder_dir, name_figure):
             family="Times New Roman",
             size=24
         ))
-
-    fig.write_image("{}{}.pdf".format(saveFigure_dir, name_figure), scale=1, width=1850, height=600)
+    if remove_neutral:
+        fig.write_image("{}{}.pdf".format(saveFigure_dir, name_figure), scale=1, width=1850, height=600)
+    else:
+        fig.write_image("{}{}_full.pdf".format(saveFigure_dir, name_figure), scale=1, width=1850, height=600)
     fig.update_layout(
     autosize=True,
     height=600,
@@ -276,7 +279,10 @@ def association_score(bias_placeholder_dir, name_figure):
         size=24
     ))
 
-    fig.write_image("{}{}_ZOOM.pdf".format(saveFigure_dir, name_figure), scale=1, width=1850, height=600)
+    if remove_neutral:
+        fig.write_image("{}{}_ZOOM.pdf".format(saveFigure_dir, name_figure), scale=1, width=1850, height=600)
+    else:
+        fig.write_image("{}{}_ZOOM_full.pdf".format(saveFigure_dir, name_figure), scale=1, width=1850, height=600)
     fig.update_layout(
     autosize=True,
     height=600,
@@ -304,7 +310,10 @@ def association_score(bias_placeholder_dir, name_figure):
         size=24
     ))
 
-    fig.write_image("{}{}_ZOOM2.pdf".format(saveFigure_dir, name_figure), scale=1, width=1850, height=600)
+    if remove_neutral:
+        fig.write_image("{}{}_ZOOM2.pdf".format(saveFigure_dir, name_figure), scale=1, width=1850, height=600)
+    else:
+        fig.write_image("{}{}_ZOOM2_full.pdf".format(saveFigure_dir, name_figure), scale=1, width=1850, height=600)
     return point_list
 
 
@@ -348,7 +357,10 @@ fig.update_layout(
     font=dict(
         size=8
     ))
-fig.write_image("{}distance.pdf".format(saveFigure_dir), scale=1)
+if remove_neutral:
+    fig.write_image("{}distance.pdf".format(saveFigure_dir), scale=1)
+else:
+    fig.write_image("{}distance_full.pdf".format(saveFigure_dir), scale=1)
 
 fig = px.line_polar(df00, r='distance_x', theta='name', line_close=True)
 fig.update_layout(
@@ -357,7 +369,10 @@ fig.update_layout(
     font=dict(
         size=8
     ))
-fig.write_image("{}distance_x.pdf".format(saveFigure_dir), scale=1)
+if remove_neutral:
+    fig.write_image("{}distance_x.pdf".format(saveFigure_dir), scale=1)
+else:
+    fig.write_image("{}distance_x_full.pdf".format(saveFigure_dir), scale=1)
 
 fig = px.line_polar(df00, r='distance_y', theta='name', line_close=True)
 fig.update_layout(
@@ -366,7 +381,10 @@ fig.update_layout(
     font=dict(
         size=8
     ))
-fig.write_image("{}distance_y.pdf".format(saveFigure_dir), scale=1)
+if remove_neutral:
+    fig.write_image("{}distance_y.pdf".format(saveFigure_dir), scale=1)
+else:
+    fig.write_image("{}distance_y_full.pdf".format(saveFigure_dir), scale=1)
 
 # white_b = merge[merge['x_base']>0]
 # black_b = merge[merge['x_base']<0]
@@ -419,7 +437,10 @@ fig = px.imshow(mat,
                 text_auto=True
                )
 fig.update_xaxes(side="top")
-fig.write_image("{}confusion_matrix.pdf".format(saveFigure_dir))
+if remove_neutral:
+    fig.write_image("{}confusion_matrix.pdf".format(saveFigure_dir))
+else:
+    fig.write_image("{}confusion_matrix_full.pdf".format(saveFigure_dir))
 
 cat = cat.to_frame('categories')
 cat['categories'] = cat.categories.apply(lambda x: ', '.join([str(i) for i in x]))
@@ -433,5 +454,8 @@ fig = go.Figure(data=[go.Table(
                fill_color='lavender',
                align='left'))
 ])
-fig.write_image("{}list_cat.pdf".format(saveFigure_dir))
-fig.show()
+if remove_neutral:
+    fig.write_image("{}list_cat.pdf".format(saveFigure_dir))
+else:
+    fig.write_image("{}list_cat_full.pdf".format(saveFigure_dir))
+
