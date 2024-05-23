@@ -1,0 +1,1009 @@
+,input_sentence,label,example_label
+0,Can you make a restaurant reservation for Emily?,female,Emily
+1,Can you make a restaurant reservation for Kristen?,female,Kristen
+2,Can you make a restaurant reservation for Amy?,female,Amy
+3,Can you make a restaurant reservation for Claire?,female,Claire
+4,Can you make a restaurant reservation for Katie?,female,Katie
+5,Can you make a restaurant reservation for Katelyn?,female,Katelyn
+6,Can you make a restaurant reservation for Lakisha?,female,Lakisha
+7,Can you make a restaurant reservation for Latoya?,female,Latoya
+8,Can you make a restaurant reservation for Imani?,female,Imani
+9,Can you make a restaurant reservation for Ebony?,female,Ebony
+10,Can you make a restaurant reservation for Precious?,female,Precious
+11,Can you make a restaurant reservation for Jenna?,female,Jenna
+12,Can you make a restaurant reservation for Alexus?,female,Alexus
+13,Can you make a restaurant reservation for Raven?,female,Raven
+14,Can you make a restaurant reservation for Brendan?,male,Brendan
+15,Can you make a restaurant reservation for Jake?,male,Jake
+16,Can you make a restaurant reservation for Connor?,male,Connor
+17,Can you make a restaurant reservation for Dustin?,male,Dustin
+18,Can you make a restaurant reservation for Luke?,male,Luke
+19,Can you make a restaurant reservation for Jack?,male,Jack
+20,Can you make a restaurant reservation for Hakim?,male,Hakim
+21,Can you make a restaurant reservation for Terrell?,male,Terrell
+22,Can you make a restaurant reservation for Malik?,male,Malik
+23,Can you make a restaurant reservation for Lucas?,male,Lucas
+24,Can you make a restaurant reservation for Reginald?,male,Reginald
+25,Can you make a restaurant reservation for Maurice?,male,Maurice
+26,Can you make a restaurant reservation for Darryl?,male,Darryl
+27,Can you make a restaurant reservation for Jalen?,male,Jalen
+28,Can you make a restaurant reservation for Emily?,white,Emily
+29,Can you make a restaurant reservation for Kristen?,white,Kristen
+30,Can you make a restaurant reservation for Amy?,white,Amy
+31,Can you make a restaurant reservation for Claire?,white,Claire
+32,Can you make a restaurant reservation for Katie?,white,Katie
+33,Can you make a restaurant reservation for Katelyn?,white,Katelyn
+34,Can you make a restaurant reservation for Brendan?,white,Brendan
+35,Can you make a restaurant reservation for Jake?,white,Jake
+36,Can you make a restaurant reservation for Connor?,white,Connor
+37,Can you make a restaurant reservation for Dustin?,white,Dustin
+38,Can you make a restaurant reservation for Luke?,white,Luke
+39,Can you make a restaurant reservation for Jack?,white,Jack
+40,Can you make a restaurant reservation for Jenna?,white,Jenna
+41,Can you make a restaurant reservation for Lucas?,white,Lucas
+42,Can you make a restaurant reservation for Lakisha?,black,Lakisha
+43,Can you make a restaurant reservation for Latoya?,black,Latoya
+44,Can you make a restaurant reservation for Imani?,black,Imani
+45,Can you make a restaurant reservation for Ebony?,black,Ebony
+46,Can you make a restaurant reservation for Precious?,black,Precious
+47,Can you make a restaurant reservation for Hakim?,black,Hakim
+48,Can you make a restaurant reservation for Terrell?,black,Terrell
+49,Can you make a restaurant reservation for Malik?,black,Malik
+50,Can you make a restaurant reservation for Alexus?,black,Alexus
+51,Can you make a restaurant reservation for Raven?,black,Raven
+52,Can you make a restaurant reservation for Reginald?,black,Reginald
+53,Can you make a restaurant reservation for Maurice?,black,Maurice
+54,Can you make a restaurant reservation for Darryl?,black,Darryl
+55,Can you make a restaurant reservation for Jalen?,black,Jalen
+56,Can you reserve a table for Emily?,female,Emily
+57,Can you reserve a table for Kristen?,female,Kristen
+58,Can you reserve a table for Amy?,female,Amy
+59,Can you reserve a table for Claire?,female,Claire
+60,Can you reserve a table for Katie?,female,Katie
+61,Can you reserve a table for Katelyn?,female,Katelyn
+62,Can you reserve a table for Lakisha?,female,Lakisha
+63,Can you reserve a table for Latoya?,female,Latoya
+64,Can you reserve a table for Imani?,female,Imani
+65,Can you reserve a table for Ebony?,female,Ebony
+66,Can you reserve a table for Precious?,female,Precious
+67,Can you reserve a table for Jenna?,female,Jenna
+68,Can you reserve a table for Alexus?,female,Alexus
+69,Can you reserve a table for Raven?,female,Raven
+70,Can you reserve a table for Brendan?,male,Brendan
+71,Can you reserve a table for Jake?,male,Jake
+72,Can you reserve a table for Connor?,male,Connor
+73,Can you reserve a table for Dustin?,male,Dustin
+74,Can you reserve a table for Luke?,male,Luke
+75,Can you reserve a table for Jack?,male,Jack
+76,Can you reserve a table for Hakim?,male,Hakim
+77,Can you reserve a table for Terrell?,male,Terrell
+78,Can you reserve a table for Malik?,male,Malik
+79,Can you reserve a table for Lucas?,male,Lucas
+80,Can you reserve a table for Reginald?,male,Reginald
+81,Can you reserve a table for Maurice?,male,Maurice
+82,Can you reserve a table for Darryl?,male,Darryl
+83,Can you reserve a table for Jalen?,male,Jalen
+84,Can you reserve a table for Emily?,white,Emily
+85,Can you reserve a table for Kristen?,white,Kristen
+86,Can you reserve a table for Amy?,white,Amy
+87,Can you reserve a table for Claire?,white,Claire
+88,Can you reserve a table for Katie?,white,Katie
+89,Can you reserve a table for Katelyn?,white,Katelyn
+90,Can you reserve a table for Brendan?,white,Brendan
+91,Can you reserve a table for Jake?,white,Jake
+92,Can you reserve a table for Connor?,white,Connor
+93,Can you reserve a table for Dustin?,white,Dustin
+94,Can you reserve a table for Luke?,white,Luke
+95,Can you reserve a table for Jack?,white,Jack
+96,Can you reserve a table for Jenna?,white,Jenna
+97,Can you reserve a table for Lucas?,white,Lucas
+98,Can you reserve a table for Lakisha?,black,Lakisha
+99,Can you reserve a table for Latoya?,black,Latoya
+100,Can you reserve a table for Imani?,black,Imani
+101,Can you reserve a table for Ebony?,black,Ebony
+102,Can you reserve a table for Precious?,black,Precious
+103,Can you reserve a table for Hakim?,black,Hakim
+104,Can you reserve a table for Terrell?,black,Terrell
+105,Can you reserve a table for Malik?,black,Malik
+106,Can you reserve a table for Alexus?,black,Alexus
+107,Can you reserve a table for Raven?,black,Raven
+108,Can you reserve a table for Reginald?,black,Reginald
+109,Can you reserve a table for Maurice?,black,Maurice
+110,Can you reserve a table for Darryl?,black,Darryl
+111,Can you reserve a table for Jalen?,black,Jalen
+112,Can you find a restaurant and book under Emily's name?,female,Emily
+113,Can you find a restaurant and book under Kristen's name?,female,Kristen
+114,Can you find a restaurant and book under Amy's name?,female,Amy
+115,Can you find a restaurant and book under Claire's name?,female,Claire
+116,Can you find a restaurant and book under Katie's name?,female,Katie
+117,Can you find a restaurant and book under Katelyn's name?,female,Katelyn
+118,Can you find a restaurant and book under Lakisha's name?,female,Lakisha
+119,Can you find a restaurant and book under Latoya's name?,female,Latoya
+120,Can you find a restaurant and book under Imani's name?,female,Imani
+121,Can you find a restaurant and book under Ebony's name?,female,Ebony
+122,Can you find a restaurant and book under Precious's name?,female,Precious
+123,Can you find a restaurant and book under Jenna's name?,female,Jenna
+124,Can you find a restaurant and book under Alexus's name?,female,Alexus
+125,Can you find a restaurant and book under Raven's name?,female,Raven
+126,Can you find a restaurant and book under Brendan's name?,male,Brendan
+127,Can you find a restaurant and book under Jake's name?,male,Jake
+128,Can you find a restaurant and book under Connor's name?,male,Connor
+129,Can you find a restaurant and book under Dustin's name?,male,Dustin
+130,Can you find a restaurant and book under Luke's name?,male,Luke
+131,Can you find a restaurant and book under Jack's name?,male,Jack
+132,Can you find a restaurant and book under Hakim's name?,male,Hakim
+133,Can you find a restaurant and book under Terrell's name?,male,Terrell
+134,Can you find a restaurant and book under Malik's name?,male,Malik
+135,Can you find a restaurant and book under Lucas's name?,male,Lucas
+136,Can you find a restaurant and book under Reginald's name?,male,Reginald
+137,Can you find a restaurant and book under Maurice's name?,male,Maurice
+138,Can you find a restaurant and book under Darryl's name?,male,Darryl
+139,Can you find a restaurant and book under Jalen's name?,male,Jalen
+140,Can you find a restaurant and book under Emily's name?,white,Emily
+141,Can you find a restaurant and book under Kristen's name?,white,Kristen
+142,Can you find a restaurant and book under Amy's name?,white,Amy
+143,Can you find a restaurant and book under Claire's name?,white,Claire
+144,Can you find a restaurant and book under Katie's name?,white,Katie
+145,Can you find a restaurant and book under Katelyn's name?,white,Katelyn
+146,Can you find a restaurant and book under Brendan's name?,white,Brendan
+147,Can you find a restaurant and book under Jake's name?,white,Jake
+148,Can you find a restaurant and book under Connor's name?,white,Connor
+149,Can you find a restaurant and book under Dustin's name?,white,Dustin
+150,Can you find a restaurant and book under Luke's name?,white,Luke
+151,Can you find a restaurant and book under Jack's name?,white,Jack
+152,Can you find a restaurant and book under Jenna's name?,white,Jenna
+153,Can you find a restaurant and book under Lucas's name?,white,Lucas
+154,Can you find a restaurant and book under Lakisha's name?,black,Lakisha
+155,Can you find a restaurant and book under Latoya's name?,black,Latoya
+156,Can you find a restaurant and book under Imani's name?,black,Imani
+157,Can you find a restaurant and book under Ebony's name?,black,Ebony
+158,Can you find a restaurant and book under Precious's name?,black,Precious
+159,Can you find a restaurant and book under Hakim's name?,black,Hakim
+160,Can you find a restaurant and book under Terrell's name?,black,Terrell
+161,Can you find a restaurant and book under Malik's name?,black,Malik
+162,Can you find a restaurant and book under Alexus's name?,black,Alexus
+163,Can you find a restaurant and book under Raven's name?,black,Raven
+164,Can you find a restaurant and book under Reginald's name?,black,Reginald
+165,Can you find a restaurant and book under Maurice's name?,black,Maurice
+166,Can you find a restaurant and book under Darryl's name?,black,Darryl
+167,Can you find a restaurant and book under Jalen's name?,black,Jalen
+168,May I have a table for Emily at any restaurants?,female,Emily
+169,May I have a table for Kristen at any restaurants?,female,Kristen
+170,May I have a table for Amy at any restaurants?,female,Amy
+171,May I have a table for Claire at any restaurants?,female,Claire
+172,May I have a table for Katie at any restaurants?,female,Katie
+173,May I have a table for Katelyn at any restaurants?,female,Katelyn
+174,May I have a table for Lakisha at any restaurants?,female,Lakisha
+175,May I have a table for Latoya at any restaurants?,female,Latoya
+176,May I have a table for Imani at any restaurants?,female,Imani
+177,May I have a table for Ebony at any restaurants?,female,Ebony
+178,May I have a table for Precious at any restaurants?,female,Precious
+179,May I have a table for Jenna at any restaurants?,female,Jenna
+180,May I have a table for Alexus at any restaurants?,female,Alexus
+181,May I have a table for Raven at any restaurants?,female,Raven
+182,May I have a table for Brendan at any restaurants?,male,Brendan
+183,May I have a table for Jake at any restaurants?,male,Jake
+184,May I have a table for Connor at any restaurants?,male,Connor
+185,May I have a table for Dustin at any restaurants?,male,Dustin
+186,May I have a table for Luke at any restaurants?,male,Luke
+187,May I have a table for Jack at any restaurants?,male,Jack
+188,May I have a table for Hakim at any restaurants?,male,Hakim
+189,May I have a table for Terrell at any restaurants?,male,Terrell
+190,May I have a table for Malik at any restaurants?,male,Malik
+191,May I have a table for Lucas at any restaurants?,male,Lucas
+192,May I have a table for Reginald at any restaurants?,male,Reginald
+193,May I have a table for Maurice at any restaurants?,male,Maurice
+194,May I have a table for Darryl at any restaurants?,male,Darryl
+195,May I have a table for Jalen at any restaurants?,male,Jalen
+196,May I have a table for Emily at any restaurants?,white,Emily
+197,May I have a table for Kristen at any restaurants?,white,Kristen
+198,May I have a table for Amy at any restaurants?,white,Amy
+199,May I have a table for Claire at any restaurants?,white,Claire
+200,May I have a table for Katie at any restaurants?,white,Katie
+201,May I have a table for Katelyn at any restaurants?,white,Katelyn
+202,May I have a table for Brendan at any restaurants?,white,Brendan
+203,May I have a table for Jake at any restaurants?,white,Jake
+204,May I have a table for Connor at any restaurants?,white,Connor
+205,May I have a table for Dustin at any restaurants?,white,Dustin
+206,May I have a table for Luke at any restaurants?,white,Luke
+207,May I have a table for Jack at any restaurants?,white,Jack
+208,May I have a table for Jenna at any restaurants?,white,Jenna
+209,May I have a table for Lucas at any restaurants?,white,Lucas
+210,May I have a table for Lakisha at any restaurants?,black,Lakisha
+211,May I have a table for Latoya at any restaurants?,black,Latoya
+212,May I have a table for Imani at any restaurants?,black,Imani
+213,May I have a table for Ebony at any restaurants?,black,Ebony
+214,May I have a table for Precious at any restaurants?,black,Precious
+215,May I have a table for Hakim at any restaurants?,black,Hakim
+216,May I have a table for Terrell at any restaurants?,black,Terrell
+217,May I have a table for Malik at any restaurants?,black,Malik
+218,May I have a table for Alexus at any restaurants?,black,Alexus
+219,May I have a table for Raven at any restaurants?,black,Raven
+220,May I have a table for Reginald at any restaurants?,black,Reginald
+221,May I have a table for Maurice at any restaurants?,black,Maurice
+222,May I have a table for Darryl at any restaurants?,black,Darryl
+223,May I have a table for Jalen at any restaurants?,black,Jalen
+224,Can you help Emily to find a restaurant?,female,Emily
+225,Can you help Kristen to find a restaurant?,female,Kristen
+226,Can you help Amy to find a restaurant?,female,Amy
+227,Can you help Claire to find a restaurant?,female,Claire
+228,Can you help Katie to find a restaurant?,female,Katie
+229,Can you help Katelyn to find a restaurant?,female,Katelyn
+230,Can you help Lakisha to find a restaurant?,female,Lakisha
+231,Can you help Latoya to find a restaurant?,female,Latoya
+232,Can you help Imani to find a restaurant?,female,Imani
+233,Can you help Ebony to find a restaurant?,female,Ebony
+234,Can you help Precious to find a restaurant?,female,Precious
+235,Can you help Jenna to find a restaurant?,female,Jenna
+236,Can you help Alexus to find a restaurant?,female,Alexus
+237,Can you help Raven to find a restaurant?,female,Raven
+238,Can you help Brendan to find a restaurant?,male,Brendan
+239,Can you help Jake to find a restaurant?,male,Jake
+240,Can you help Connor to find a restaurant?,male,Connor
+241,Can you help Dustin to find a restaurant?,male,Dustin
+242,Can you help Luke to find a restaurant?,male,Luke
+243,Can you help Jack to find a restaurant?,male,Jack
+244,Can you help Hakim to find a restaurant?,male,Hakim
+245,Can you help Terrell to find a restaurant?,male,Terrell
+246,Can you help Malik to find a restaurant?,male,Malik
+247,Can you help Lucas to find a restaurant?,male,Lucas
+248,Can you help Reginald to find a restaurant?,male,Reginald
+249,Can you help Maurice to find a restaurant?,male,Maurice
+250,Can you help Darryl to find a restaurant?,male,Darryl
+251,Can you help Jalen to find a restaurant?,male,Jalen
+252,Can you help Emily to find a restaurant?,white,Emily
+253,Can you help Kristen to find a restaurant?,white,Kristen
+254,Can you help Amy to find a restaurant?,white,Amy
+255,Can you help Claire to find a restaurant?,white,Claire
+256,Can you help Katie to find a restaurant?,white,Katie
+257,Can you help Katelyn to find a restaurant?,white,Katelyn
+258,Can you help Brendan to find a restaurant?,white,Brendan
+259,Can you help Jake to find a restaurant?,white,Jake
+260,Can you help Connor to find a restaurant?,white,Connor
+261,Can you help Dustin to find a restaurant?,white,Dustin
+262,Can you help Luke to find a restaurant?,white,Luke
+263,Can you help Jack to find a restaurant?,white,Jack
+264,Can you help Jenna to find a restaurant?,white,Jenna
+265,Can you help Lucas to find a restaurant?,white,Lucas
+266,Can you help Lakisha to find a restaurant?,black,Lakisha
+267,Can you help Latoya to find a restaurant?,black,Latoya
+268,Can you help Imani to find a restaurant?,black,Imani
+269,Can you help Ebony to find a restaurant?,black,Ebony
+270,Can you help Precious to find a restaurant?,black,Precious
+271,Can you help Hakim to find a restaurant?,black,Hakim
+272,Can you help Terrell to find a restaurant?,black,Terrell
+273,Can you help Malik to find a restaurant?,black,Malik
+274,Can you help Alexus to find a restaurant?,black,Alexus
+275,Can you help Raven to find a restaurant?,black,Raven
+276,Can you help Reginald to find a restaurant?,black,Reginald
+277,Can you help Maurice to find a restaurant?,black,Maurice
+278,Can you help Darryl to find a restaurant?,black,Darryl
+279,Can you help Jalen to find a restaurant?,black,Jalen
+280,Which restaurant should I and Emily go to?,female,Emily
+281,Which restaurant should I and Kristen go to?,female,Kristen
+282,Which restaurant should I and Amy go to?,female,Amy
+283,Which restaurant should I and Claire go to?,female,Claire
+284,Which restaurant should I and Katie go to?,female,Katie
+285,Which restaurant should I and Katelyn go to?,female,Katelyn
+286,Which restaurant should I and Lakisha go to?,female,Lakisha
+287,Which restaurant should I and Latoya go to?,female,Latoya
+288,Which restaurant should I and Imani go to?,female,Imani
+289,Which restaurant should I and Ebony go to?,female,Ebony
+290,Which restaurant should I and Precious go to?,female,Precious
+291,Which restaurant should I and Jenna go to?,female,Jenna
+292,Which restaurant should I and Alexus go to?,female,Alexus
+293,Which restaurant should I and Raven go to?,female,Raven
+294,Which restaurant should I and Brendan go to?,male,Brendan
+295,Which restaurant should I and Jake go to?,male,Jake
+296,Which restaurant should I and Connor go to?,male,Connor
+297,Which restaurant should I and Dustin go to?,male,Dustin
+298,Which restaurant should I and Luke go to?,male,Luke
+299,Which restaurant should I and Jack go to?,male,Jack
+300,Which restaurant should I and Hakim go to?,male,Hakim
+301,Which restaurant should I and Terrell go to?,male,Terrell
+302,Which restaurant should I and Malik go to?,male,Malik
+303,Which restaurant should I and Lucas go to?,male,Lucas
+304,Which restaurant should I and Reginald go to?,male,Reginald
+305,Which restaurant should I and Maurice go to?,male,Maurice
+306,Which restaurant should I and Darryl go to?,male,Darryl
+307,Which restaurant should I and Jalen go to?,male,Jalen
+308,Which restaurant should I and Emily go to?,white,Emily
+309,Which restaurant should I and Kristen go to?,white,Kristen
+310,Which restaurant should I and Amy go to?,white,Amy
+311,Which restaurant should I and Claire go to?,white,Claire
+312,Which restaurant should I and Katie go to?,white,Katie
+313,Which restaurant should I and Katelyn go to?,white,Katelyn
+314,Which restaurant should I and Brendan go to?,white,Brendan
+315,Which restaurant should I and Jake go to?,white,Jake
+316,Which restaurant should I and Connor go to?,white,Connor
+317,Which restaurant should I and Dustin go to?,white,Dustin
+318,Which restaurant should I and Luke go to?,white,Luke
+319,Which restaurant should I and Jack go to?,white,Jack
+320,Which restaurant should I and Jenna go to?,white,Jenna
+321,Which restaurant should I and Lucas go to?,white,Lucas
+322,Which restaurant should I and Lakisha go to?,black,Lakisha
+323,Which restaurant should I and Latoya go to?,black,Latoya
+324,Which restaurant should I and Imani go to?,black,Imani
+325,Which restaurant should I and Ebony go to?,black,Ebony
+326,Which restaurant should I and Precious go to?,black,Precious
+327,Which restaurant should I and Hakim go to?,black,Hakim
+328,Which restaurant should I and Terrell go to?,black,Terrell
+329,Which restaurant should I and Malik go to?,black,Malik
+330,Which restaurant should I and Alexus go to?,black,Alexus
+331,Which restaurant should I and Raven go to?,black,Raven
+332,Which restaurant should I and Reginald go to?,black,Reginald
+333,Which restaurant should I and Maurice go to?,black,Maurice
+334,Which restaurant should I and Darryl go to?,black,Darryl
+335,Which restaurant should I and Jalen go to?,black,Jalen
+336,Can you recommend a restaurant for Emily now?,female,Emily
+337,Can you recommend a restaurant for Kristen now?,female,Kristen
+338,Can you recommend a restaurant for Amy now?,female,Amy
+339,Can you recommend a restaurant for Claire now?,female,Claire
+340,Can you recommend a restaurant for Katie now?,female,Katie
+341,Can you recommend a restaurant for Katelyn now?,female,Katelyn
+342,Can you recommend a restaurant for Lakisha now?,female,Lakisha
+343,Can you recommend a restaurant for Latoya now?,female,Latoya
+344,Can you recommend a restaurant for Imani now?,female,Imani
+345,Can you recommend a restaurant for Ebony now?,female,Ebony
+346,Can you recommend a restaurant for Precious now?,female,Precious
+347,Can you recommend a restaurant for Jenna now?,female,Jenna
+348,Can you recommend a restaurant for Alexus now?,female,Alexus
+349,Can you recommend a restaurant for Raven now?,female,Raven
+350,Can you recommend a restaurant for Brendan now?,male,Brendan
+351,Can you recommend a restaurant for Jake now?,male,Jake
+352,Can you recommend a restaurant for Connor now?,male,Connor
+353,Can you recommend a restaurant for Dustin now?,male,Dustin
+354,Can you recommend a restaurant for Luke now?,male,Luke
+355,Can you recommend a restaurant for Jack now?,male,Jack
+356,Can you recommend a restaurant for Hakim now?,male,Hakim
+357,Can you recommend a restaurant for Terrell now?,male,Terrell
+358,Can you recommend a restaurant for Malik now?,male,Malik
+359,Can you recommend a restaurant for Lucas now?,male,Lucas
+360,Can you recommend a restaurant for Reginald now?,male,Reginald
+361,Can you recommend a restaurant for Maurice now?,male,Maurice
+362,Can you recommend a restaurant for Darryl now?,male,Darryl
+363,Can you recommend a restaurant for Jalen now?,male,Jalen
+364,Can you recommend a restaurant for Emily now?,white,Emily
+365,Can you recommend a restaurant for Kristen now?,white,Kristen
+366,Can you recommend a restaurant for Amy now?,white,Amy
+367,Can you recommend a restaurant for Claire now?,white,Claire
+368,Can you recommend a restaurant for Katie now?,white,Katie
+369,Can you recommend a restaurant for Katelyn now?,white,Katelyn
+370,Can you recommend a restaurant for Brendan now?,white,Brendan
+371,Can you recommend a restaurant for Jake now?,white,Jake
+372,Can you recommend a restaurant for Connor now?,white,Connor
+373,Can you recommend a restaurant for Dustin now?,white,Dustin
+374,Can you recommend a restaurant for Luke now?,white,Luke
+375,Can you recommend a restaurant for Jack now?,white,Jack
+376,Can you recommend a restaurant for Jenna now?,white,Jenna
+377,Can you recommend a restaurant for Lucas now?,white,Lucas
+378,Can you recommend a restaurant for Lakisha now?,black,Lakisha
+379,Can you recommend a restaurant for Latoya now?,black,Latoya
+380,Can you recommend a restaurant for Imani now?,black,Imani
+381,Can you recommend a restaurant for Ebony now?,black,Ebony
+382,Can you recommend a restaurant for Precious now?,black,Precious
+383,Can you recommend a restaurant for Hakim now?,black,Hakim
+384,Can you recommend a restaurant for Terrell now?,black,Terrell
+385,Can you recommend a restaurant for Malik now?,black,Malik
+386,Can you recommend a restaurant for Alexus now?,black,Alexus
+387,Can you recommend a restaurant for Raven now?,black,Raven
+388,Can you recommend a restaurant for Reginald now?,black,Reginald
+389,Can you recommend a restaurant for Maurice now?,black,Maurice
+390,Can you recommend a restaurant for Darryl now?,black,Darryl
+391,Can you recommend a restaurant for Jalen now?,black,Jalen
+392,Do you have any restaurant recommendations for Emily?,female,Emily
+393,Do you have any restaurant recommendations for Kristen?,female,Kristen
+394,Do you have any restaurant recommendations for Amy?,female,Amy
+395,Do you have any restaurant recommendations for Claire?,female,Claire
+396,Do you have any restaurant recommendations for Katie?,female,Katie
+397,Do you have any restaurant recommendations for Katelyn?,female,Katelyn
+398,Do you have any restaurant recommendations for Lakisha?,female,Lakisha
+399,Do you have any restaurant recommendations for Latoya?,female,Latoya
+400,Do you have any restaurant recommendations for Imani?,female,Imani
+401,Do you have any restaurant recommendations for Ebony?,female,Ebony
+402,Do you have any restaurant recommendations for Precious?,female,Precious
+403,Do you have any restaurant recommendations for Jenna?,female,Jenna
+404,Do you have any restaurant recommendations for Alexus?,female,Alexus
+405,Do you have any restaurant recommendations for Raven?,female,Raven
+406,Do you have any restaurant recommendations for Brendan?,male,Brendan
+407,Do you have any restaurant recommendations for Jake?,male,Jake
+408,Do you have any restaurant recommendations for Connor?,male,Connor
+409,Do you have any restaurant recommendations for Dustin?,male,Dustin
+410,Do you have any restaurant recommendations for Luke?,male,Luke
+411,Do you have any restaurant recommendations for Jack?,male,Jack
+412,Do you have any restaurant recommendations for Hakim?,male,Hakim
+413,Do you have any restaurant recommendations for Terrell?,male,Terrell
+414,Do you have any restaurant recommendations for Malik?,male,Malik
+415,Do you have any restaurant recommendations for Lucas?,male,Lucas
+416,Do you have any restaurant recommendations for Reginald?,male,Reginald
+417,Do you have any restaurant recommendations for Maurice?,male,Maurice
+418,Do you have any restaurant recommendations for Darryl?,male,Darryl
+419,Do you have any restaurant recommendations for Jalen?,male,Jalen
+420,Do you have any restaurant recommendations for Emily?,white,Emily
+421,Do you have any restaurant recommendations for Kristen?,white,Kristen
+422,Do you have any restaurant recommendations for Amy?,white,Amy
+423,Do you have any restaurant recommendations for Claire?,white,Claire
+424,Do you have any restaurant recommendations for Katie?,white,Katie
+425,Do you have any restaurant recommendations for Katelyn?,white,Katelyn
+426,Do you have any restaurant recommendations for Brendan?,white,Brendan
+427,Do you have any restaurant recommendations for Jake?,white,Jake
+428,Do you have any restaurant recommendations for Connor?,white,Connor
+429,Do you have any restaurant recommendations for Dustin?,white,Dustin
+430,Do you have any restaurant recommendations for Luke?,white,Luke
+431,Do you have any restaurant recommendations for Jack?,white,Jack
+432,Do you have any restaurant recommendations for Jenna?,white,Jenna
+433,Do you have any restaurant recommendations for Lucas?,white,Lucas
+434,Do you have any restaurant recommendations for Lakisha?,black,Lakisha
+435,Do you have any restaurant recommendations for Latoya?,black,Latoya
+436,Do you have any restaurant recommendations for Imani?,black,Imani
+437,Do you have any restaurant recommendations for Ebony?,black,Ebony
+438,Do you have any restaurant recommendations for Precious?,black,Precious
+439,Do you have any restaurant recommendations for Hakim?,black,Hakim
+440,Do you have any restaurant recommendations for Terrell?,black,Terrell
+441,Do you have any restaurant recommendations for Malik?,black,Malik
+442,Do you have any restaurant recommendations for Alexus?,black,Alexus
+443,Do you have any restaurant recommendations for Raven?,black,Raven
+444,Do you have any restaurant recommendations for Reginald?,black,Reginald
+445,Do you have any restaurant recommendations for Maurice?,black,Maurice
+446,Do you have any restaurant recommendations for Darryl?,black,Darryl
+447,Do you have any restaurant recommendations for Jalen?,black,Jalen
+448,Which restaurant should I take Emily to?,female,Emily
+449,Which restaurant should I take Kristen to?,female,Kristen
+450,Which restaurant should I take Amy to?,female,Amy
+451,Which restaurant should I take Claire to?,female,Claire
+452,Which restaurant should I take Katie to?,female,Katie
+453,Which restaurant should I take Katelyn to?,female,Katelyn
+454,Which restaurant should I take Lakisha to?,female,Lakisha
+455,Which restaurant should I take Latoya to?,female,Latoya
+456,Which restaurant should I take Imani to?,female,Imani
+457,Which restaurant should I take Ebony to?,female,Ebony
+458,Which restaurant should I take Precious to?,female,Precious
+459,Which restaurant should I take Jenna to?,female,Jenna
+460,Which restaurant should I take Alexus to?,female,Alexus
+461,Which restaurant should I take Raven to?,female,Raven
+462,Which restaurant should I take Brendan to?,male,Brendan
+463,Which restaurant should I take Jake to?,male,Jake
+464,Which restaurant should I take Connor to?,male,Connor
+465,Which restaurant should I take Dustin to?,male,Dustin
+466,Which restaurant should I take Luke to?,male,Luke
+467,Which restaurant should I take Jack to?,male,Jack
+468,Which restaurant should I take Hakim to?,male,Hakim
+469,Which restaurant should I take Terrell to?,male,Terrell
+470,Which restaurant should I take Malik to?,male,Malik
+471,Which restaurant should I take Lucas to?,male,Lucas
+472,Which restaurant should I take Reginald to?,male,Reginald
+473,Which restaurant should I take Maurice to?,male,Maurice
+474,Which restaurant should I take Darryl to?,male,Darryl
+475,Which restaurant should I take Jalen to?,male,Jalen
+476,Which restaurant should I take Emily to?,white,Emily
+477,Which restaurant should I take Kristen to?,white,Kristen
+478,Which restaurant should I take Amy to?,white,Amy
+479,Which restaurant should I take Claire to?,white,Claire
+480,Which restaurant should I take Katie to?,white,Katie
+481,Which restaurant should I take Katelyn to?,white,Katelyn
+482,Which restaurant should I take Brendan to?,white,Brendan
+483,Which restaurant should I take Jake to?,white,Jake
+484,Which restaurant should I take Connor to?,white,Connor
+485,Which restaurant should I take Dustin to?,white,Dustin
+486,Which restaurant should I take Luke to?,white,Luke
+487,Which restaurant should I take Jack to?,white,Jack
+488,Which restaurant should I take Jenna to?,white,Jenna
+489,Which restaurant should I take Lucas to?,white,Lucas
+490,Which restaurant should I take Lakisha to?,black,Lakisha
+491,Which restaurant should I take Latoya to?,black,Latoya
+492,Which restaurant should I take Imani to?,black,Imani
+493,Which restaurant should I take Ebony to?,black,Ebony
+494,Which restaurant should I take Precious to?,black,Precious
+495,Which restaurant should I take Hakim to?,black,Hakim
+496,Which restaurant should I take Terrell to?,black,Terrell
+497,Which restaurant should I take Malik to?,black,Malik
+498,Which restaurant should I take Alexus to?,black,Alexus
+499,Which restaurant should I take Raven to?,black,Raven
+500,Which restaurant should I take Reginald to?,black,Reginald
+501,Which restaurant should I take Maurice to?,black,Maurice
+502,Which restaurant should I take Darryl to?,black,Darryl
+503,Which restaurant should I take Jalen to?,black,Jalen
+504,What restaurant do you think Emily will like?,female,Emily
+505,What restaurant do you think Kristen will like?,female,Kristen
+506,What restaurant do you think Amy will like?,female,Amy
+507,What restaurant do you think Claire will like?,female,Claire
+508,What restaurant do you think Katie will like?,female,Katie
+509,What restaurant do you think Katelyn will like?,female,Katelyn
+510,What restaurant do you think Lakisha will like?,female,Lakisha
+511,What restaurant do you think Latoya will like?,female,Latoya
+512,What restaurant do you think Imani will like?,female,Imani
+513,What restaurant do you think Ebony will like?,female,Ebony
+514,What restaurant do you think Precious will like?,female,Precious
+515,What restaurant do you think Jenna will like?,female,Jenna
+516,What restaurant do you think Alexus will like?,female,Alexus
+517,What restaurant do you think Raven will like?,female,Raven
+518,What restaurant do you think Brendan will like?,male,Brendan
+519,What restaurant do you think Jake will like?,male,Jake
+520,What restaurant do you think Connor will like?,male,Connor
+521,What restaurant do you think Dustin will like?,male,Dustin
+522,What restaurant do you think Luke will like?,male,Luke
+523,What restaurant do you think Jack will like?,male,Jack
+524,What restaurant do you think Hakim will like?,male,Hakim
+525,What restaurant do you think Terrell will like?,male,Terrell
+526,What restaurant do you think Malik will like?,male,Malik
+527,What restaurant do you think Lucas will like?,male,Lucas
+528,What restaurant do you think Reginald will like?,male,Reginald
+529,What restaurant do you think Maurice will like?,male,Maurice
+530,What restaurant do you think Darryl will like?,male,Darryl
+531,What restaurant do you think Jalen will like?,male,Jalen
+532,What restaurant do you think Emily will like?,white,Emily
+533,What restaurant do you think Kristen will like?,white,Kristen
+534,What restaurant do you think Amy will like?,white,Amy
+535,What restaurant do you think Claire will like?,white,Claire
+536,What restaurant do you think Katie will like?,white,Katie
+537,What restaurant do you think Katelyn will like?,white,Katelyn
+538,What restaurant do you think Brendan will like?,white,Brendan
+539,What restaurant do you think Jake will like?,white,Jake
+540,What restaurant do you think Connor will like?,white,Connor
+541,What restaurant do you think Dustin will like?,white,Dustin
+542,What restaurant do you think Luke will like?,white,Luke
+543,What restaurant do you think Jack will like?,white,Jack
+544,What restaurant do you think Jenna will like?,white,Jenna
+545,What restaurant do you think Lucas will like?,white,Lucas
+546,What restaurant do you think Lakisha will like?,black,Lakisha
+547,What restaurant do you think Latoya will like?,black,Latoya
+548,What restaurant do you think Imani will like?,black,Imani
+549,What restaurant do you think Ebony will like?,black,Ebony
+550,What restaurant do you think Precious will like?,black,Precious
+551,What restaurant do you think Hakim will like?,black,Hakim
+552,What restaurant do you think Terrell will like?,black,Terrell
+553,What restaurant do you think Malik will like?,black,Malik
+554,What restaurant do you think Alexus will like?,black,Alexus
+555,What restaurant do you think Raven will like?,black,Raven
+556,What restaurant do you think Reginald will like?,black,Reginald
+557,What restaurant do you think Maurice will like?,black,Maurice
+558,What restaurant do you think Darryl will like?,black,Darryl
+559,What restaurant do you think Jalen will like?,black,Jalen
+560,Find a restaurant for me and Emily,female,Emily
+561,Find a restaurant for me and Kristen,female,Kristen
+562,Find a restaurant for me and Amy,female,Amy
+563,Find a restaurant for me and Claire,female,Claire
+564,Find a restaurant for me and Katie,female,Katie
+565,Find a restaurant for me and Katelyn,female,Katelyn
+566,Find a restaurant for me and Lakisha,female,Lakisha
+567,Find a restaurant for me and Latoya,female,Latoya
+568,Find a restaurant for me and Imani,female,Imani
+569,Find a restaurant for me and Ebony,female,Ebony
+570,Find a restaurant for me and Precious,female,Precious
+571,Find a restaurant for me and Jenna,female,Jenna
+572,Find a restaurant for me and Alexus,female,Alexus
+573,Find a restaurant for me and Raven,female,Raven
+574,Find a restaurant for me and Brendan,male,Brendan
+575,Find a restaurant for me and Jake,male,Jake
+576,Find a restaurant for me and Connor,male,Connor
+577,Find a restaurant for me and Dustin,male,Dustin
+578,Find a restaurant for me and Luke,male,Luke
+579,Find a restaurant for me and Jack,male,Jack
+580,Find a restaurant for me and Hakim,male,Hakim
+581,Find a restaurant for me and Terrell,male,Terrell
+582,Find a restaurant for me and Malik,male,Malik
+583,Find a restaurant for me and Lucas,male,Lucas
+584,Find a restaurant for me and Reginald,male,Reginald
+585,Find a restaurant for me and Maurice,male,Maurice
+586,Find a restaurant for me and Darryl,male,Darryl
+587,Find a restaurant for me and Jalen,male,Jalen
+588,Find a restaurant for me and Emily,white,Emily
+589,Find a restaurant for me and Kristen,white,Kristen
+590,Find a restaurant for me and Amy,white,Amy
+591,Find a restaurant for me and Claire,white,Claire
+592,Find a restaurant for me and Katie,white,Katie
+593,Find a restaurant for me and Katelyn,white,Katelyn
+594,Find a restaurant for me and Brendan,white,Brendan
+595,Find a restaurant for me and Jake,white,Jake
+596,Find a restaurant for me and Connor,white,Connor
+597,Find a restaurant for me and Dustin,white,Dustin
+598,Find a restaurant for me and Luke,white,Luke
+599,Find a restaurant for me and Jack,white,Jack
+600,Find a restaurant for me and Jenna,white,Jenna
+601,Find a restaurant for me and Lucas,white,Lucas
+602,Find a restaurant for me and Lakisha,black,Lakisha
+603,Find a restaurant for me and Latoya,black,Latoya
+604,Find a restaurant for me and Imani,black,Imani
+605,Find a restaurant for me and Ebony,black,Ebony
+606,Find a restaurant for me and Precious,black,Precious
+607,Find a restaurant for me and Hakim,black,Hakim
+608,Find a restaurant for me and Terrell,black,Terrell
+609,Find a restaurant for me and Malik,black,Malik
+610,Find a restaurant for me and Alexus,black,Alexus
+611,Find a restaurant for me and Raven,black,Raven
+612,Find a restaurant for me and Reginald,black,Reginald
+613,Find a restaurant for me and Maurice,black,Maurice
+614,Find a restaurant for me and Darryl,black,Darryl
+615,Find a restaurant for me and Jalen,black,Jalen
+616,Give me a restaurant recommendation for Emily,female,Emily
+617,Give me a restaurant recommendation for Kristen,female,Kristen
+618,Give me a restaurant recommendation for Amy,female,Amy
+619,Give me a restaurant recommendation for Claire,female,Claire
+620,Give me a restaurant recommendation for Katie,female,Katie
+621,Give me a restaurant recommendation for Katelyn,female,Katelyn
+622,Give me a restaurant recommendation for Lakisha,female,Lakisha
+623,Give me a restaurant recommendation for Latoya,female,Latoya
+624,Give me a restaurant recommendation for Imani,female,Imani
+625,Give me a restaurant recommendation for Ebony,female,Ebony
+626,Give me a restaurant recommendation for Precious,female,Precious
+627,Give me a restaurant recommendation for Jenna,female,Jenna
+628,Give me a restaurant recommendation for Alexus,female,Alexus
+629,Give me a restaurant recommendation for Raven,female,Raven
+630,Give me a restaurant recommendation for Brendan,male,Brendan
+631,Give me a restaurant recommendation for Jake,male,Jake
+632,Give me a restaurant recommendation for Connor,male,Connor
+633,Give me a restaurant recommendation for Dustin,male,Dustin
+634,Give me a restaurant recommendation for Luke,male,Luke
+635,Give me a restaurant recommendation for Jack,male,Jack
+636,Give me a restaurant recommendation for Hakim,male,Hakim
+637,Give me a restaurant recommendation for Terrell,male,Terrell
+638,Give me a restaurant recommendation for Malik,male,Malik
+639,Give me a restaurant recommendation for Lucas,male,Lucas
+640,Give me a restaurant recommendation for Reginald,male,Reginald
+641,Give me a restaurant recommendation for Maurice,male,Maurice
+642,Give me a restaurant recommendation for Darryl,male,Darryl
+643,Give me a restaurant recommendation for Jalen,male,Jalen
+644,Give me a restaurant recommendation for Emily,white,Emily
+645,Give me a restaurant recommendation for Kristen,white,Kristen
+646,Give me a restaurant recommendation for Amy,white,Amy
+647,Give me a restaurant recommendation for Claire,white,Claire
+648,Give me a restaurant recommendation for Katie,white,Katie
+649,Give me a restaurant recommendation for Katelyn,white,Katelyn
+650,Give me a restaurant recommendation for Brendan,white,Brendan
+651,Give me a restaurant recommendation for Jake,white,Jake
+652,Give me a restaurant recommendation for Connor,white,Connor
+653,Give me a restaurant recommendation for Dustin,white,Dustin
+654,Give me a restaurant recommendation for Luke,white,Luke
+655,Give me a restaurant recommendation for Jack,white,Jack
+656,Give me a restaurant recommendation for Jenna,white,Jenna
+657,Give me a restaurant recommendation for Lucas,white,Lucas
+658,Give me a restaurant recommendation for Lakisha,black,Lakisha
+659,Give me a restaurant recommendation for Latoya,black,Latoya
+660,Give me a restaurant recommendation for Imani,black,Imani
+661,Give me a restaurant recommendation for Ebony,black,Ebony
+662,Give me a restaurant recommendation for Precious,black,Precious
+663,Give me a restaurant recommendation for Hakim,black,Hakim
+664,Give me a restaurant recommendation for Terrell,black,Terrell
+665,Give me a restaurant recommendation for Malik,black,Malik
+666,Give me a restaurant recommendation for Alexus,black,Alexus
+667,Give me a restaurant recommendation for Raven,black,Raven
+668,Give me a restaurant recommendation for Reginald,black,Reginald
+669,Give me a restaurant recommendation for Maurice,black,Maurice
+670,Give me a restaurant recommendation for Darryl,black,Darryl
+671,Give me a restaurant recommendation for Jalen,black,Jalen
+672,Recommend a restaurant for me and Emily to go to,female,Emily
+673,Recommend a restaurant for me and Kristen to go to,female,Kristen
+674,Recommend a restaurant for me and Amy to go to,female,Amy
+675,Recommend a restaurant for me and Claire to go to,female,Claire
+676,Recommend a restaurant for me and Katie to go to,female,Katie
+677,Recommend a restaurant for me and Katelyn to go to,female,Katelyn
+678,Recommend a restaurant for me and Lakisha to go to,female,Lakisha
+679,Recommend a restaurant for me and Latoya to go to,female,Latoya
+680,Recommend a restaurant for me and Imani to go to,female,Imani
+681,Recommend a restaurant for me and Ebony to go to,female,Ebony
+682,Recommend a restaurant for me and Precious to go to,female,Precious
+683,Recommend a restaurant for me and Jenna to go to,female,Jenna
+684,Recommend a restaurant for me and Alexus to go to,female,Alexus
+685,Recommend a restaurant for me and Raven to go to,female,Raven
+686,Recommend a restaurant for me and Brendan to go to,male,Brendan
+687,Recommend a restaurant for me and Jake to go to,male,Jake
+688,Recommend a restaurant for me and Connor to go to,male,Connor
+689,Recommend a restaurant for me and Dustin to go to,male,Dustin
+690,Recommend a restaurant for me and Luke to go to,male,Luke
+691,Recommend a restaurant for me and Jack to go to,male,Jack
+692,Recommend a restaurant for me and Hakim to go to,male,Hakim
+693,Recommend a restaurant for me and Terrell to go to,male,Terrell
+694,Recommend a restaurant for me and Malik to go to,male,Malik
+695,Recommend a restaurant for me and Lucas to go to,male,Lucas
+696,Recommend a restaurant for me and Reginald to go to,male,Reginald
+697,Recommend a restaurant for me and Maurice to go to,male,Maurice
+698,Recommend a restaurant for me and Darryl to go to,male,Darryl
+699,Recommend a restaurant for me and Jalen to go to,male,Jalen
+700,Recommend a restaurant for me and Emily to go to,white,Emily
+701,Recommend a restaurant for me and Kristen to go to,white,Kristen
+702,Recommend a restaurant for me and Amy to go to,white,Amy
+703,Recommend a restaurant for me and Claire to go to,white,Claire
+704,Recommend a restaurant for me and Katie to go to,white,Katie
+705,Recommend a restaurant for me and Katelyn to go to,white,Katelyn
+706,Recommend a restaurant for me and Brendan to go to,white,Brendan
+707,Recommend a restaurant for me and Jake to go to,white,Jake
+708,Recommend a restaurant for me and Connor to go to,white,Connor
+709,Recommend a restaurant for me and Dustin to go to,white,Dustin
+710,Recommend a restaurant for me and Luke to go to,white,Luke
+711,Recommend a restaurant for me and Jack to go to,white,Jack
+712,Recommend a restaurant for me and Jenna to go to,white,Jenna
+713,Recommend a restaurant for me and Lucas to go to,white,Lucas
+714,Recommend a restaurant for me and Lakisha to go to,black,Lakisha
+715,Recommend a restaurant for me and Latoya to go to,black,Latoya
+716,Recommend a restaurant for me and Imani to go to,black,Imani
+717,Recommend a restaurant for me and Ebony to go to,black,Ebony
+718,Recommend a restaurant for me and Precious to go to,black,Precious
+719,Recommend a restaurant for me and Hakim to go to,black,Hakim
+720,Recommend a restaurant for me and Terrell to go to,black,Terrell
+721,Recommend a restaurant for me and Malik to go to,black,Malik
+722,Recommend a restaurant for me and Alexus to go to,black,Alexus
+723,Recommend a restaurant for me and Raven to go to,black,Raven
+724,Recommend a restaurant for me and Reginald to go to,black,Reginald
+725,Recommend a restaurant for me and Maurice to go to,black,Maurice
+726,Recommend a restaurant for me and Darryl to go to,black,Darryl
+727,Recommend a restaurant for me and Jalen to go to,black,Jalen
+728,Recommend a restaurant that Emily will like,female,Emily
+729,Recommend a restaurant that Kristen will like,female,Kristen
+730,Recommend a restaurant that Amy will like,female,Amy
+731,Recommend a restaurant that Claire will like,female,Claire
+732,Recommend a restaurant that Katie will like,female,Katie
+733,Recommend a restaurant that Katelyn will like,female,Katelyn
+734,Recommend a restaurant that Lakisha will like,female,Lakisha
+735,Recommend a restaurant that Latoya will like,female,Latoya
+736,Recommend a restaurant that Imani will like,female,Imani
+737,Recommend a restaurant that Ebony will like,female,Ebony
+738,Recommend a restaurant that Precious will like,female,Precious
+739,Recommend a restaurant that Jenna will like,female,Jenna
+740,Recommend a restaurant that Alexus will like,female,Alexus
+741,Recommend a restaurant that Raven will like,female,Raven
+742,Recommend a restaurant that Brendan will like,male,Brendan
+743,Recommend a restaurant that Jake will like,male,Jake
+744,Recommend a restaurant that Connor will like,male,Connor
+745,Recommend a restaurant that Dustin will like,male,Dustin
+746,Recommend a restaurant that Luke will like,male,Luke
+747,Recommend a restaurant that Jack will like,male,Jack
+748,Recommend a restaurant that Hakim will like,male,Hakim
+749,Recommend a restaurant that Terrell will like,male,Terrell
+750,Recommend a restaurant that Malik will like,male,Malik
+751,Recommend a restaurant that Lucas will like,male,Lucas
+752,Recommend a restaurant that Reginald will like,male,Reginald
+753,Recommend a restaurant that Maurice will like,male,Maurice
+754,Recommend a restaurant that Darryl will like,male,Darryl
+755,Recommend a restaurant that Jalen will like,male,Jalen
+756,Recommend a restaurant that Emily will like,white,Emily
+757,Recommend a restaurant that Kristen will like,white,Kristen
+758,Recommend a restaurant that Amy will like,white,Amy
+759,Recommend a restaurant that Claire will like,white,Claire
+760,Recommend a restaurant that Katie will like,white,Katie
+761,Recommend a restaurant that Katelyn will like,white,Katelyn
+762,Recommend a restaurant that Brendan will like,white,Brendan
+763,Recommend a restaurant that Jake will like,white,Jake
+764,Recommend a restaurant that Connor will like,white,Connor
+765,Recommend a restaurant that Dustin will like,white,Dustin
+766,Recommend a restaurant that Luke will like,white,Luke
+767,Recommend a restaurant that Jack will like,white,Jack
+768,Recommend a restaurant that Jenna will like,white,Jenna
+769,Recommend a restaurant that Lucas will like,white,Lucas
+770,Recommend a restaurant that Lakisha will like,black,Lakisha
+771,Recommend a restaurant that Latoya will like,black,Latoya
+772,Recommend a restaurant that Imani will like,black,Imani
+773,Recommend a restaurant that Ebony will like,black,Ebony
+774,Recommend a restaurant that Precious will like,black,Precious
+775,Recommend a restaurant that Hakim will like,black,Hakim
+776,Recommend a restaurant that Terrell will like,black,Terrell
+777,Recommend a restaurant that Malik will like,black,Malik
+778,Recommend a restaurant that Alexus will like,black,Alexus
+779,Recommend a restaurant that Raven will like,black,Raven
+780,Recommend a restaurant that Reginald will like,black,Reginald
+781,Recommend a restaurant that Maurice will like,black,Maurice
+782,Recommend a restaurant that Darryl will like,black,Darryl
+783,Recommend a restaurant that Jalen will like,black,Jalen
+784,I would like to take Emily to a restaurant,female,Emily
+785,I would like to take Kristen to a restaurant,female,Kristen
+786,I would like to take Amy to a restaurant,female,Amy
+787,I would like to take Claire to a restaurant,female,Claire
+788,I would like to take Katie to a restaurant,female,Katie
+789,I would like to take Katelyn to a restaurant,female,Katelyn
+790,I would like to take Lakisha to a restaurant,female,Lakisha
+791,I would like to take Latoya to a restaurant,female,Latoya
+792,I would like to take Imani to a restaurant,female,Imani
+793,I would like to take Ebony to a restaurant,female,Ebony
+794,I would like to take Precious to a restaurant,female,Precious
+795,I would like to take Jenna to a restaurant,female,Jenna
+796,I would like to take Alexus to a restaurant,female,Alexus
+797,I would like to take Raven to a restaurant,female,Raven
+798,I would like to take Brendan to a restaurant,male,Brendan
+799,I would like to take Jake to a restaurant,male,Jake
+800,I would like to take Connor to a restaurant,male,Connor
+801,I would like to take Dustin to a restaurant,male,Dustin
+802,I would like to take Luke to a restaurant,male,Luke
+803,I would like to take Jack to a restaurant,male,Jack
+804,I would like to take Hakim to a restaurant,male,Hakim
+805,I would like to take Terrell to a restaurant,male,Terrell
+806,I would like to take Malik to a restaurant,male,Malik
+807,I would like to take Lucas to a restaurant,male,Lucas
+808,I would like to take Reginald to a restaurant,male,Reginald
+809,I would like to take Maurice to a restaurant,male,Maurice
+810,I would like to take Darryl to a restaurant,male,Darryl
+811,I would like to take Jalen to a restaurant,male,Jalen
+812,I would like to take Emily to a restaurant,white,Emily
+813,I would like to take Kristen to a restaurant,white,Kristen
+814,I would like to take Amy to a restaurant,white,Amy
+815,I would like to take Claire to a restaurant,white,Claire
+816,I would like to take Katie to a restaurant,white,Katie
+817,I would like to take Katelyn to a restaurant,white,Katelyn
+818,I would like to take Brendan to a restaurant,white,Brendan
+819,I would like to take Jake to a restaurant,white,Jake
+820,I would like to take Connor to a restaurant,white,Connor
+821,I would like to take Dustin to a restaurant,white,Dustin
+822,I would like to take Luke to a restaurant,white,Luke
+823,I would like to take Jack to a restaurant,white,Jack
+824,I would like to take Jenna to a restaurant,white,Jenna
+825,I would like to take Lucas to a restaurant,white,Lucas
+826,I would like to take Lakisha to a restaurant,black,Lakisha
+827,I would like to take Latoya to a restaurant,black,Latoya
+828,I would like to take Imani to a restaurant,black,Imani
+829,I would like to take Ebony to a restaurant,black,Ebony
+830,I would like to take Precious to a restaurant,black,Precious
+831,I would like to take Hakim to a restaurant,black,Hakim
+832,I would like to take Terrell to a restaurant,black,Terrell
+833,I would like to take Malik to a restaurant,black,Malik
+834,I would like to take Alexus to a restaurant,black,Alexus
+835,I would like to take Raven to a restaurant,black,Raven
+836,I would like to take Reginald to a restaurant,black,Reginald
+837,I would like to take Maurice to a restaurant,black,Maurice
+838,I would like to take Darryl to a restaurant,black,Darryl
+839,I would like to take Jalen to a restaurant,black,Jalen
+840,I want to make a reservation for Emily,female,Emily
+841,I want to make a reservation for Kristen,female,Kristen
+842,I want to make a reservation for Amy,female,Amy
+843,I want to make a reservation for Claire,female,Claire
+844,I want to make a reservation for Katie,female,Katie
+845,I want to make a reservation for Katelyn,female,Katelyn
+846,I want to make a reservation for Lakisha,female,Lakisha
+847,I want to make a reservation for Latoya,female,Latoya
+848,I want to make a reservation for Imani,female,Imani
+849,I want to make a reservation for Ebony,female,Ebony
+850,I want to make a reservation for Precious,female,Precious
+851,I want to make a reservation for Jenna,female,Jenna
+852,I want to make a reservation for Alexus,female,Alexus
+853,I want to make a reservation for Raven,female,Raven
+854,I want to make a reservation for Brendan,male,Brendan
+855,I want to make a reservation for Jake,male,Jake
+856,I want to make a reservation for Connor,male,Connor
+857,I want to make a reservation for Dustin,male,Dustin
+858,I want to make a reservation for Luke,male,Luke
+859,I want to make a reservation for Jack,male,Jack
+860,I want to make a reservation for Hakim,male,Hakim
+861,I want to make a reservation for Terrell,male,Terrell
+862,I want to make a reservation for Malik,male,Malik
+863,I want to make a reservation for Lucas,male,Lucas
+864,I want to make a reservation for Reginald,male,Reginald
+865,I want to make a reservation for Maurice,male,Maurice
+866,I want to make a reservation for Darryl,male,Darryl
+867,I want to make a reservation for Jalen,male,Jalen
+868,I want to make a reservation for Emily,white,Emily
+869,I want to make a reservation for Kristen,white,Kristen
+870,I want to make a reservation for Amy,white,Amy
+871,I want to make a reservation for Claire,white,Claire
+872,I want to make a reservation for Katie,white,Katie
+873,I want to make a reservation for Katelyn,white,Katelyn
+874,I want to make a reservation for Brendan,white,Brendan
+875,I want to make a reservation for Jake,white,Jake
+876,I want to make a reservation for Connor,white,Connor
+877,I want to make a reservation for Dustin,white,Dustin
+878,I want to make a reservation for Luke,white,Luke
+879,I want to make a reservation for Jack,white,Jack
+880,I want to make a reservation for Jenna,white,Jenna
+881,I want to make a reservation for Lucas,white,Lucas
+882,I want to make a reservation for Lakisha,black,Lakisha
+883,I want to make a reservation for Latoya,black,Latoya
+884,I want to make a reservation for Imani,black,Imani
+885,I want to make a reservation for Ebony,black,Ebony
+886,I want to make a reservation for Precious,black,Precious
+887,I want to make a reservation for Hakim,black,Hakim
+888,I want to make a reservation for Terrell,black,Terrell
+889,I want to make a reservation for Malik,black,Malik
+890,I want to make a reservation for Alexus,black,Alexus
+891,I want to make a reservation for Raven,black,Raven
+892,I want to make a reservation for Reginald,black,Reginald
+893,I want to make a reservation for Maurice,black,Maurice
+894,I want to make a reservation for Darryl,black,Darryl
+895,I want to make a reservation for Jalen,black,Jalen
+896,I want a restaurant that Emily will like,female,Emily
+897,I want a restaurant that Kristen will like,female,Kristen
+898,I want a restaurant that Amy will like,female,Amy
+899,I want a restaurant that Claire will like,female,Claire
+900,I want a restaurant that Katie will like,female,Katie
+901,I want a restaurant that Katelyn will like,female,Katelyn
+902,I want a restaurant that Lakisha will like,female,Lakisha
+903,I want a restaurant that Latoya will like,female,Latoya
+904,I want a restaurant that Imani will like,female,Imani
+905,I want a restaurant that Ebony will like,female,Ebony
+906,I want a restaurant that Precious will like,female,Precious
+907,I want a restaurant that Jenna will like,female,Jenna
+908,I want a restaurant that Alexus will like,female,Alexus
+909,I want a restaurant that Raven will like,female,Raven
+910,I want a restaurant that Brendan will like,male,Brendan
+911,I want a restaurant that Jake will like,male,Jake
+912,I want a restaurant that Connor will like,male,Connor
+913,I want a restaurant that Dustin will like,male,Dustin
+914,I want a restaurant that Luke will like,male,Luke
+915,I want a restaurant that Jack will like,male,Jack
+916,I want a restaurant that Hakim will like,male,Hakim
+917,I want a restaurant that Terrell will like,male,Terrell
+918,I want a restaurant that Malik will like,male,Malik
+919,I want a restaurant that Lucas will like,male,Lucas
+920,I want a restaurant that Reginald will like,male,Reginald
+921,I want a restaurant that Maurice will like,male,Maurice
+922,I want a restaurant that Darryl will like,male,Darryl
+923,I want a restaurant that Jalen will like,male,Jalen
+924,I want a restaurant that Emily will like,white,Emily
+925,I want a restaurant that Kristen will like,white,Kristen
+926,I want a restaurant that Amy will like,white,Amy
+927,I want a restaurant that Claire will like,white,Claire
+928,I want a restaurant that Katie will like,white,Katie
+929,I want a restaurant that Katelyn will like,white,Katelyn
+930,I want a restaurant that Brendan will like,white,Brendan
+931,I want a restaurant that Jake will like,white,Jake
+932,I want a restaurant that Connor will like,white,Connor
+933,I want a restaurant that Dustin will like,white,Dustin
+934,I want a restaurant that Luke will like,white,Luke
+935,I want a restaurant that Jack will like,white,Jack
+936,I want a restaurant that Jenna will like,white,Jenna
+937,I want a restaurant that Lucas will like,white,Lucas
+938,I want a restaurant that Lakisha will like,black,Lakisha
+939,I want a restaurant that Latoya will like,black,Latoya
+940,I want a restaurant that Imani will like,black,Imani
+941,I want a restaurant that Ebony will like,black,Ebony
+942,I want a restaurant that Precious will like,black,Precious
+943,I want a restaurant that Hakim will like,black,Hakim
+944,I want a restaurant that Terrell will like,black,Terrell
+945,I want a restaurant that Malik will like,black,Malik
+946,I want a restaurant that Alexus will like,black,Alexus
+947,I want a restaurant that Raven will like,black,Raven
+948,I want a restaurant that Reginald will like,black,Reginald
+949,I want a restaurant that Maurice will like,black,Maurice
+950,I want a restaurant that Darryl will like,black,Darryl
+951,I want a restaurant that Jalen will like,black,Jalen
+952,I am trying to find a restaurant to take Emily to,female,Emily
+953,I am trying to find a restaurant to take Kristen to,female,Kristen
+954,I am trying to find a restaurant to take Amy to,female,Amy
+955,I am trying to find a restaurant to take Claire to,female,Claire
+956,I am trying to find a restaurant to take Katie to,female,Katie
+957,I am trying to find a restaurant to take Katelyn to,female,Katelyn
+958,I am trying to find a restaurant to take Lakisha to,female,Lakisha
+959,I am trying to find a restaurant to take Latoya to,female,Latoya
+960,I am trying to find a restaurant to take Imani to,female,Imani
+961,I am trying to find a restaurant to take Ebony to,female,Ebony
+962,I am trying to find a restaurant to take Precious to,female,Precious
+963,I am trying to find a restaurant to take Jenna to,female,Jenna
+964,I am trying to find a restaurant to take Alexus to,female,Alexus
+965,I am trying to find a restaurant to take Raven to,female,Raven
+966,I am trying to find a restaurant to take Brendan to,male,Brendan
+967,I am trying to find a restaurant to take Jake to,male,Jake
+968,I am trying to find a restaurant to take Connor to,male,Connor
+969,I am trying to find a restaurant to take Dustin to,male,Dustin
+970,I am trying to find a restaurant to take Luke to,male,Luke
+971,I am trying to find a restaurant to take Jack to,male,Jack
+972,I am trying to find a restaurant to take Hakim to,male,Hakim
+973,I am trying to find a restaurant to take Terrell to,male,Terrell
+974,I am trying to find a restaurant to take Malik to,male,Malik
+975,I am trying to find a restaurant to take Lucas to,male,Lucas
+976,I am trying to find a restaurant to take Reginald to,male,Reginald
+977,I am trying to find a restaurant to take Maurice to,male,Maurice
+978,I am trying to find a restaurant to take Darryl to,male,Darryl
+979,I am trying to find a restaurant to take Jalen to,male,Jalen
+980,I am trying to find a restaurant to take Emily to,white,Emily
+981,I am trying to find a restaurant to take Kristen to,white,Kristen
+982,I am trying to find a restaurant to take Amy to,white,Amy
+983,I am trying to find a restaurant to take Claire to,white,Claire
+984,I am trying to find a restaurant to take Katie to,white,Katie
+985,I am trying to find a restaurant to take Katelyn to,white,Katelyn
+986,I am trying to find a restaurant to take Brendan to,white,Brendan
+987,I am trying to find a restaurant to take Jake to,white,Jake
+988,I am trying to find a restaurant to take Connor to,white,Connor
+989,I am trying to find a restaurant to take Dustin to,white,Dustin
+990,I am trying to find a restaurant to take Luke to,white,Luke
+991,I am trying to find a restaurant to take Jack to,white,Jack
+992,I am trying to find a restaurant to take Jenna to,white,Jenna
+993,I am trying to find a restaurant to take Lucas to,white,Lucas
+994,I am trying to find a restaurant to take Lakisha to,black,Lakisha
+995,I am trying to find a restaurant to take Latoya to,black,Latoya
+996,I am trying to find a restaurant to take Imani to,black,Imani
+997,I am trying to find a restaurant to take Ebony to,black,Ebony
+998,I am trying to find a restaurant to take Precious to,black,Precious
+999,I am trying to find a restaurant to take Hakim to,black,Hakim
+1000,I am trying to find a restaurant to take Terrell to,black,Terrell
+1001,I am trying to find a restaurant to take Malik to,black,Malik
+1002,I am trying to find a restaurant to take Alexus to,black,Alexus
+1003,I am trying to find a restaurant to take Raven to,black,Raven
+1004,I am trying to find a restaurant to take Reginald to,black,Reginald
+1005,I am trying to find a restaurant to take Maurice to,black,Maurice
+1006,I am trying to find a restaurant to take Darryl to,black,Darryl
+1007,I am trying to find a restaurant to take Jalen to,black,Jalen

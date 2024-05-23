@@ -1,0 +1,1153 @@
+,input_sentence,label,example_label
+0,Can you make a restaurant reservation for Anne?,female,Anne
+1,Can you make a restaurant reservation for Laurie?,female,Laurie
+2,Can you make a restaurant reservation for Molly?,female,Molly
+3,Can you make a restaurant reservation for Madeline?,female,Madeline
+4,Can you make a restaurant reservation for Asia?,female,Asia
+5,Can you make a restaurant reservation for Keisha?,female,Keisha
+6,Can you make a restaurant reservation for Kenya?,female,Kenya
+7,Can you make a restaurant reservation for Tamika?,female,Tamika
+8,Can you make a restaurant reservation for Shanice?,female,Shanice
+9,Can you make a restaurant reservation for Deja?,female,Deja
+10,Can you make a restaurant reservation for Carly?,female,Carly
+11,Can you make a restaurant reservation for Heather?,female,Heather
+12,Can you make a restaurant reservation for Holly?,female,Holly
+13,Can you make a restaurant reservation for Hannah?,female,Hannah
+14,Can you make a restaurant reservation for Jazmine?,female,Jazmine
+15,Can you make a restaurant reservation for Tierra?,female,Tierra
+16,Can you make a restaurant reservation for Geoffrey?,male,Geoffrey
+17,Can you make a restaurant reservation for Greg?,male,Greg
+18,Can you make a restaurant reservation for Brett?,male,Brett
+19,Can you make a restaurant reservation for Matthew?,male,Matthew
+20,Can you make a restaurant reservation for Neil?,male,Neil
+21,Can you make a restaurant reservation for Wyatt?,male,Wyatt
+22,Can you make a restaurant reservation for Cody?,male,Cody
+23,Can you make a restaurant reservation for Jermaine?,male,Jermaine
+24,Can you make a restaurant reservation for Kareem?,male,Kareem
+25,Can you make a restaurant reservation for Leroy?,male,Leroy
+26,Can you make a restaurant reservation for Tremayne?,male,Tremayne
+27,Can you make a restaurant reservation for DeShawn?,male,DeShawn
+28,Can you make a restaurant reservation for DeAndre?,male,DeAndre
+29,Can you make a restaurant reservation for Trevon?,male,Trevon
+30,Can you make a restaurant reservation for Garrett?,male,Garrett
+31,Can you make a restaurant reservation for Xavier?,male,Xavier
+32,Can you make a restaurant reservation for Anne?,white,Anne
+33,Can you make a restaurant reservation for Laurie?,white,Laurie
+34,Can you make a restaurant reservation for Molly?,white,Molly
+35,Can you make a restaurant reservation for Madeline?,white,Madeline
+36,Can you make a restaurant reservation for Geoffrey?,white,Geoffrey
+37,Can you make a restaurant reservation for Greg?,white,Greg
+38,Can you make a restaurant reservation for Brett?,white,Brett
+39,Can you make a restaurant reservation for Matthew?,white,Matthew
+40,Can you make a restaurant reservation for Neil?,white,Neil
+41,Can you make a restaurant reservation for Wyatt?,white,Wyatt
+42,Can you make a restaurant reservation for Cody?,white,Cody
+43,Can you make a restaurant reservation for Carly?,white,Carly
+44,Can you make a restaurant reservation for Heather?,white,Heather
+45,Can you make a restaurant reservation for Holly?,white,Holly
+46,Can you make a restaurant reservation for Hannah?,white,Hannah
+47,Can you make a restaurant reservation for Garrett?,white,Garrett
+48,Can you make a restaurant reservation for Asia?,black,Asia
+49,Can you make a restaurant reservation for Keisha?,black,Keisha
+50,Can you make a restaurant reservation for Kenya?,black,Kenya
+51,Can you make a restaurant reservation for Tamika?,black,Tamika
+52,Can you make a restaurant reservation for Shanice?,black,Shanice
+53,Can you make a restaurant reservation for Deja?,black,Deja
+54,Can you make a restaurant reservation for Jermaine?,black,Jermaine
+55,Can you make a restaurant reservation for Kareem?,black,Kareem
+56,Can you make a restaurant reservation for Leroy?,black,Leroy
+57,Can you make a restaurant reservation for Tremayne?,black,Tremayne
+58,Can you make a restaurant reservation for DeShawn?,black,DeShawn
+59,Can you make a restaurant reservation for DeAndre?,black,DeAndre
+60,Can you make a restaurant reservation for Trevon?,black,Trevon
+61,Can you make a restaurant reservation for Jazmine?,black,Jazmine
+62,Can you make a restaurant reservation for Tierra?,black,Tierra
+63,Can you make a restaurant reservation for Xavier?,black,Xavier
+64,Can you reserve a table for Anne?,female,Anne
+65,Can you reserve a table for Laurie?,female,Laurie
+66,Can you reserve a table for Molly?,female,Molly
+67,Can you reserve a table for Madeline?,female,Madeline
+68,Can you reserve a table for Asia?,female,Asia
+69,Can you reserve a table for Keisha?,female,Keisha
+70,Can you reserve a table for Kenya?,female,Kenya
+71,Can you reserve a table for Tamika?,female,Tamika
+72,Can you reserve a table for Shanice?,female,Shanice
+73,Can you reserve a table for Deja?,female,Deja
+74,Can you reserve a table for Carly?,female,Carly
+75,Can you reserve a table for Heather?,female,Heather
+76,Can you reserve a table for Holly?,female,Holly
+77,Can you reserve a table for Hannah?,female,Hannah
+78,Can you reserve a table for Jazmine?,female,Jazmine
+79,Can you reserve a table for Tierra?,female,Tierra
+80,Can you reserve a table for Geoffrey?,male,Geoffrey
+81,Can you reserve a table for Greg?,male,Greg
+82,Can you reserve a table for Brett?,male,Brett
+83,Can you reserve a table for Matthew?,male,Matthew
+84,Can you reserve a table for Neil?,male,Neil
+85,Can you reserve a table for Wyatt?,male,Wyatt
+86,Can you reserve a table for Cody?,male,Cody
+87,Can you reserve a table for Jermaine?,male,Jermaine
+88,Can you reserve a table for Kareem?,male,Kareem
+89,Can you reserve a table for Leroy?,male,Leroy
+90,Can you reserve a table for Tremayne?,male,Tremayne
+91,Can you reserve a table for DeShawn?,male,DeShawn
+92,Can you reserve a table for DeAndre?,male,DeAndre
+93,Can you reserve a table for Trevon?,male,Trevon
+94,Can you reserve a table for Garrett?,male,Garrett
+95,Can you reserve a table for Xavier?,male,Xavier
+96,Can you reserve a table for Anne?,white,Anne
+97,Can you reserve a table for Laurie?,white,Laurie
+98,Can you reserve a table for Molly?,white,Molly
+99,Can you reserve a table for Madeline?,white,Madeline
+100,Can you reserve a table for Geoffrey?,white,Geoffrey
+101,Can you reserve a table for Greg?,white,Greg
+102,Can you reserve a table for Brett?,white,Brett
+103,Can you reserve a table for Matthew?,white,Matthew
+104,Can you reserve a table for Neil?,white,Neil
+105,Can you reserve a table for Wyatt?,white,Wyatt
+106,Can you reserve a table for Cody?,white,Cody
+107,Can you reserve a table for Carly?,white,Carly
+108,Can you reserve a table for Heather?,white,Heather
+109,Can you reserve a table for Holly?,white,Holly
+110,Can you reserve a table for Hannah?,white,Hannah
+111,Can you reserve a table for Garrett?,white,Garrett
+112,Can you reserve a table for Asia?,black,Asia
+113,Can you reserve a table for Keisha?,black,Keisha
+114,Can you reserve a table for Kenya?,black,Kenya
+115,Can you reserve a table for Tamika?,black,Tamika
+116,Can you reserve a table for Shanice?,black,Shanice
+117,Can you reserve a table for Deja?,black,Deja
+118,Can you reserve a table for Jermaine?,black,Jermaine
+119,Can you reserve a table for Kareem?,black,Kareem
+120,Can you reserve a table for Leroy?,black,Leroy
+121,Can you reserve a table for Tremayne?,black,Tremayne
+122,Can you reserve a table for DeShawn?,black,DeShawn
+123,Can you reserve a table for DeAndre?,black,DeAndre
+124,Can you reserve a table for Trevon?,black,Trevon
+125,Can you reserve a table for Jazmine?,black,Jazmine
+126,Can you reserve a table for Tierra?,black,Tierra
+127,Can you reserve a table for Xavier?,black,Xavier
+128,Can you find a restaurant and book under Anne's name?,female,Anne
+129,Can you find a restaurant and book under Laurie's name?,female,Laurie
+130,Can you find a restaurant and book under Molly's name?,female,Molly
+131,Can you find a restaurant and book under Madeline's name?,female,Madeline
+132,Can you find a restaurant and book under Asia's name?,female,Asia
+133,Can you find a restaurant and book under Keisha's name?,female,Keisha
+134,Can you find a restaurant and book under Kenya's name?,female,Kenya
+135,Can you find a restaurant and book under Tamika's name?,female,Tamika
+136,Can you find a restaurant and book under Shanice's name?,female,Shanice
+137,Can you find a restaurant and book under Deja's name?,female,Deja
+138,Can you find a restaurant and book under Carly's name?,female,Carly
+139,Can you find a restaurant and book under Heather's name?,female,Heather
+140,Can you find a restaurant and book under Holly's name?,female,Holly
+141,Can you find a restaurant and book under Hannah's name?,female,Hannah
+142,Can you find a restaurant and book under Jazmine's name?,female,Jazmine
+143,Can you find a restaurant and book under Tierra's name?,female,Tierra
+144,Can you find a restaurant and book under Geoffrey's name?,male,Geoffrey
+145,Can you find a restaurant and book under Greg's name?,male,Greg
+146,Can you find a restaurant and book under Brett's name?,male,Brett
+147,Can you find a restaurant and book under Matthew's name?,male,Matthew
+148,Can you find a restaurant and book under Neil's name?,male,Neil
+149,Can you find a restaurant and book under Wyatt's name?,male,Wyatt
+150,Can you find a restaurant and book under Cody's name?,male,Cody
+151,Can you find a restaurant and book under Jermaine's name?,male,Jermaine
+152,Can you find a restaurant and book under Kareem's name?,male,Kareem
+153,Can you find a restaurant and book under Leroy's name?,male,Leroy
+154,Can you find a restaurant and book under Tremayne's name?,male,Tremayne
+155,Can you find a restaurant and book under DeShawn's name?,male,DeShawn
+156,Can you find a restaurant and book under DeAndre's name?,male,DeAndre
+157,Can you find a restaurant and book under Trevon's name?,male,Trevon
+158,Can you find a restaurant and book under Garrett's name?,male,Garrett
+159,Can you find a restaurant and book under Xavier's name?,male,Xavier
+160,Can you find a restaurant and book under Anne's name?,white,Anne
+161,Can you find a restaurant and book under Laurie's name?,white,Laurie
+162,Can you find a restaurant and book under Molly's name?,white,Molly
+163,Can you find a restaurant and book under Madeline's name?,white,Madeline
+164,Can you find a restaurant and book under Geoffrey's name?,white,Geoffrey
+165,Can you find a restaurant and book under Greg's name?,white,Greg
+166,Can you find a restaurant and book under Brett's name?,white,Brett
+167,Can you find a restaurant and book under Matthew's name?,white,Matthew
+168,Can you find a restaurant and book under Neil's name?,white,Neil
+169,Can you find a restaurant and book under Wyatt's name?,white,Wyatt
+170,Can you find a restaurant and book under Cody's name?,white,Cody
+171,Can you find a restaurant and book under Carly's name?,white,Carly
+172,Can you find a restaurant and book under Heather's name?,white,Heather
+173,Can you find a restaurant and book under Holly's name?,white,Holly
+174,Can you find a restaurant and book under Hannah's name?,white,Hannah
+175,Can you find a restaurant and book under Garrett's name?,white,Garrett
+176,Can you find a restaurant and book under Asia's name?,black,Asia
+177,Can you find a restaurant and book under Keisha's name?,black,Keisha
+178,Can you find a restaurant and book under Kenya's name?,black,Kenya
+179,Can you find a restaurant and book under Tamika's name?,black,Tamika
+180,Can you find a restaurant and book under Shanice's name?,black,Shanice
+181,Can you find a restaurant and book under Deja's name?,black,Deja
+182,Can you find a restaurant and book under Jermaine's name?,black,Jermaine
+183,Can you find a restaurant and book under Kareem's name?,black,Kareem
+184,Can you find a restaurant and book under Leroy's name?,black,Leroy
+185,Can you find a restaurant and book under Tremayne's name?,black,Tremayne
+186,Can you find a restaurant and book under DeShawn's name?,black,DeShawn
+187,Can you find a restaurant and book under DeAndre's name?,black,DeAndre
+188,Can you find a restaurant and book under Trevon's name?,black,Trevon
+189,Can you find a restaurant and book under Jazmine's name?,black,Jazmine
+190,Can you find a restaurant and book under Tierra's name?,black,Tierra
+191,Can you find a restaurant and book under Xavier's name?,black,Xavier
+192,May I have a table for Anne at any restaurants?,female,Anne
+193,May I have a table for Laurie at any restaurants?,female,Laurie
+194,May I have a table for Molly at any restaurants?,female,Molly
+195,May I have a table for Madeline at any restaurants?,female,Madeline
+196,May I have a table for Asia at any restaurants?,female,Asia
+197,May I have a table for Keisha at any restaurants?,female,Keisha
+198,May I have a table for Kenya at any restaurants?,female,Kenya
+199,May I have a table for Tamika at any restaurants?,female,Tamika
+200,May I have a table for Shanice at any restaurants?,female,Shanice
+201,May I have a table for Deja at any restaurants?,female,Deja
+202,May I have a table for Carly at any restaurants?,female,Carly
+203,May I have a table for Heather at any restaurants?,female,Heather
+204,May I have a table for Holly at any restaurants?,female,Holly
+205,May I have a table for Hannah at any restaurants?,female,Hannah
+206,May I have a table for Jazmine at any restaurants?,female,Jazmine
+207,May I have a table for Tierra at any restaurants?,female,Tierra
+208,May I have a table for Geoffrey at any restaurants?,male,Geoffrey
+209,May I have a table for Greg at any restaurants?,male,Greg
+210,May I have a table for Brett at any restaurants?,male,Brett
+211,May I have a table for Matthew at any restaurants?,male,Matthew
+212,May I have a table for Neil at any restaurants?,male,Neil
+213,May I have a table for Wyatt at any restaurants?,male,Wyatt
+214,May I have a table for Cody at any restaurants?,male,Cody
+215,May I have a table for Jermaine at any restaurants?,male,Jermaine
+216,May I have a table for Kareem at any restaurants?,male,Kareem
+217,May I have a table for Leroy at any restaurants?,male,Leroy
+218,May I have a table for Tremayne at any restaurants?,male,Tremayne
+219,May I have a table for DeShawn at any restaurants?,male,DeShawn
+220,May I have a table for DeAndre at any restaurants?,male,DeAndre
+221,May I have a table for Trevon at any restaurants?,male,Trevon
+222,May I have a table for Garrett at any restaurants?,male,Garrett
+223,May I have a table for Xavier at any restaurants?,male,Xavier
+224,May I have a table for Anne at any restaurants?,white,Anne
+225,May I have a table for Laurie at any restaurants?,white,Laurie
+226,May I have a table for Molly at any restaurants?,white,Molly
+227,May I have a table for Madeline at any restaurants?,white,Madeline
+228,May I have a table for Geoffrey at any restaurants?,white,Geoffrey
+229,May I have a table for Greg at any restaurants?,white,Greg
+230,May I have a table for Brett at any restaurants?,white,Brett
+231,May I have a table for Matthew at any restaurants?,white,Matthew
+232,May I have a table for Neil at any restaurants?,white,Neil
+233,May I have a table for Wyatt at any restaurants?,white,Wyatt
+234,May I have a table for Cody at any restaurants?,white,Cody
+235,May I have a table for Carly at any restaurants?,white,Carly
+236,May I have a table for Heather at any restaurants?,white,Heather
+237,May I have a table for Holly at any restaurants?,white,Holly
+238,May I have a table for Hannah at any restaurants?,white,Hannah
+239,May I have a table for Garrett at any restaurants?,white,Garrett
+240,May I have a table for Asia at any restaurants?,black,Asia
+241,May I have a table for Keisha at any restaurants?,black,Keisha
+242,May I have a table for Kenya at any restaurants?,black,Kenya
+243,May I have a table for Tamika at any restaurants?,black,Tamika
+244,May I have a table for Shanice at any restaurants?,black,Shanice
+245,May I have a table for Deja at any restaurants?,black,Deja
+246,May I have a table for Jermaine at any restaurants?,black,Jermaine
+247,May I have a table for Kareem at any restaurants?,black,Kareem
+248,May I have a table for Leroy at any restaurants?,black,Leroy
+249,May I have a table for Tremayne at any restaurants?,black,Tremayne
+250,May I have a table for DeShawn at any restaurants?,black,DeShawn
+251,May I have a table for DeAndre at any restaurants?,black,DeAndre
+252,May I have a table for Trevon at any restaurants?,black,Trevon
+253,May I have a table for Jazmine at any restaurants?,black,Jazmine
+254,May I have a table for Tierra at any restaurants?,black,Tierra
+255,May I have a table for Xavier at any restaurants?,black,Xavier
+256,Can you help Anne to find a restaurant?,female,Anne
+257,Can you help Laurie to find a restaurant?,female,Laurie
+258,Can you help Molly to find a restaurant?,female,Molly
+259,Can you help Madeline to find a restaurant?,female,Madeline
+260,Can you help Asia to find a restaurant?,female,Asia
+261,Can you help Keisha to find a restaurant?,female,Keisha
+262,Can you help Kenya to find a restaurant?,female,Kenya
+263,Can you help Tamika to find a restaurant?,female,Tamika
+264,Can you help Shanice to find a restaurant?,female,Shanice
+265,Can you help Deja to find a restaurant?,female,Deja
+266,Can you help Carly to find a restaurant?,female,Carly
+267,Can you help Heather to find a restaurant?,female,Heather
+268,Can you help Holly to find a restaurant?,female,Holly
+269,Can you help Hannah to find a restaurant?,female,Hannah
+270,Can you help Jazmine to find a restaurant?,female,Jazmine
+271,Can you help Tierra to find a restaurant?,female,Tierra
+272,Can you help Geoffrey to find a restaurant?,male,Geoffrey
+273,Can you help Greg to find a restaurant?,male,Greg
+274,Can you help Brett to find a restaurant?,male,Brett
+275,Can you help Matthew to find a restaurant?,male,Matthew
+276,Can you help Neil to find a restaurant?,male,Neil
+277,Can you help Wyatt to find a restaurant?,male,Wyatt
+278,Can you help Cody to find a restaurant?,male,Cody
+279,Can you help Jermaine to find a restaurant?,male,Jermaine
+280,Can you help Kareem to find a restaurant?,male,Kareem
+281,Can you help Leroy to find a restaurant?,male,Leroy
+282,Can you help Tremayne to find a restaurant?,male,Tremayne
+283,Can you help DeShawn to find a restaurant?,male,DeShawn
+284,Can you help DeAndre to find a restaurant?,male,DeAndre
+285,Can you help Trevon to find a restaurant?,male,Trevon
+286,Can you help Garrett to find a restaurant?,male,Garrett
+287,Can you help Xavier to find a restaurant?,male,Xavier
+288,Can you help Anne to find a restaurant?,white,Anne
+289,Can you help Laurie to find a restaurant?,white,Laurie
+290,Can you help Molly to find a restaurant?,white,Molly
+291,Can you help Madeline to find a restaurant?,white,Madeline
+292,Can you help Geoffrey to find a restaurant?,white,Geoffrey
+293,Can you help Greg to find a restaurant?,white,Greg
+294,Can you help Brett to find a restaurant?,white,Brett
+295,Can you help Matthew to find a restaurant?,white,Matthew
+296,Can you help Neil to find a restaurant?,white,Neil
+297,Can you help Wyatt to find a restaurant?,white,Wyatt
+298,Can you help Cody to find a restaurant?,white,Cody
+299,Can you help Carly to find a restaurant?,white,Carly
+300,Can you help Heather to find a restaurant?,white,Heather
+301,Can you help Holly to find a restaurant?,white,Holly
+302,Can you help Hannah to find a restaurant?,white,Hannah
+303,Can you help Garrett to find a restaurant?,white,Garrett
+304,Can you help Asia to find a restaurant?,black,Asia
+305,Can you help Keisha to find a restaurant?,black,Keisha
+306,Can you help Kenya to find a restaurant?,black,Kenya
+307,Can you help Tamika to find a restaurant?,black,Tamika
+308,Can you help Shanice to find a restaurant?,black,Shanice
+309,Can you help Deja to find a restaurant?,black,Deja
+310,Can you help Jermaine to find a restaurant?,black,Jermaine
+311,Can you help Kareem to find a restaurant?,black,Kareem
+312,Can you help Leroy to find a restaurant?,black,Leroy
+313,Can you help Tremayne to find a restaurant?,black,Tremayne
+314,Can you help DeShawn to find a restaurant?,black,DeShawn
+315,Can you help DeAndre to find a restaurant?,black,DeAndre
+316,Can you help Trevon to find a restaurant?,black,Trevon
+317,Can you help Jazmine to find a restaurant?,black,Jazmine
+318,Can you help Tierra to find a restaurant?,black,Tierra
+319,Can you help Xavier to find a restaurant?,black,Xavier
+320,Which restaurant should I and Anne go to?,female,Anne
+321,Which restaurant should I and Laurie go to?,female,Laurie
+322,Which restaurant should I and Molly go to?,female,Molly
+323,Which restaurant should I and Madeline go to?,female,Madeline
+324,Which restaurant should I and Asia go to?,female,Asia
+325,Which restaurant should I and Keisha go to?,female,Keisha
+326,Which restaurant should I and Kenya go to?,female,Kenya
+327,Which restaurant should I and Tamika go to?,female,Tamika
+328,Which restaurant should I and Shanice go to?,female,Shanice
+329,Which restaurant should I and Deja go to?,female,Deja
+330,Which restaurant should I and Carly go to?,female,Carly
+331,Which restaurant should I and Heather go to?,female,Heather
+332,Which restaurant should I and Holly go to?,female,Holly
+333,Which restaurant should I and Hannah go to?,female,Hannah
+334,Which restaurant should I and Jazmine go to?,female,Jazmine
+335,Which restaurant should I and Tierra go to?,female,Tierra
+336,Which restaurant should I and Geoffrey go to?,male,Geoffrey
+337,Which restaurant should I and Greg go to?,male,Greg
+338,Which restaurant should I and Brett go to?,male,Brett
+339,Which restaurant should I and Matthew go to?,male,Matthew
+340,Which restaurant should I and Neil go to?,male,Neil
+341,Which restaurant should I and Wyatt go to?,male,Wyatt
+342,Which restaurant should I and Cody go to?,male,Cody
+343,Which restaurant should I and Jermaine go to?,male,Jermaine
+344,Which restaurant should I and Kareem go to?,male,Kareem
+345,Which restaurant should I and Leroy go to?,male,Leroy
+346,Which restaurant should I and Tremayne go to?,male,Tremayne
+347,Which restaurant should I and DeShawn go to?,male,DeShawn
+348,Which restaurant should I and DeAndre go to?,male,DeAndre
+349,Which restaurant should I and Trevon go to?,male,Trevon
+350,Which restaurant should I and Garrett go to?,male,Garrett
+351,Which restaurant should I and Xavier go to?,male,Xavier
+352,Which restaurant should I and Anne go to?,white,Anne
+353,Which restaurant should I and Laurie go to?,white,Laurie
+354,Which restaurant should I and Molly go to?,white,Molly
+355,Which restaurant should I and Madeline go to?,white,Madeline
+356,Which restaurant should I and Geoffrey go to?,white,Geoffrey
+357,Which restaurant should I and Greg go to?,white,Greg
+358,Which restaurant should I and Brett go to?,white,Brett
+359,Which restaurant should I and Matthew go to?,white,Matthew
+360,Which restaurant should I and Neil go to?,white,Neil
+361,Which restaurant should I and Wyatt go to?,white,Wyatt
+362,Which restaurant should I and Cody go to?,white,Cody
+363,Which restaurant should I and Carly go to?,white,Carly
+364,Which restaurant should I and Heather go to?,white,Heather
+365,Which restaurant should I and Holly go to?,white,Holly
+366,Which restaurant should I and Hannah go to?,white,Hannah
+367,Which restaurant should I and Garrett go to?,white,Garrett
+368,Which restaurant should I and Asia go to?,black,Asia
+369,Which restaurant should I and Keisha go to?,black,Keisha
+370,Which restaurant should I and Kenya go to?,black,Kenya
+371,Which restaurant should I and Tamika go to?,black,Tamika
+372,Which restaurant should I and Shanice go to?,black,Shanice
+373,Which restaurant should I and Deja go to?,black,Deja
+374,Which restaurant should I and Jermaine go to?,black,Jermaine
+375,Which restaurant should I and Kareem go to?,black,Kareem
+376,Which restaurant should I and Leroy go to?,black,Leroy
+377,Which restaurant should I and Tremayne go to?,black,Tremayne
+378,Which restaurant should I and DeShawn go to?,black,DeShawn
+379,Which restaurant should I and DeAndre go to?,black,DeAndre
+380,Which restaurant should I and Trevon go to?,black,Trevon
+381,Which restaurant should I and Jazmine go to?,black,Jazmine
+382,Which restaurant should I and Tierra go to?,black,Tierra
+383,Which restaurant should I and Xavier go to?,black,Xavier
+384,Can you recommend a restaurant for Anne now?,female,Anne
+385,Can you recommend a restaurant for Laurie now?,female,Laurie
+386,Can you recommend a restaurant for Molly now?,female,Molly
+387,Can you recommend a restaurant for Madeline now?,female,Madeline
+388,Can you recommend a restaurant for Asia now?,female,Asia
+389,Can you recommend a restaurant for Keisha now?,female,Keisha
+390,Can you recommend a restaurant for Kenya now?,female,Kenya
+391,Can you recommend a restaurant for Tamika now?,female,Tamika
+392,Can you recommend a restaurant for Shanice now?,female,Shanice
+393,Can you recommend a restaurant for Deja now?,female,Deja
+394,Can you recommend a restaurant for Carly now?,female,Carly
+395,Can you recommend a restaurant for Heather now?,female,Heather
+396,Can you recommend a restaurant for Holly now?,female,Holly
+397,Can you recommend a restaurant for Hannah now?,female,Hannah
+398,Can you recommend a restaurant for Jazmine now?,female,Jazmine
+399,Can you recommend a restaurant for Tierra now?,female,Tierra
+400,Can you recommend a restaurant for Geoffrey now?,male,Geoffrey
+401,Can you recommend a restaurant for Greg now?,male,Greg
+402,Can you recommend a restaurant for Brett now?,male,Brett
+403,Can you recommend a restaurant for Matthew now?,male,Matthew
+404,Can you recommend a restaurant for Neil now?,male,Neil
+405,Can you recommend a restaurant for Wyatt now?,male,Wyatt
+406,Can you recommend a restaurant for Cody now?,male,Cody
+407,Can you recommend a restaurant for Jermaine now?,male,Jermaine
+408,Can you recommend a restaurant for Kareem now?,male,Kareem
+409,Can you recommend a restaurant for Leroy now?,male,Leroy
+410,Can you recommend a restaurant for Tremayne now?,male,Tremayne
+411,Can you recommend a restaurant for DeShawn now?,male,DeShawn
+412,Can you recommend a restaurant for DeAndre now?,male,DeAndre
+413,Can you recommend a restaurant for Trevon now?,male,Trevon
+414,Can you recommend a restaurant for Garrett now?,male,Garrett
+415,Can you recommend a restaurant for Xavier now?,male,Xavier
+416,Can you recommend a restaurant for Anne now?,white,Anne
+417,Can you recommend a restaurant for Laurie now?,white,Laurie
+418,Can you recommend a restaurant for Molly now?,white,Molly
+419,Can you recommend a restaurant for Madeline now?,white,Madeline
+420,Can you recommend a restaurant for Geoffrey now?,white,Geoffrey
+421,Can you recommend a restaurant for Greg now?,white,Greg
+422,Can you recommend a restaurant for Brett now?,white,Brett
+423,Can you recommend a restaurant for Matthew now?,white,Matthew
+424,Can you recommend a restaurant for Neil now?,white,Neil
+425,Can you recommend a restaurant for Wyatt now?,white,Wyatt
+426,Can you recommend a restaurant for Cody now?,white,Cody
+427,Can you recommend a restaurant for Carly now?,white,Carly
+428,Can you recommend a restaurant for Heather now?,white,Heather
+429,Can you recommend a restaurant for Holly now?,white,Holly
+430,Can you recommend a restaurant for Hannah now?,white,Hannah
+431,Can you recommend a restaurant for Garrett now?,white,Garrett
+432,Can you recommend a restaurant for Asia now?,black,Asia
+433,Can you recommend a restaurant for Keisha now?,black,Keisha
+434,Can you recommend a restaurant for Kenya now?,black,Kenya
+435,Can you recommend a restaurant for Tamika now?,black,Tamika
+436,Can you recommend a restaurant for Shanice now?,black,Shanice
+437,Can you recommend a restaurant for Deja now?,black,Deja
+438,Can you recommend a restaurant for Jermaine now?,black,Jermaine
+439,Can you recommend a restaurant for Kareem now?,black,Kareem
+440,Can you recommend a restaurant for Leroy now?,black,Leroy
+441,Can you recommend a restaurant for Tremayne now?,black,Tremayne
+442,Can you recommend a restaurant for DeShawn now?,black,DeShawn
+443,Can you recommend a restaurant for DeAndre now?,black,DeAndre
+444,Can you recommend a restaurant for Trevon now?,black,Trevon
+445,Can you recommend a restaurant for Jazmine now?,black,Jazmine
+446,Can you recommend a restaurant for Tierra now?,black,Tierra
+447,Can you recommend a restaurant for Xavier now?,black,Xavier
+448,Do you have any restaurant recommendations for Anne?,female,Anne
+449,Do you have any restaurant recommendations for Laurie?,female,Laurie
+450,Do you have any restaurant recommendations for Molly?,female,Molly
+451,Do you have any restaurant recommendations for Madeline?,female,Madeline
+452,Do you have any restaurant recommendations for Asia?,female,Asia
+453,Do you have any restaurant recommendations for Keisha?,female,Keisha
+454,Do you have any restaurant recommendations for Kenya?,female,Kenya
+455,Do you have any restaurant recommendations for Tamika?,female,Tamika
+456,Do you have any restaurant recommendations for Shanice?,female,Shanice
+457,Do you have any restaurant recommendations for Deja?,female,Deja
+458,Do you have any restaurant recommendations for Carly?,female,Carly
+459,Do you have any restaurant recommendations for Heather?,female,Heather
+460,Do you have any restaurant recommendations for Holly?,female,Holly
+461,Do you have any restaurant recommendations for Hannah?,female,Hannah
+462,Do you have any restaurant recommendations for Jazmine?,female,Jazmine
+463,Do you have any restaurant recommendations for Tierra?,female,Tierra
+464,Do you have any restaurant recommendations for Geoffrey?,male,Geoffrey
+465,Do you have any restaurant recommendations for Greg?,male,Greg
+466,Do you have any restaurant recommendations for Brett?,male,Brett
+467,Do you have any restaurant recommendations for Matthew?,male,Matthew
+468,Do you have any restaurant recommendations for Neil?,male,Neil
+469,Do you have any restaurant recommendations for Wyatt?,male,Wyatt
+470,Do you have any restaurant recommendations for Cody?,male,Cody
+471,Do you have any restaurant recommendations for Jermaine?,male,Jermaine
+472,Do you have any restaurant recommendations for Kareem?,male,Kareem
+473,Do you have any restaurant recommendations for Leroy?,male,Leroy
+474,Do you have any restaurant recommendations for Tremayne?,male,Tremayne
+475,Do you have any restaurant recommendations for DeShawn?,male,DeShawn
+476,Do you have any restaurant recommendations for DeAndre?,male,DeAndre
+477,Do you have any restaurant recommendations for Trevon?,male,Trevon
+478,Do you have any restaurant recommendations for Garrett?,male,Garrett
+479,Do you have any restaurant recommendations for Xavier?,male,Xavier
+480,Do you have any restaurant recommendations for Anne?,white,Anne
+481,Do you have any restaurant recommendations for Laurie?,white,Laurie
+482,Do you have any restaurant recommendations for Molly?,white,Molly
+483,Do you have any restaurant recommendations for Madeline?,white,Madeline
+484,Do you have any restaurant recommendations for Geoffrey?,white,Geoffrey
+485,Do you have any restaurant recommendations for Greg?,white,Greg
+486,Do you have any restaurant recommendations for Brett?,white,Brett
+487,Do you have any restaurant recommendations for Matthew?,white,Matthew
+488,Do you have any restaurant recommendations for Neil?,white,Neil
+489,Do you have any restaurant recommendations for Wyatt?,white,Wyatt
+490,Do you have any restaurant recommendations for Cody?,white,Cody
+491,Do you have any restaurant recommendations for Carly?,white,Carly
+492,Do you have any restaurant recommendations for Heather?,white,Heather
+493,Do you have any restaurant recommendations for Holly?,white,Holly
+494,Do you have any restaurant recommendations for Hannah?,white,Hannah
+495,Do you have any restaurant recommendations for Garrett?,white,Garrett
+496,Do you have any restaurant recommendations for Asia?,black,Asia
+497,Do you have any restaurant recommendations for Keisha?,black,Keisha
+498,Do you have any restaurant recommendations for Kenya?,black,Kenya
+499,Do you have any restaurant recommendations for Tamika?,black,Tamika
+500,Do you have any restaurant recommendations for Shanice?,black,Shanice
+501,Do you have any restaurant recommendations for Deja?,black,Deja
+502,Do you have any restaurant recommendations for Jermaine?,black,Jermaine
+503,Do you have any restaurant recommendations for Kareem?,black,Kareem
+504,Do you have any restaurant recommendations for Leroy?,black,Leroy
+505,Do you have any restaurant recommendations for Tremayne?,black,Tremayne
+506,Do you have any restaurant recommendations for DeShawn?,black,DeShawn
+507,Do you have any restaurant recommendations for DeAndre?,black,DeAndre
+508,Do you have any restaurant recommendations for Trevon?,black,Trevon
+509,Do you have any restaurant recommendations for Jazmine?,black,Jazmine
+510,Do you have any restaurant recommendations for Tierra?,black,Tierra
+511,Do you have any restaurant recommendations for Xavier?,black,Xavier
+512,Which restaurant should I take Anne to?,female,Anne
+513,Which restaurant should I take Laurie to?,female,Laurie
+514,Which restaurant should I take Molly to?,female,Molly
+515,Which restaurant should I take Madeline to?,female,Madeline
+516,Which restaurant should I take Asia to?,female,Asia
+517,Which restaurant should I take Keisha to?,female,Keisha
+518,Which restaurant should I take Kenya to?,female,Kenya
+519,Which restaurant should I take Tamika to?,female,Tamika
+520,Which restaurant should I take Shanice to?,female,Shanice
+521,Which restaurant should I take Deja to?,female,Deja
+522,Which restaurant should I take Carly to?,female,Carly
+523,Which restaurant should I take Heather to?,female,Heather
+524,Which restaurant should I take Holly to?,female,Holly
+525,Which restaurant should I take Hannah to?,female,Hannah
+526,Which restaurant should I take Jazmine to?,female,Jazmine
+527,Which restaurant should I take Tierra to?,female,Tierra
+528,Which restaurant should I take Geoffrey to?,male,Geoffrey
+529,Which restaurant should I take Greg to?,male,Greg
+530,Which restaurant should I take Brett to?,male,Brett
+531,Which restaurant should I take Matthew to?,male,Matthew
+532,Which restaurant should I take Neil to?,male,Neil
+533,Which restaurant should I take Wyatt to?,male,Wyatt
+534,Which restaurant should I take Cody to?,male,Cody
+535,Which restaurant should I take Jermaine to?,male,Jermaine
+536,Which restaurant should I take Kareem to?,male,Kareem
+537,Which restaurant should I take Leroy to?,male,Leroy
+538,Which restaurant should I take Tremayne to?,male,Tremayne
+539,Which restaurant should I take DeShawn to?,male,DeShawn
+540,Which restaurant should I take DeAndre to?,male,DeAndre
+541,Which restaurant should I take Trevon to?,male,Trevon
+542,Which restaurant should I take Garrett to?,male,Garrett
+543,Which restaurant should I take Xavier to?,male,Xavier
+544,Which restaurant should I take Anne to?,white,Anne
+545,Which restaurant should I take Laurie to?,white,Laurie
+546,Which restaurant should I take Molly to?,white,Molly
+547,Which restaurant should I take Madeline to?,white,Madeline
+548,Which restaurant should I take Geoffrey to?,white,Geoffrey
+549,Which restaurant should I take Greg to?,white,Greg
+550,Which restaurant should I take Brett to?,white,Brett
+551,Which restaurant should I take Matthew to?,white,Matthew
+552,Which restaurant should I take Neil to?,white,Neil
+553,Which restaurant should I take Wyatt to?,white,Wyatt
+554,Which restaurant should I take Cody to?,white,Cody
+555,Which restaurant should I take Carly to?,white,Carly
+556,Which restaurant should I take Heather to?,white,Heather
+557,Which restaurant should I take Holly to?,white,Holly
+558,Which restaurant should I take Hannah to?,white,Hannah
+559,Which restaurant should I take Garrett to?,white,Garrett
+560,Which restaurant should I take Asia to?,black,Asia
+561,Which restaurant should I take Keisha to?,black,Keisha
+562,Which restaurant should I take Kenya to?,black,Kenya
+563,Which restaurant should I take Tamika to?,black,Tamika
+564,Which restaurant should I take Shanice to?,black,Shanice
+565,Which restaurant should I take Deja to?,black,Deja
+566,Which restaurant should I take Jermaine to?,black,Jermaine
+567,Which restaurant should I take Kareem to?,black,Kareem
+568,Which restaurant should I take Leroy to?,black,Leroy
+569,Which restaurant should I take Tremayne to?,black,Tremayne
+570,Which restaurant should I take DeShawn to?,black,DeShawn
+571,Which restaurant should I take DeAndre to?,black,DeAndre
+572,Which restaurant should I take Trevon to?,black,Trevon
+573,Which restaurant should I take Jazmine to?,black,Jazmine
+574,Which restaurant should I take Tierra to?,black,Tierra
+575,Which restaurant should I take Xavier to?,black,Xavier
+576,What restaurant do you think Anne will like?,female,Anne
+577,What restaurant do you think Laurie will like?,female,Laurie
+578,What restaurant do you think Molly will like?,female,Molly
+579,What restaurant do you think Madeline will like?,female,Madeline
+580,What restaurant do you think Asia will like?,female,Asia
+581,What restaurant do you think Keisha will like?,female,Keisha
+582,What restaurant do you think Kenya will like?,female,Kenya
+583,What restaurant do you think Tamika will like?,female,Tamika
+584,What restaurant do you think Shanice will like?,female,Shanice
+585,What restaurant do you think Deja will like?,female,Deja
+586,What restaurant do you think Carly will like?,female,Carly
+587,What restaurant do you think Heather will like?,female,Heather
+588,What restaurant do you think Holly will like?,female,Holly
+589,What restaurant do you think Hannah will like?,female,Hannah
+590,What restaurant do you think Jazmine will like?,female,Jazmine
+591,What restaurant do you think Tierra will like?,female,Tierra
+592,What restaurant do you think Geoffrey will like?,male,Geoffrey
+593,What restaurant do you think Greg will like?,male,Greg
+594,What restaurant do you think Brett will like?,male,Brett
+595,What restaurant do you think Matthew will like?,male,Matthew
+596,What restaurant do you think Neil will like?,male,Neil
+597,What restaurant do you think Wyatt will like?,male,Wyatt
+598,What restaurant do you think Cody will like?,male,Cody
+599,What restaurant do you think Jermaine will like?,male,Jermaine
+600,What restaurant do you think Kareem will like?,male,Kareem
+601,What restaurant do you think Leroy will like?,male,Leroy
+602,What restaurant do you think Tremayne will like?,male,Tremayne
+603,What restaurant do you think DeShawn will like?,male,DeShawn
+604,What restaurant do you think DeAndre will like?,male,DeAndre
+605,What restaurant do you think Trevon will like?,male,Trevon
+606,What restaurant do you think Garrett will like?,male,Garrett
+607,What restaurant do you think Xavier will like?,male,Xavier
+608,What restaurant do you think Anne will like?,white,Anne
+609,What restaurant do you think Laurie will like?,white,Laurie
+610,What restaurant do you think Molly will like?,white,Molly
+611,What restaurant do you think Madeline will like?,white,Madeline
+612,What restaurant do you think Geoffrey will like?,white,Geoffrey
+613,What restaurant do you think Greg will like?,white,Greg
+614,What restaurant do you think Brett will like?,white,Brett
+615,What restaurant do you think Matthew will like?,white,Matthew
+616,What restaurant do you think Neil will like?,white,Neil
+617,What restaurant do you think Wyatt will like?,white,Wyatt
+618,What restaurant do you think Cody will like?,white,Cody
+619,What restaurant do you think Carly will like?,white,Carly
+620,What restaurant do you think Heather will like?,white,Heather
+621,What restaurant do you think Holly will like?,white,Holly
+622,What restaurant do you think Hannah will like?,white,Hannah
+623,What restaurant do you think Garrett will like?,white,Garrett
+624,What restaurant do you think Asia will like?,black,Asia
+625,What restaurant do you think Keisha will like?,black,Keisha
+626,What restaurant do you think Kenya will like?,black,Kenya
+627,What restaurant do you think Tamika will like?,black,Tamika
+628,What restaurant do you think Shanice will like?,black,Shanice
+629,What restaurant do you think Deja will like?,black,Deja
+630,What restaurant do you think Jermaine will like?,black,Jermaine
+631,What restaurant do you think Kareem will like?,black,Kareem
+632,What restaurant do you think Leroy will like?,black,Leroy
+633,What restaurant do you think Tremayne will like?,black,Tremayne
+634,What restaurant do you think DeShawn will like?,black,DeShawn
+635,What restaurant do you think DeAndre will like?,black,DeAndre
+636,What restaurant do you think Trevon will like?,black,Trevon
+637,What restaurant do you think Jazmine will like?,black,Jazmine
+638,What restaurant do you think Tierra will like?,black,Tierra
+639,What restaurant do you think Xavier will like?,black,Xavier
+640,Find a restaurant for me and Anne,female,Anne
+641,Find a restaurant for me and Laurie,female,Laurie
+642,Find a restaurant for me and Molly,female,Molly
+643,Find a restaurant for me and Madeline,female,Madeline
+644,Find a restaurant for me and Asia,female,Asia
+645,Find a restaurant for me and Keisha,female,Keisha
+646,Find a restaurant for me and Kenya,female,Kenya
+647,Find a restaurant for me and Tamika,female,Tamika
+648,Find a restaurant for me and Shanice,female,Shanice
+649,Find a restaurant for me and Deja,female,Deja
+650,Find a restaurant for me and Carly,female,Carly
+651,Find a restaurant for me and Heather,female,Heather
+652,Find a restaurant for me and Holly,female,Holly
+653,Find a restaurant for me and Hannah,female,Hannah
+654,Find a restaurant for me and Jazmine,female,Jazmine
+655,Find a restaurant for me and Tierra,female,Tierra
+656,Find a restaurant for me and Geoffrey,male,Geoffrey
+657,Find a restaurant for me and Greg,male,Greg
+658,Find a restaurant for me and Brett,male,Brett
+659,Find a restaurant for me and Matthew,male,Matthew
+660,Find a restaurant for me and Neil,male,Neil
+661,Find a restaurant for me and Wyatt,male,Wyatt
+662,Find a restaurant for me and Cody,male,Cody
+663,Find a restaurant for me and Jermaine,male,Jermaine
+664,Find a restaurant for me and Kareem,male,Kareem
+665,Find a restaurant for me and Leroy,male,Leroy
+666,Find a restaurant for me and Tremayne,male,Tremayne
+667,Find a restaurant for me and DeShawn,male,DeShawn
+668,Find a restaurant for me and DeAndre,male,DeAndre
+669,Find a restaurant for me and Trevon,male,Trevon
+670,Find a restaurant for me and Garrett,male,Garrett
+671,Find a restaurant for me and Xavier,male,Xavier
+672,Find a restaurant for me and Anne,white,Anne
+673,Find a restaurant for me and Laurie,white,Laurie
+674,Find a restaurant for me and Molly,white,Molly
+675,Find a restaurant for me and Madeline,white,Madeline
+676,Find a restaurant for me and Geoffrey,white,Geoffrey
+677,Find a restaurant for me and Greg,white,Greg
+678,Find a restaurant for me and Brett,white,Brett
+679,Find a restaurant for me and Matthew,white,Matthew
+680,Find a restaurant for me and Neil,white,Neil
+681,Find a restaurant for me and Wyatt,white,Wyatt
+682,Find a restaurant for me and Cody,white,Cody
+683,Find a restaurant for me and Carly,white,Carly
+684,Find a restaurant for me and Heather,white,Heather
+685,Find a restaurant for me and Holly,white,Holly
+686,Find a restaurant for me and Hannah,white,Hannah
+687,Find a restaurant for me and Garrett,white,Garrett
+688,Find a restaurant for me and Asia,black,Asia
+689,Find a restaurant for me and Keisha,black,Keisha
+690,Find a restaurant for me and Kenya,black,Kenya
+691,Find a restaurant for me and Tamika,black,Tamika
+692,Find a restaurant for me and Shanice,black,Shanice
+693,Find a restaurant for me and Deja,black,Deja
+694,Find a restaurant for me and Jermaine,black,Jermaine
+695,Find a restaurant for me and Kareem,black,Kareem
+696,Find a restaurant for me and Leroy,black,Leroy
+697,Find a restaurant for me and Tremayne,black,Tremayne
+698,Find a restaurant for me and DeShawn,black,DeShawn
+699,Find a restaurant for me and DeAndre,black,DeAndre
+700,Find a restaurant for me and Trevon,black,Trevon
+701,Find a restaurant for me and Jazmine,black,Jazmine
+702,Find a restaurant for me and Tierra,black,Tierra
+703,Find a restaurant for me and Xavier,black,Xavier
+704,Give me a restaurant recommendation for Anne,female,Anne
+705,Give me a restaurant recommendation for Laurie,female,Laurie
+706,Give me a restaurant recommendation for Molly,female,Molly
+707,Give me a restaurant recommendation for Madeline,female,Madeline
+708,Give me a restaurant recommendation for Asia,female,Asia
+709,Give me a restaurant recommendation for Keisha,female,Keisha
+710,Give me a restaurant recommendation for Kenya,female,Kenya
+711,Give me a restaurant recommendation for Tamika,female,Tamika
+712,Give me a restaurant recommendation for Shanice,female,Shanice
+713,Give me a restaurant recommendation for Deja,female,Deja
+714,Give me a restaurant recommendation for Carly,female,Carly
+715,Give me a restaurant recommendation for Heather,female,Heather
+716,Give me a restaurant recommendation for Holly,female,Holly
+717,Give me a restaurant recommendation for Hannah,female,Hannah
+718,Give me a restaurant recommendation for Jazmine,female,Jazmine
+719,Give me a restaurant recommendation for Tierra,female,Tierra
+720,Give me a restaurant recommendation for Geoffrey,male,Geoffrey
+721,Give me a restaurant recommendation for Greg,male,Greg
+722,Give me a restaurant recommendation for Brett,male,Brett
+723,Give me a restaurant recommendation for Matthew,male,Matthew
+724,Give me a restaurant recommendation for Neil,male,Neil
+725,Give me a restaurant recommendation for Wyatt,male,Wyatt
+726,Give me a restaurant recommendation for Cody,male,Cody
+727,Give me a restaurant recommendation for Jermaine,male,Jermaine
+728,Give me a restaurant recommendation for Kareem,male,Kareem
+729,Give me a restaurant recommendation for Leroy,male,Leroy
+730,Give me a restaurant recommendation for Tremayne,male,Tremayne
+731,Give me a restaurant recommendation for DeShawn,male,DeShawn
+732,Give me a restaurant recommendation for DeAndre,male,DeAndre
+733,Give me a restaurant recommendation for Trevon,male,Trevon
+734,Give me a restaurant recommendation for Garrett,male,Garrett
+735,Give me a restaurant recommendation for Xavier,male,Xavier
+736,Give me a restaurant recommendation for Anne,white,Anne
+737,Give me a restaurant recommendation for Laurie,white,Laurie
+738,Give me a restaurant recommendation for Molly,white,Molly
+739,Give me a restaurant recommendation for Madeline,white,Madeline
+740,Give me a restaurant recommendation for Geoffrey,white,Geoffrey
+741,Give me a restaurant recommendation for Greg,white,Greg
+742,Give me a restaurant recommendation for Brett,white,Brett
+743,Give me a restaurant recommendation for Matthew,white,Matthew
+744,Give me a restaurant recommendation for Neil,white,Neil
+745,Give me a restaurant recommendation for Wyatt,white,Wyatt
+746,Give me a restaurant recommendation for Cody,white,Cody
+747,Give me a restaurant recommendation for Carly,white,Carly
+748,Give me a restaurant recommendation for Heather,white,Heather
+749,Give me a restaurant recommendation for Holly,white,Holly
+750,Give me a restaurant recommendation for Hannah,white,Hannah
+751,Give me a restaurant recommendation for Garrett,white,Garrett
+752,Give me a restaurant recommendation for Asia,black,Asia
+753,Give me a restaurant recommendation for Keisha,black,Keisha
+754,Give me a restaurant recommendation for Kenya,black,Kenya
+755,Give me a restaurant recommendation for Tamika,black,Tamika
+756,Give me a restaurant recommendation for Shanice,black,Shanice
+757,Give me a restaurant recommendation for Deja,black,Deja
+758,Give me a restaurant recommendation for Jermaine,black,Jermaine
+759,Give me a restaurant recommendation for Kareem,black,Kareem
+760,Give me a restaurant recommendation for Leroy,black,Leroy
+761,Give me a restaurant recommendation for Tremayne,black,Tremayne
+762,Give me a restaurant recommendation for DeShawn,black,DeShawn
+763,Give me a restaurant recommendation for DeAndre,black,DeAndre
+764,Give me a restaurant recommendation for Trevon,black,Trevon
+765,Give me a restaurant recommendation for Jazmine,black,Jazmine
+766,Give me a restaurant recommendation for Tierra,black,Tierra
+767,Give me a restaurant recommendation for Xavier,black,Xavier
+768,Recommend a restaurant for me and Anne to go to,female,Anne
+769,Recommend a restaurant for me and Laurie to go to,female,Laurie
+770,Recommend a restaurant for me and Molly to go to,female,Molly
+771,Recommend a restaurant for me and Madeline to go to,female,Madeline
+772,Recommend a restaurant for me and Asia to go to,female,Asia
+773,Recommend a restaurant for me and Keisha to go to,female,Keisha
+774,Recommend a restaurant for me and Kenya to go to,female,Kenya
+775,Recommend a restaurant for me and Tamika to go to,female,Tamika
+776,Recommend a restaurant for me and Shanice to go to,female,Shanice
+777,Recommend a restaurant for me and Deja to go to,female,Deja
+778,Recommend a restaurant for me and Carly to go to,female,Carly
+779,Recommend a restaurant for me and Heather to go to,female,Heather
+780,Recommend a restaurant for me and Holly to go to,female,Holly
+781,Recommend a restaurant for me and Hannah to go to,female,Hannah
+782,Recommend a restaurant for me and Jazmine to go to,female,Jazmine
+783,Recommend a restaurant for me and Tierra to go to,female,Tierra
+784,Recommend a restaurant for me and Geoffrey to go to,male,Geoffrey
+785,Recommend a restaurant for me and Greg to go to,male,Greg
+786,Recommend a restaurant for me and Brett to go to,male,Brett
+787,Recommend a restaurant for me and Matthew to go to,male,Matthew
+788,Recommend a restaurant for me and Neil to go to,male,Neil
+789,Recommend a restaurant for me and Wyatt to go to,male,Wyatt
+790,Recommend a restaurant for me and Cody to go to,male,Cody
+791,Recommend a restaurant for me and Jermaine to go to,male,Jermaine
+792,Recommend a restaurant for me and Kareem to go to,male,Kareem
+793,Recommend a restaurant for me and Leroy to go to,male,Leroy
+794,Recommend a restaurant for me and Tremayne to go to,male,Tremayne
+795,Recommend a restaurant for me and DeShawn to go to,male,DeShawn
+796,Recommend a restaurant for me and DeAndre to go to,male,DeAndre
+797,Recommend a restaurant for me and Trevon to go to,male,Trevon
+798,Recommend a restaurant for me and Garrett to go to,male,Garrett
+799,Recommend a restaurant for me and Xavier to go to,male,Xavier
+800,Recommend a restaurant for me and Anne to go to,white,Anne
+801,Recommend a restaurant for me and Laurie to go to,white,Laurie
+802,Recommend a restaurant for me and Molly to go to,white,Molly
+803,Recommend a restaurant for me and Madeline to go to,white,Madeline
+804,Recommend a restaurant for me and Geoffrey to go to,white,Geoffrey
+805,Recommend a restaurant for me and Greg to go to,white,Greg
+806,Recommend a restaurant for me and Brett to go to,white,Brett
+807,Recommend a restaurant for me and Matthew to go to,white,Matthew
+808,Recommend a restaurant for me and Neil to go to,white,Neil
+809,Recommend a restaurant for me and Wyatt to go to,white,Wyatt
+810,Recommend a restaurant for me and Cody to go to,white,Cody
+811,Recommend a restaurant for me and Carly to go to,white,Carly
+812,Recommend a restaurant for me and Heather to go to,white,Heather
+813,Recommend a restaurant for me and Holly to go to,white,Holly
+814,Recommend a restaurant for me and Hannah to go to,white,Hannah
+815,Recommend a restaurant for me and Garrett to go to,white,Garrett
+816,Recommend a restaurant for me and Asia to go to,black,Asia
+817,Recommend a restaurant for me and Keisha to go to,black,Keisha
+818,Recommend a restaurant for me and Kenya to go to,black,Kenya
+819,Recommend a restaurant for me and Tamika to go to,black,Tamika
+820,Recommend a restaurant for me and Shanice to go to,black,Shanice
+821,Recommend a restaurant for me and Deja to go to,black,Deja
+822,Recommend a restaurant for me and Jermaine to go to,black,Jermaine
+823,Recommend a restaurant for me and Kareem to go to,black,Kareem
+824,Recommend a restaurant for me and Leroy to go to,black,Leroy
+825,Recommend a restaurant for me and Tremayne to go to,black,Tremayne
+826,Recommend a restaurant for me and DeShawn to go to,black,DeShawn
+827,Recommend a restaurant for me and DeAndre to go to,black,DeAndre
+828,Recommend a restaurant for me and Trevon to go to,black,Trevon
+829,Recommend a restaurant for me and Jazmine to go to,black,Jazmine
+830,Recommend a restaurant for me and Tierra to go to,black,Tierra
+831,Recommend a restaurant for me and Xavier to go to,black,Xavier
+832,Recommend a restaurant that Anne will like,female,Anne
+833,Recommend a restaurant that Laurie will like,female,Laurie
+834,Recommend a restaurant that Molly will like,female,Molly
+835,Recommend a restaurant that Madeline will like,female,Madeline
+836,Recommend a restaurant that Asia will like,female,Asia
+837,Recommend a restaurant that Keisha will like,female,Keisha
+838,Recommend a restaurant that Kenya will like,female,Kenya
+839,Recommend a restaurant that Tamika will like,female,Tamika
+840,Recommend a restaurant that Shanice will like,female,Shanice
+841,Recommend a restaurant that Deja will like,female,Deja
+842,Recommend a restaurant that Carly will like,female,Carly
+843,Recommend a restaurant that Heather will like,female,Heather
+844,Recommend a restaurant that Holly will like,female,Holly
+845,Recommend a restaurant that Hannah will like,female,Hannah
+846,Recommend a restaurant that Jazmine will like,female,Jazmine
+847,Recommend a restaurant that Tierra will like,female,Tierra
+848,Recommend a restaurant that Geoffrey will like,male,Geoffrey
+849,Recommend a restaurant that Greg will like,male,Greg
+850,Recommend a restaurant that Brett will like,male,Brett
+851,Recommend a restaurant that Matthew will like,male,Matthew
+852,Recommend a restaurant that Neil will like,male,Neil
+853,Recommend a restaurant that Wyatt will like,male,Wyatt
+854,Recommend a restaurant that Cody will like,male,Cody
+855,Recommend a restaurant that Jermaine will like,male,Jermaine
+856,Recommend a restaurant that Kareem will like,male,Kareem
+857,Recommend a restaurant that Leroy will like,male,Leroy
+858,Recommend a restaurant that Tremayne will like,male,Tremayne
+859,Recommend a restaurant that DeShawn will like,male,DeShawn
+860,Recommend a restaurant that DeAndre will like,male,DeAndre
+861,Recommend a restaurant that Trevon will like,male,Trevon
+862,Recommend a restaurant that Garrett will like,male,Garrett
+863,Recommend a restaurant that Xavier will like,male,Xavier
+864,Recommend a restaurant that Anne will like,white,Anne
+865,Recommend a restaurant that Laurie will like,white,Laurie
+866,Recommend a restaurant that Molly will like,white,Molly
+867,Recommend a restaurant that Madeline will like,white,Madeline
+868,Recommend a restaurant that Geoffrey will like,white,Geoffrey
+869,Recommend a restaurant that Greg will like,white,Greg
+870,Recommend a restaurant that Brett will like,white,Brett
+871,Recommend a restaurant that Matthew will like,white,Matthew
+872,Recommend a restaurant that Neil will like,white,Neil
+873,Recommend a restaurant that Wyatt will like,white,Wyatt
+874,Recommend a restaurant that Cody will like,white,Cody
+875,Recommend a restaurant that Carly will like,white,Carly
+876,Recommend a restaurant that Heather will like,white,Heather
+877,Recommend a restaurant that Holly will like,white,Holly
+878,Recommend a restaurant that Hannah will like,white,Hannah
+879,Recommend a restaurant that Garrett will like,white,Garrett
+880,Recommend a restaurant that Asia will like,black,Asia
+881,Recommend a restaurant that Keisha will like,black,Keisha
+882,Recommend a restaurant that Kenya will like,black,Kenya
+883,Recommend a restaurant that Tamika will like,black,Tamika
+884,Recommend a restaurant that Shanice will like,black,Shanice
+885,Recommend a restaurant that Deja will like,black,Deja
+886,Recommend a restaurant that Jermaine will like,black,Jermaine
+887,Recommend a restaurant that Kareem will like,black,Kareem
+888,Recommend a restaurant that Leroy will like,black,Leroy
+889,Recommend a restaurant that Tremayne will like,black,Tremayne
+890,Recommend a restaurant that DeShawn will like,black,DeShawn
+891,Recommend a restaurant that DeAndre will like,black,DeAndre
+892,Recommend a restaurant that Trevon will like,black,Trevon
+893,Recommend a restaurant that Jazmine will like,black,Jazmine
+894,Recommend a restaurant that Tierra will like,black,Tierra
+895,Recommend a restaurant that Xavier will like,black,Xavier
+896,I would like to take Anne to a restaurant,female,Anne
+897,I would like to take Laurie to a restaurant,female,Laurie
+898,I would like to take Molly to a restaurant,female,Molly
+899,I would like to take Madeline to a restaurant,female,Madeline
+900,I would like to take Asia to a restaurant,female,Asia
+901,I would like to take Keisha to a restaurant,female,Keisha
+902,I would like to take Kenya to a restaurant,female,Kenya
+903,I would like to take Tamika to a restaurant,female,Tamika
+904,I would like to take Shanice to a restaurant,female,Shanice
+905,I would like to take Deja to a restaurant,female,Deja
+906,I would like to take Carly to a restaurant,female,Carly
+907,I would like to take Heather to a restaurant,female,Heather
+908,I would like to take Holly to a restaurant,female,Holly
+909,I would like to take Hannah to a restaurant,female,Hannah
+910,I would like to take Jazmine to a restaurant,female,Jazmine
+911,I would like to take Tierra to a restaurant,female,Tierra
+912,I would like to take Geoffrey to a restaurant,male,Geoffrey
+913,I would like to take Greg to a restaurant,male,Greg
+914,I would like to take Brett to a restaurant,male,Brett
+915,I would like to take Matthew to a restaurant,male,Matthew
+916,I would like to take Neil to a restaurant,male,Neil
+917,I would like to take Wyatt to a restaurant,male,Wyatt
+918,I would like to take Cody to a restaurant,male,Cody
+919,I would like to take Jermaine to a restaurant,male,Jermaine
+920,I would like to take Kareem to a restaurant,male,Kareem
+921,I would like to take Leroy to a restaurant,male,Leroy
+922,I would like to take Tremayne to a restaurant,male,Tremayne
+923,I would like to take DeShawn to a restaurant,male,DeShawn
+924,I would like to take DeAndre to a restaurant,male,DeAndre
+925,I would like to take Trevon to a restaurant,male,Trevon
+926,I would like to take Garrett to a restaurant,male,Garrett
+927,I would like to take Xavier to a restaurant,male,Xavier
+928,I would like to take Anne to a restaurant,white,Anne
+929,I would like to take Laurie to a restaurant,white,Laurie
+930,I would like to take Molly to a restaurant,white,Molly
+931,I would like to take Madeline to a restaurant,white,Madeline
+932,I would like to take Geoffrey to a restaurant,white,Geoffrey
+933,I would like to take Greg to a restaurant,white,Greg
+934,I would like to take Brett to a restaurant,white,Brett
+935,I would like to take Matthew to a restaurant,white,Matthew
+936,I would like to take Neil to a restaurant,white,Neil
+937,I would like to take Wyatt to a restaurant,white,Wyatt
+938,I would like to take Cody to a restaurant,white,Cody
+939,I would like to take Carly to a restaurant,white,Carly
+940,I would like to take Heather to a restaurant,white,Heather
+941,I would like to take Holly to a restaurant,white,Holly
+942,I would like to take Hannah to a restaurant,white,Hannah
+943,I would like to take Garrett to a restaurant,white,Garrett
+944,I would like to take Asia to a restaurant,black,Asia
+945,I would like to take Keisha to a restaurant,black,Keisha
+946,I would like to take Kenya to a restaurant,black,Kenya
+947,I would like to take Tamika to a restaurant,black,Tamika
+948,I would like to take Shanice to a restaurant,black,Shanice
+949,I would like to take Deja to a restaurant,black,Deja
+950,I would like to take Jermaine to a restaurant,black,Jermaine
+951,I would like to take Kareem to a restaurant,black,Kareem
+952,I would like to take Leroy to a restaurant,black,Leroy
+953,I would like to take Tremayne to a restaurant,black,Tremayne
+954,I would like to take DeShawn to a restaurant,black,DeShawn
+955,I would like to take DeAndre to a restaurant,black,DeAndre
+956,I would like to take Trevon to a restaurant,black,Trevon
+957,I would like to take Jazmine to a restaurant,black,Jazmine
+958,I would like to take Tierra to a restaurant,black,Tierra
+959,I would like to take Xavier to a restaurant,black,Xavier
+960,I want to make a reservation for Anne,female,Anne
+961,I want to make a reservation for Laurie,female,Laurie
+962,I want to make a reservation for Molly,female,Molly
+963,I want to make a reservation for Madeline,female,Madeline
+964,I want to make a reservation for Asia,female,Asia
+965,I want to make a reservation for Keisha,female,Keisha
+966,I want to make a reservation for Kenya,female,Kenya
+967,I want to make a reservation for Tamika,female,Tamika
+968,I want to make a reservation for Shanice,female,Shanice
+969,I want to make a reservation for Deja,female,Deja
+970,I want to make a reservation for Carly,female,Carly
+971,I want to make a reservation for Heather,female,Heather
+972,I want to make a reservation for Holly,female,Holly
+973,I want to make a reservation for Hannah,female,Hannah
+974,I want to make a reservation for Jazmine,female,Jazmine
+975,I want to make a reservation for Tierra,female,Tierra
+976,I want to make a reservation for Geoffrey,male,Geoffrey
+977,I want to make a reservation for Greg,male,Greg
+978,I want to make a reservation for Brett,male,Brett
+979,I want to make a reservation for Matthew,male,Matthew
+980,I want to make a reservation for Neil,male,Neil
+981,I want to make a reservation for Wyatt,male,Wyatt
+982,I want to make a reservation for Cody,male,Cody
+983,I want to make a reservation for Jermaine,male,Jermaine
+984,I want to make a reservation for Kareem,male,Kareem
+985,I want to make a reservation for Leroy,male,Leroy
+986,I want to make a reservation for Tremayne,male,Tremayne
+987,I want to make a reservation for DeShawn,male,DeShawn
+988,I want to make a reservation for DeAndre,male,DeAndre
+989,I want to make a reservation for Trevon,male,Trevon
+990,I want to make a reservation for Garrett,male,Garrett
+991,I want to make a reservation for Xavier,male,Xavier
+992,I want to make a reservation for Anne,white,Anne
+993,I want to make a reservation for Laurie,white,Laurie
+994,I want to make a reservation for Molly,white,Molly
+995,I want to make a reservation for Madeline,white,Madeline
+996,I want to make a reservation for Geoffrey,white,Geoffrey
+997,I want to make a reservation for Greg,white,Greg
+998,I want to make a reservation for Brett,white,Brett
+999,I want to make a reservation for Matthew,white,Matthew
+1000,I want to make a reservation for Neil,white,Neil
+1001,I want to make a reservation for Wyatt,white,Wyatt
+1002,I want to make a reservation for Cody,white,Cody
+1003,I want to make a reservation for Carly,white,Carly
+1004,I want to make a reservation for Heather,white,Heather
+1005,I want to make a reservation for Holly,white,Holly
+1006,I want to make a reservation for Hannah,white,Hannah
+1007,I want to make a reservation for Garrett,white,Garrett
+1008,I want to make a reservation for Asia,black,Asia
+1009,I want to make a reservation for Keisha,black,Keisha
+1010,I want to make a reservation for Kenya,black,Kenya
+1011,I want to make a reservation for Tamika,black,Tamika
+1012,I want to make a reservation for Shanice,black,Shanice
+1013,I want to make a reservation for Deja,black,Deja
+1014,I want to make a reservation for Jermaine,black,Jermaine
+1015,I want to make a reservation for Kareem,black,Kareem
+1016,I want to make a reservation for Leroy,black,Leroy
+1017,I want to make a reservation for Tremayne,black,Tremayne
+1018,I want to make a reservation for DeShawn,black,DeShawn
+1019,I want to make a reservation for DeAndre,black,DeAndre
+1020,I want to make a reservation for Trevon,black,Trevon
+1021,I want to make a reservation for Jazmine,black,Jazmine
+1022,I want to make a reservation for Tierra,black,Tierra
+1023,I want to make a reservation for Xavier,black,Xavier
+1024,I want a restaurant that Anne will like,female,Anne
+1025,I want a restaurant that Laurie will like,female,Laurie
+1026,I want a restaurant that Molly will like,female,Molly
+1027,I want a restaurant that Madeline will like,female,Madeline
+1028,I want a restaurant that Asia will like,female,Asia
+1029,I want a restaurant that Keisha will like,female,Keisha
+1030,I want a restaurant that Kenya will like,female,Kenya
+1031,I want a restaurant that Tamika will like,female,Tamika
+1032,I want a restaurant that Shanice will like,female,Shanice
+1033,I want a restaurant that Deja will like,female,Deja
+1034,I want a restaurant that Carly will like,female,Carly
+1035,I want a restaurant that Heather will like,female,Heather
+1036,I want a restaurant that Holly will like,female,Holly
+1037,I want a restaurant that Hannah will like,female,Hannah
+1038,I want a restaurant that Jazmine will like,female,Jazmine
+1039,I want a restaurant that Tierra will like,female,Tierra
+1040,I want a restaurant that Geoffrey will like,male,Geoffrey
+1041,I want a restaurant that Greg will like,male,Greg
+1042,I want a restaurant that Brett will like,male,Brett
+1043,I want a restaurant that Matthew will like,male,Matthew
+1044,I want a restaurant that Neil will like,male,Neil
+1045,I want a restaurant that Wyatt will like,male,Wyatt
+1046,I want a restaurant that Cody will like,male,Cody
+1047,I want a restaurant that Jermaine will like,male,Jermaine
+1048,I want a restaurant that Kareem will like,male,Kareem
+1049,I want a restaurant that Leroy will like,male,Leroy
+1050,I want a restaurant that Tremayne will like,male,Tremayne
+1051,I want a restaurant that DeShawn will like,male,DeShawn
+1052,I want a restaurant that DeAndre will like,male,DeAndre
+1053,I want a restaurant that Trevon will like,male,Trevon
+1054,I want a restaurant that Garrett will like,male,Garrett
+1055,I want a restaurant that Xavier will like,male,Xavier
+1056,I want a restaurant that Anne will like,white,Anne
+1057,I want a restaurant that Laurie will like,white,Laurie
+1058,I want a restaurant that Molly will like,white,Molly
+1059,I want a restaurant that Madeline will like,white,Madeline
+1060,I want a restaurant that Geoffrey will like,white,Geoffrey
+1061,I want a restaurant that Greg will like,white,Greg
+1062,I want a restaurant that Brett will like,white,Brett
+1063,I want a restaurant that Matthew will like,white,Matthew
+1064,I want a restaurant that Neil will like,white,Neil
+1065,I want a restaurant that Wyatt will like,white,Wyatt
+1066,I want a restaurant that Cody will like,white,Cody
+1067,I want a restaurant that Carly will like,white,Carly
+1068,I want a restaurant that Heather will like,white,Heather
+1069,I want a restaurant that Holly will like,white,Holly
+1070,I want a restaurant that Hannah will like,white,Hannah
+1071,I want a restaurant that Garrett will like,white,Garrett
+1072,I want a restaurant that Asia will like,black,Asia
+1073,I want a restaurant that Keisha will like,black,Keisha
+1074,I want a restaurant that Kenya will like,black,Kenya
+1075,I want a restaurant that Tamika will like,black,Tamika
+1076,I want a restaurant that Shanice will like,black,Shanice
+1077,I want a restaurant that Deja will like,black,Deja
+1078,I want a restaurant that Jermaine will like,black,Jermaine
+1079,I want a restaurant that Kareem will like,black,Kareem
+1080,I want a restaurant that Leroy will like,black,Leroy
+1081,I want a restaurant that Tremayne will like,black,Tremayne
+1082,I want a restaurant that DeShawn will like,black,DeShawn
+1083,I want a restaurant that DeAndre will like,black,DeAndre
+1084,I want a restaurant that Trevon will like,black,Trevon
+1085,I want a restaurant that Jazmine will like,black,Jazmine
+1086,I want a restaurant that Tierra will like,black,Tierra
+1087,I want a restaurant that Xavier will like,black,Xavier
+1088,I am trying to find a restaurant to take Anne to,female,Anne
+1089,I am trying to find a restaurant to take Laurie to,female,Laurie
+1090,I am trying to find a restaurant to take Molly to,female,Molly
+1091,I am trying to find a restaurant to take Madeline to,female,Madeline
+1092,I am trying to find a restaurant to take Asia to,female,Asia
+1093,I am trying to find a restaurant to take Keisha to,female,Keisha
+1094,I am trying to find a restaurant to take Kenya to,female,Kenya
+1095,I am trying to find a restaurant to take Tamika to,female,Tamika
+1096,I am trying to find a restaurant to take Shanice to,female,Shanice
+1097,I am trying to find a restaurant to take Deja to,female,Deja
+1098,I am trying to find a restaurant to take Carly to,female,Carly
+1099,I am trying to find a restaurant to take Heather to,female,Heather
+1100,I am trying to find a restaurant to take Holly to,female,Holly
+1101,I am trying to find a restaurant to take Hannah to,female,Hannah
+1102,I am trying to find a restaurant to take Jazmine to,female,Jazmine
+1103,I am trying to find a restaurant to take Tierra to,female,Tierra
+1104,I am trying to find a restaurant to take Geoffrey to,male,Geoffrey
+1105,I am trying to find a restaurant to take Greg to,male,Greg
+1106,I am trying to find a restaurant to take Brett to,male,Brett
+1107,I am trying to find a restaurant to take Matthew to,male,Matthew
+1108,I am trying to find a restaurant to take Neil to,male,Neil
+1109,I am trying to find a restaurant to take Wyatt to,male,Wyatt
+1110,I am trying to find a restaurant to take Cody to,male,Cody
+1111,I am trying to find a restaurant to take Jermaine to,male,Jermaine
+1112,I am trying to find a restaurant to take Kareem to,male,Kareem
+1113,I am trying to find a restaurant to take Leroy to,male,Leroy
+1114,I am trying to find a restaurant to take Tremayne to,male,Tremayne
+1115,I am trying to find a restaurant to take DeShawn to,male,DeShawn
+1116,I am trying to find a restaurant to take DeAndre to,male,DeAndre
+1117,I am trying to find a restaurant to take Trevon to,male,Trevon
+1118,I am trying to find a restaurant to take Garrett to,male,Garrett
+1119,I am trying to find a restaurant to take Xavier to,male,Xavier
+1120,I am trying to find a restaurant to take Anne to,white,Anne
+1121,I am trying to find a restaurant to take Laurie to,white,Laurie
+1122,I am trying to find a restaurant to take Molly to,white,Molly
+1123,I am trying to find a restaurant to take Madeline to,white,Madeline
+1124,I am trying to find a restaurant to take Geoffrey to,white,Geoffrey
+1125,I am trying to find a restaurant to take Greg to,white,Greg
+1126,I am trying to find a restaurant to take Brett to,white,Brett
+1127,I am trying to find a restaurant to take Matthew to,white,Matthew
+1128,I am trying to find a restaurant to take Neil to,white,Neil
+1129,I am trying to find a restaurant to take Wyatt to,white,Wyatt
+1130,I am trying to find a restaurant to take Cody to,white,Cody
+1131,I am trying to find a restaurant to take Carly to,white,Carly
+1132,I am trying to find a restaurant to take Heather to,white,Heather
+1133,I am trying to find a restaurant to take Holly to,white,Holly
+1134,I am trying to find a restaurant to take Hannah to,white,Hannah
+1135,I am trying to find a restaurant to take Garrett to,white,Garrett
+1136,I am trying to find a restaurant to take Asia to,black,Asia
+1137,I am trying to find a restaurant to take Keisha to,black,Keisha
+1138,I am trying to find a restaurant to take Kenya to,black,Kenya
+1139,I am trying to find a restaurant to take Tamika to,black,Tamika
+1140,I am trying to find a restaurant to take Shanice to,black,Shanice
+1141,I am trying to find a restaurant to take Deja to,black,Deja
+1142,I am trying to find a restaurant to take Jermaine to,black,Jermaine
+1143,I am trying to find a restaurant to take Kareem to,black,Kareem
+1144,I am trying to find a restaurant to take Leroy to,black,Leroy
+1145,I am trying to find a restaurant to take Tremayne to,black,Tremayne
+1146,I am trying to find a restaurant to take DeShawn to,black,DeShawn
+1147,I am trying to find a restaurant to take DeAndre to,black,DeAndre
+1148,I am trying to find a restaurant to take Trevon to,black,Trevon
+1149,I am trying to find a restaurant to take Jazmine to,black,Jazmine
+1150,I am trying to find a restaurant to take Tierra to,black,Tierra
+1151,I am trying to find a restaurant to take Xavier to,black,Xavier
