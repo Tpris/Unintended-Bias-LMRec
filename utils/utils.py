@@ -3,8 +3,8 @@ import os
 import pandas as pd
 import pickle
 import numpy as np
-import tensorflow as tf
-from tokenizers import BertWordPieceTokenizer
+# import tensorflow as tf
+# from tokenizers import BertWordPieceTokenizer
 # from tensorflow 
 # import keras
 # from keras import layers
@@ -197,7 +197,7 @@ class Bert_mitigator(nn.Module):
 
     self.mitigator = nn.Sequential(
         nn.Linear(nb_output, nb_output),
-        nn.Softmax(0),
+        nn.Softmax(1),
         nn.Linear(nb_output, 4),
     )
 

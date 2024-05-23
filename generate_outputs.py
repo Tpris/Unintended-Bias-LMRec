@@ -13,10 +13,10 @@ import pickle
 
 import numpy as np
 import pandas as pd
-import tensorflow as tf
+# import tensorflow as tf
 import torch
 from tqdm import tqdm
-from torch import nn
+# from torch import nn
 
 from utils.utils import create_model, get_input_list, create_model_mitigator, load_weight_mitigator
 
@@ -28,7 +28,7 @@ if __name__ == "__main__":
     parser.add_argument('--test_neutralization', action='store_true', help='whether to perform test-side neutralization towards the results')
     parser.add_argument('--use_tpu', action='store_true', help='whether to use tpu')
     parser.add_argument('--model_dir_root', type=str, default='models/{}/model.pt')
-    parser.add_argument('--model_mit_dir_root', type=str, default='models/{}/model_mit.pt')
+    parser.add_argument('--model_mit_dir_root', type=str, default='models/{}/model_2train_2.pt')
     parser.add_argument('--label_dir_root', type=str, default='data/Yelp_cities/{}_trainValidTest/')
     parser.add_argument('--biasAnalysis_path', type=str, default='data/bias_analysis/yelp/')
     p = parser.parse_args()
@@ -40,7 +40,8 @@ if __name__ == "__main__":
     print('Model directory', model_dir)
     print('Label directory', label_dir)
 
-    MITIGATOR = False
+    MITIGATOR_PATCH = False
+    MITIGATOR = True
 
     # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     device = "cpu"
@@ -83,7 +84,7 @@ if __name__ == "__main__":
 
     """Load model and labels"""
     # labels = pickle.load(open(label_dir + "labels.pickle", 'rb'))
-    df = pd.read_csv('data/Yelp_cities/'+p.city_name+'_reviews.csv')
+    df = pd.read_csv('data/Yelp_cities/'+p.city_name+'_reviews.csv', lineterminator='\n')
     df_count = df.groupby('business_id').count()
     df_plus = df_count[df_count.review_id >= 2]
     df = df[df.business_id.isin(df_plus.index)]
@@ -97,9 +98,12 @@ if __name__ == "__main__":
     labels = list(df['business_id'].unique())
 
     loaded_model = create_model(max_len=max_len, labels=labels, device=device)
-    loaded_model.load_state_dict(torch.load(model_dir))
+    if not MITIGATOR:
+        loaded_model.load_state_dict(torch.load(model_dir))
+    else:
+        loaded_model.load_state_dict(torch.load(model_mit_dir))
 
-    if MITIGATOR:
+    if MITIGATOR_PATCH:
         loaded_model = create_model_mitigator(loaded_model)
         loaded_model = load_weight_mitigator(loaded_model, model_mit_dir)
         # loaded_model.load_state_dict(torch.load(model_mit_dir))
@@ -118,7 +122,7 @@ if __name__ == "__main__":
             pred_list = ()
             list_sent = current_df['input_sentence'].to_list()
             print(len(list_sent))
-            STEP = 500
+            STEP = 200
             for i in tqdm(range(0, len(list_sent), STEP)):
                 max = i+STEP if i+STEP <len(list_sent) else len(list_sent)
                 input = get_input_list(list_sent[i:max], max_len, device)
