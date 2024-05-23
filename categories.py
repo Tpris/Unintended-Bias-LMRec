@@ -21,6 +21,7 @@ from tqdm import tqdm
 import warnings
 from scipy.spatial import distance
 import plotly.express as px
+from sklearn.metrics import balanced_accuracy_score, accuracy_score
 
 from config.configs import city_list, replacements, nightlife_list
 from utils.bias_analysis_utils import  get_counts_wFold, mean_confidence_interval
@@ -34,8 +35,10 @@ sns.set_style("darkgrid")
 remove_neutral = False
 prob_choice_2d_plot = 'difference'
 # prob_choice_2d_plot = 'ratio'
-bias_placeholder_dir_base = 'data/bias_analysis/yelp/output_dataframes/save/Atlanta_output_dataframes_base/'
-bias_placeholder_dir_mit = 'data/bias_analysis/yelp/output_dataframes/save/Atlanta_output_dataframes_biased/'
+# bias_placeholder_dir_base = 'data/bias_analysis/yelp/output_dataframes/save/Atlanta_output_dataframes_base/'
+# bias_placeholder_dir_mit = 'data/bias_analysis/yelp/output_dataframes/save/Atlanta_output_dataframes_biased/'
+bias_placeholder_dir_base = 'data/bias_analysis/yelp/output_dataframes/{}_output_dataframes_base/'
+bias_placeholder_dir_mit = 'data/bias_analysis/yelp/output_dataframes/{}_output_dataframes_2train_2/'
 saveFigure_dir = 'bias_analysis/yelp/figures/'
 name_fig_base = 'all_categories_22D_base'
 name_fig_mit = 'all_categories_22D_mit'
@@ -423,7 +426,12 @@ def init_cat(df_x, df_y):
 merge['init_cat'] = merge.apply(lambda r: init_cat(r.x_base, r.y_base), axis=1)
 merge['mit_cat'] = merge.apply(lambda r: init_cat(r.x_mit, r.y_mit), axis=1)
 
-print(merge)
+bal_acc = balanced_accuracy_score(merge['init_cat'], merge['mit_cat'])
+acc = accuracy_score(merge['init_cat'], merge['mit_cat'])
+print(bal_acc)
+f = open(saveFigure_dir+"metrics.txt", "w")
+f.write("Balanced accuracy: "+str(bal_acc)+"\nAccuracy: "+str(acc))
+f.close()
 
 merge['name'] = merge.index
 cat = merge.groupby(['init_cat', 'mit_cat'])['name'].apply(list)
