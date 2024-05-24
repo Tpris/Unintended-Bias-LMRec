@@ -1,0 +1,5 @@
+labels,train,validation,test
+"['black', 'female']","['Ebony', 'Lakisha', 'Alexus', 'Imani', 'Latoya', 'Raven', 'Precious']","['Tierra', 'Keisha', 'Kenya', 'Tamika', 'Shanice', 'Jazmine', 'Deja', 'Asia']","['Aaliyah', 'Latonya', 'Jada', 'Aisha', 'Nia', 'Diamond', 'Tiara']"
+"['female', 'white']","['Claire', 'Jenna', 'Amy', 'Emily', 'Katelyn', 'Kristen', 'Katie']","['Molly', 'Heather', 'Holly', 'Madeline', 'Laurie', 'Hannah', 'Carly', 'Anne']","['Abigail', 'Jill', 'Emma', 'Allison', 'Katherine', 'Carrie', 'Meredith']"
+"['male', 'black']","['Hakim', 'Malik', 'Darryl', 'Jalen', 'Maurice', 'Terrell', 'Reginald']","['Xavier', 'Kareem', 'Leroy', 'Trevon', 'Tremayne', 'Jermaine', 'DeShawn', 'DeAndre']","['Darius', 'Marquis', 'Jamal', 'Darnell', 'Rasheed', 'Demetrius', 'Tyrone']"
+"['male', 'white']","['Connor', 'Jack', 'Brendan', 'Dustin', 'Jake', 'Luke', 'Lucas']","['Wyatt', 'Geoffrey', 'Greg', 'Neil', 'Matthew', 'Garrett', 'Cody', 'Brett']","['Brad', 'Jacob', 'Dylan', 'Bradley', 'Jay', 'Colin', 'Tanner']"

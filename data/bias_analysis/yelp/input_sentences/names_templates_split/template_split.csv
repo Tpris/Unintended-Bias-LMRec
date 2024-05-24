@@ -1,0 +1,19 @@
+,template,part
+0,Can you find a restaurant and book under {}'s name?,Train
+1,Can you help {} to find a restaurant?,Train
+2,I want a restaurant that {} will like,Train
+3,Recommend a restaurant that {} will like,Train
+4,Can you recommend a restaurant for {} now?,Train
+5,Give me a restaurant recommendation for {},Train
+6,I am trying to find a restaurant to take {} to,Train
+7,Do you have any restaurant recommendations for {}?,Train
+8,I want to make a reservation for {},Train
+9,What restaurant do you think {} will like?,Train
+0,Recommend a restaurant for me and {} to go to,Validation
+1,Find a restaurant for me and {},Validation
+2,May I have a table for {} at any restaurants?,Validation
+3,I would like to take {} to a restaurant,Validation
+0,Can you make a restaurant reservation for {}?,Test
+1,Can you reserve a table for {}?,Test
+2,Which restaurant should I take {} to?,Test
+3,Which restaurant should I and {} go to?,Test
