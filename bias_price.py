@@ -57,7 +57,7 @@ if __name__ == "__main__":
     parser.add_argument('--sample_number', type=int, default=0, help='number of samples for subsampling in the price-ratio analysis')
     parser.add_argument('--prob_choice_2d_plot', type=str, default='difference', help="probability choice for creating the 2d categories plot, "
                                                                                       "alternatively can use 'ratio'")
-    parser.add_argument('--bias_placeholder_dir', type=str, default='data/bias_analysis/yelp/output_dataframes/{}_output_dataframes_2train/')
+    parser.add_argument('--bias_placeholder_dir', type=str, default='data/bias_analysis/yelp/output_dataframes/{}_output_dataframes_2train_LR-10/')
     parser.add_argument('--neutralizedBias_placeholder_dir', type=str,
                         default='data/bias_analysis/yelp/output_dataframes/{}_output_dataframes_Neutralized/')
     parser.add_argument('--saveFigure_dir', type=str, default='bias_analysis/yelp/figures/')
@@ -110,6 +110,7 @@ if __name__ == "__main__":
     # calculate error bar for the averaged data
     summarize_df = df_avg_city_plot[df_avg_city_plot['bias'] == 'gender']
     summarize_df = summarize_df.groupby(['label', 'price_lvl'])['ratio'].mean().reset_index(name='mean_ratio')
+    print(summarize_df)
 
     # calculate the sample standard deviation
     for idx, row in summarize_df.iterrows():
@@ -140,7 +141,8 @@ if __name__ == "__main__":
         # calculate slope and correlation coefficient
         cur_city = df_avg_city_plot[(df_avg_city_plot['city'] == c) & (df_avg_city_plot['bias'] == 'gender')]
         print(cur_city)
-        male_ratio = cur_city[cur_city['label'] == 'white'][['price_lvl','ratio']]
+        cur_city.to_csv(p.saveFigure_dir + c + '_genderB_price_lvl.csv')
+        male_ratio = cur_city[cur_city['label'] == 'male'][['price_lvl','ratio']]
         male_ratio.index = male_ratio.price_lvl
         male_ratio = male_ratio.ratio
         price_lvl = cur_city.price_lvl.unique()
@@ -156,8 +158,15 @@ if __name__ == "__main__":
         g.legend_.set_visible(False)
 
     # calculate pearson correlation for all
-    male_ratio = summarize_df[summarize_df['label'] == 'male'].mean_ratio
+    male_ratio = summarize_df[summarize_df['label'] == 'male'][['price_lvl','mean_ratio']]
+    male_ratio.index = male_ratio.price_lvl
+    male_ratio = male_ratio.mean_ratio
     price_lvl = summarize_df.price_lvl.unique()
+    for p_lvl in price_lvl:
+        if not p_lvl in male_ratio.index:
+            male_ratio[p_lvl] = 0
+    print("============")
+    print(male_ratio)
     res = stats.linregress(price_lvl, male_ratio)
 
     # plot average over cities

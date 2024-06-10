@@ -57,13 +57,14 @@ if __name__ == "__main__":
     parser.add_argument('--sample_number', type=int, default=0, help='number of samples for subsampling in the price-ratio analysis')
     parser.add_argument('--prob_choice_2d_plot', type=str, default='difference', help="probability choice for creating the 2d categories plot, "
                                                                                       "alternatively can use 'ratio'")
-    parser.add_argument('--bias_placeholder_dir', type=str, default='data/bias_analysis/yelp/output_dataframes/{}_output_dataframes/')
+    parser.add_argument('--bias_placeholder_dir', type=str, default='data/bias_analysis/yelp/output_dataframes/{}_output_dataframes_2train_LR-10/')
     parser.add_argument('--neutralizedBias_placeholder_dir', type=str,
                         default='data/bias_analysis/yelp/output_dataframes/{}_output_dataframes_Neutralized/')
     parser.add_argument('--saveFigure_dir', type=str, default='bias_analysis/yelp/figures/')
     p = parser.parse_args()
 
     p.save_figure = True
+    p.test_neutralization = False
 
     """
     Settings
@@ -76,6 +77,13 @@ if __name__ == "__main__":
     """ 
     1.Price ratio for race
     """
+    def get_list_cat(df_city_all_plot):
+        cat = df_city_all_plot['categories'].to_numpy().flatten()
+        cat = [c.lower() for c in cat]
+        cat2 = []
+        for c in cat : cat2 += c.split(', ')
+        return list(set(cat2))
+    
     print('-' * 20 + '1/6: Generating bar charts for price ratio' + '-' * 20)
     df_list = []
     for cityName in city_list:
@@ -123,6 +131,8 @@ if __name__ == "__main__":
 
     # loop through each city to create the plot
     for c_idx, c in enumerate(df_avg_city_plot.city.unique()):
+        print('---------------------')
+        print(c)
         g = sns.barplot(x="price_lvl", y="ratio", hue='label',
                         data=df_avg_city_plot[(df_avg_city_plot['bias'] == 'race') & (df_avg_city_plot['city'] == c)], ax=axes[c_idx])
         # Neutralization line
@@ -134,8 +144,15 @@ if __name__ == "__main__":
 
         # calculate slope and correlation coefficient
         cur_city = df_avg_city_plot[(df_avg_city_plot['city'] == c) & (df_avg_city_plot['bias'] == 'race')]
-        white_ratio = cur_city[cur_city['label'] == 'white'].ratio
+        print(cur_city)
+        cur_city.to_csv(p.saveFigure_dir + c + '_raceB_price_lvl.csv')
+        white_ratio = cur_city[cur_city['label'] == 'white'][['price_lvl','ratio']]
+        white_ratio.index = white_ratio.price_lvl
+        white_ratio = white_ratio.ratio
         price_lvl = cur_city.price_lvl.unique()
+        for p_lvl in price_lvl:
+            if not p_lvl in white_ratio.index:
+                white_ratio[p_lvl] = 0
         res = stats.linregress(price_lvl, white_ratio)
 
         axes[c_idx].set_title(c + '\n', fontsize=13)
@@ -144,8 +161,13 @@ if __name__ == "__main__":
         g.legend_.set_visible(False)
 
     # calculate pearson correlation for all
-    white_ratio = summarize_df[summarize_df['label'] == 'white'].mean_ratio
+    white_ratio = summarize_df[summarize_df['label'] == 'white'][['price_lvl','mean_ratio']]
+    white_ratio.index = white_ratio.price_lvl
+    white_ratio = white_ratio.mean_ratio
     price_lvl = summarize_df.price_lvl.unique()
+    for p_lvl in price_lvl:
+        if not p_lvl in white_ratio.index:
+            white_ratio[p_lvl] = 0
     res = stats.linregress(price_lvl, white_ratio)
 
     # plot average over cities
@@ -226,7 +248,7 @@ if __name__ == "__main__":
 
     f = sns.catplot(x="price_lvl", y="ratio", hue='joint_bias', kind='point', col='label', units='city',
                     data=df_price_ratio_joint_plot[df_price_ratio_joint_plot['label'].isin(['female', 'male'])], ci=90,
-                    legend=False, dodge=0.1)
+                    legend=True, dodge=0.1)
     plt.axhline(25, ls='--', c='gray')
 
     ''' add neutralized line'''
@@ -304,8 +326,9 @@ if __name__ == "__main__":
     # use the difference
     point_list = []
 
-    with open('data/bias_analysis/yelp/Category_set_2D.txt', 'rb') as f:
-        Category_set_2D = pickle.load(f)
+    # with open('data/bias_analysis/yelp/Category_set_2D.txt', 'rb') as f:
+    #     Category_set_2D = pickle.load(f)
+    Category_set_2D = get_list_cat(df_city_all_plot)
     for name in Category_set_2D:  # USE THIS FOR CLEANER VERSION
         xVal_list = list()
         yVal_list = list()
@@ -651,73 +674,73 @@ if __name__ == "__main__":
     5.The 1D plot for occupation and religion
     """
     print('-' * 20 + '5/6: Generating 1D plot for occupation and religion' + '-' * 20)
-    df_occupation_orig = getOccupation_df(city_list, p.bias_placeholder_dir, use_folds=True, fold_number=10)
-    df_occupation_neutralized = getOccupation_df(city_list, p.neutralizedBias_placeholder_dir, use_folds=True, fold_number=10)
+    # df_occupation_orig = getOccupation_df(city_list, p.bias_placeholder_dir, use_folds=True, fold_number=10)
+    # df_occupation_neutralized = getOccupation_df(city_list, p.neutralizedBias_placeholder_dir, use_folds=True, fold_number=10)
 
-    """Vertical view"""
-    margin = 0.03
-    df_plotOrigin = create_occupationPlotDf(df_occupation_orig, type_to_show='location')
-    df_plotNeutralized = create_occupationPlotDf(df_occupation_neutralized, type_to_show='location')
-    df_plotOrigin_rel = create_occupationPlotDf(df_occupation_orig, type_to_show='religion')
-    df_plotNeutralized_rel = create_occupationPlotDf(df_occupation_neutralized, type_to_show='religion')
-    f, (ax1, ax2) = plt.subplots(1, 2, sharey=False, figsize=(6, 7))
+    # """Vertical view"""
+    # margin = 0.03
+    # df_plotOrigin = create_occupationPlotDf(df_occupation_orig, type_to_show='location')
+    # df_plotNeutralized = create_occupationPlotDf(df_occupation_neutralized, type_to_show='location')
+    # df_plotOrigin_rel = create_occupationPlotDf(df_occupation_orig, type_to_show='religion')
+    # df_plotNeutralized_rel = create_occupationPlotDf(df_occupation_neutralized, type_to_show='religion')
+    # f, (ax1, ax2) = plt.subplots(1, 2, sharey=False, figsize=(6, 7))
 
-    '''location'''
-    # orig data
-    y_pos = np.arange(len(df_plotOrigin))
-    avg_price = df_plotOrigin['Average Price Level']
-    error = df_plotOrigin['Error']
+    # '''location'''
+    # # orig data
+    # y_pos = np.arange(len(df_plotOrigin))
+    # avg_price = df_plotOrigin['Average Price Level']
+    # error = df_plotOrigin['Error']
 
-    '''neutralized data'''
-    y_posNeutral = np.arange(len(df_plotNeutralized))
-    avg_priceNeutral = df_plotNeutralized['Average Price Level']
-    errorNeutral = df_plotNeutralized['Error']
+    # '''neutralized data'''
+    # y_posNeutral = np.arange(len(df_plotNeutralized))
+    # avg_priceNeutral = df_plotNeutralized['Average Price Level']
+    # errorNeutral = df_plotNeutralized['Error']
 
-    ax1.set_xlim(min(list(avg_price) + list(avg_priceNeutral)) - margin, max(list(avg_price) + list(avg_priceNeutral)) + margin)
-    # orig data
-    ax1.barh(y_pos, avg_price, xerr=error, align='center', color='white')
-    ax1.plot(avg_price, y_pos, '-o', zorder=2, label='original')
+    # ax1.set_xlim(min(list(avg_price) + list(avg_priceNeutral)) - margin, max(list(avg_price) + list(avg_priceNeutral)) + margin)
+    # # orig data
+    # ax1.barh(y_pos, avg_price, xerr=error, align='center', color='white')
+    # ax1.plot(avg_price, y_pos, '-o', zorder=2, label='original')
 
-    ''' neutralized data'''
-    ax1.barh(y_posNeutral, avg_priceNeutral, xerr=errorNeutral, align='center', color='white')
-    ax1.plot(avg_priceNeutral, y_posNeutral, '-o', zorder=2, label='neutral reference')
+    # ''' neutralized data'''
+    # ax1.barh(y_posNeutral, avg_priceNeutral, xerr=errorNeutral, align='center', color='white')
+    # ax1.plot(avg_priceNeutral, y_posNeutral, '-o', zorder=2, label='neutral reference')
 
-    ax1.set_yticks(y_pos)
-    ax1.set_yticklabels(list(df_plotOrigin['Example Label']), fontsize=15)
-    # plt.yticks(y_pos, labels=list(df_plotOrigin['Example Label']))
-    # ax1.set_xlabel("Average Price Level")
-    # ax1.legend(loc='upper left')
-    '''religion'''
-    # orig data
-    y_pos = np.arange(len(df_plotOrigin_rel))
-    avg_price = df_plotOrigin_rel['Average Price Level']
-    error = df_plotOrigin_rel['Error']
+    # ax1.set_yticks(y_pos)
+    # ax1.set_yticklabels(list(df_plotOrigin['Example Label']), fontsize=15)
+    # # plt.yticks(y_pos, labels=list(df_plotOrigin['Example Label']))
+    # # ax1.set_xlabel("Average Price Level")
+    # # ax1.legend(loc='upper left')
+    # '''religion'''
+    # # orig data
+    # y_pos = np.arange(len(df_plotOrigin_rel))
+    # avg_price = df_plotOrigin_rel['Average Price Level']
+    # error = df_plotOrigin_rel['Error']
 
-    '''neutralized data'''
-    y_posNeutral = np.arange(len(df_plotNeutralized_rel))
-    avg_priceNeutral = df_plotNeutralized_rel['Average Price Level']
-    errorNeutral = df_plotNeutralized_rel['Error']
+    # '''neutralized data'''
+    # y_posNeutral = np.arange(len(df_plotNeutralized_rel))
+    # avg_priceNeutral = df_plotNeutralized_rel['Average Price Level']
+    # errorNeutral = df_plotNeutralized_rel['Error']
 
-    ax2.set_xlim(min(list(avg_price) + list(avg_priceNeutral)) - margin, max(list(avg_price) + list(avg_priceNeutral)) + margin)
-    # orig data
-    ax2.barh(y_pos, avg_price, xerr=error, align='center', color='white')
-    ax2.plot(avg_price, y_pos, '-o', zorder=2, label='original')
+    # ax2.set_xlim(min(list(avg_price) + list(avg_priceNeutral)) - margin, max(list(avg_price) + list(avg_priceNeutral)) + margin)
+    # # orig data
+    # ax2.barh(y_pos, avg_price, xerr=error, align='center', color='white')
+    # ax2.plot(avg_price, y_pos, '-o', zorder=2, label='original')
 
-    '''neutralized data'''
-    ax2.barh(y_posNeutral, avg_priceNeutral, xerr=errorNeutral, align='center', color='white')
-    ax2.plot(avg_priceNeutral, y_posNeutral, '-o', zorder=2, label='neutral reference')
+    # '''neutralized data'''
+    # ax2.barh(y_posNeutral, avg_priceNeutral, xerr=errorNeutral, align='center', color='white')
+    # ax2.plot(avg_priceNeutral, y_posNeutral, '-o', zorder=2, label='neutral reference')
 
-    ax2.yaxis.tick_right()
-    ax2.set_yticks(y_pos)
-    ax2.set_yticklabels(list(df_plotOrigin_rel['Example Label']), fontsize=15)
-    ax2.legend()
+    # ax2.yaxis.tick_right()
+    # ax2.set_yticks(y_pos)
+    # ax2.set_yticklabels(list(df_plotOrigin_rel['Example Label']), fontsize=15)
+    # ax2.legend()
 
-    plt.subplots_adjust(wspace=0.02, hspace=0)
-    f.text(0.5, 0.04, "Average Price Level", ha='center', fontsize=15)
-    plt.legend(loc='upper center', bbox_to_anchor=[0.5, 0.95], ncol=2,
-               bbox_transform=plt.gcf().transFigure, fontsize=13)
-    if p.save_figure:
-        plt.savefig(p.saveFigure_dir + 'avg_price_linechart_errorBar_vertical.pdf', bbox_inches='tight')
+    # plt.subplots_adjust(wspace=0.02, hspace=0)
+    # f.text(0.5, 0.04, "Average Price Level", ha='center', fontsize=15)
+    # plt.legend(loc='upper center', bbox_to_anchor=[0.5, 0.95], ncol=2,
+    #            bbox_transform=plt.gcf().transFigure, fontsize=13)
+    # if p.save_figure:
+    #     plt.savefig(p.saveFigure_dir + 'avg_price_linechart_errorBar_vertical.pdf', bbox_inches='tight')
 
     """
     6.Wordcloud analysis
@@ -951,15 +974,16 @@ if __name__ == "__main__":
     for bias, item_names in item_name_dict.items():
         print(bias)
         item_name = [name for name in item_names if name not in hide_name]
+        if item_names:
 
-        if replacement_dict:
-            wordcloud = WordCloud(collocations=False, max_words=100, background_color="white").generate(
-                multireplace(' . '.join(item_names), replacement_dict).replace('py', ''))
-        else:
-            wordcloud = WordCloud(collocations=False, max_words=100, background_color="white").generate(' . '.join(item_names))
+            if replacement_dict:
+                wordcloud = WordCloud(collocations=False, max_words=100, background_color="white").generate(
+                    multireplace(' . '.join(item_names), replacement_dict).replace('py', ''))
+            else:
+                wordcloud = WordCloud(collocations=False, max_words=100, background_color="white").generate(' . '.join(item_names))
 
-        plt.figure(figsize=[10, 8])
-        plt.imshow(wordcloud, interpolation='bilinear')
-        plt.axis("off")
-        if p.save_figure:
-            wordcloud.to_file('{}wordcloud_singleBias/split_cat_{}.pdf'.format(p.saveFigure_dir, bias))
+            plt.figure(figsize=[10, 8])
+            plt.imshow(wordcloud, interpolation='bilinear')
+            plt.axis("off")
+            if p.save_figure:
+                wordcloud.to_file('{}wordcloud_singleBias/split_cat_{}.pdf'.format(p.saveFigure_dir, bias))
