@@ -20,14 +20,30 @@ def get_groupby_business(df):
 def get_groupby_price(df):
     return df.groupby('price').count()
 
-def get_sentence_with_other_labels(df, id_row, input_data, name_lab):
+def get_sentence_with_other_labels(input_data, id_row, name_lab):
   id = input_data.iloc[id_row]['idx_sentence']
   name = input_data.iloc[id_row]['example_label']
   labs = name_lab[name]
 
-  df = df[df['idx_sentence'] == id]
-  df = df[~df.label.isin(labs)].reset_index()
-  return df.iloc[random.randint(0,df.shape[0]-1)]['index']
+  input_data = input_data[input_data['idx_sentence'] == id]
+  input_data = input_data[~input_data.label.isin(labs)].reset_index()
+  return input_data.iloc[random.randint(0,input_data.shape[0]-1)]['index']
+
+def get_firsts_idxs(logits,n):
+  order_idx = torch.argsort(logits, descending=True)
+  return order_idx[:,:n]
+
+def mask_after_n_first(logits1, logits2,n, device):
+  first_idxs1 = get_firsts_idxs(logits1,n)
+  first_idxs2 = get_firsts_idxs(logits2,n)
+  merge = torch.cat((first_idxs1, first_idxs2), dim=1).to(device)
+  h,w = logits1.shape
+  n = torch.Tensor([np.arange(w)]*h).int().to(device)
+  for i, (ni, mi) in enumerate(zip(n,merge)): 
+    ni = ni[~torch.isin(ni,mi)]
+    logits1[i, ni] = 0
+    logits2[i, ni] = 0
+  return logits1, logits2
 
 def split(df,ratio = 0.9):
     msk = np.random.rand(len(df)) < ratio
@@ -111,7 +127,7 @@ def val_review(model, val_loader, criterion, device):
 
     return val_loss, acc
 
-def train_mit(model, train_loader, optimizer, criterion, epoch, device):
+def train_mit(model, train_loader, optimizer, criterion, device):
     model.train()
     train_loss, correct = 0, 0
     for data, data2 in tqdm(train_loader):
@@ -230,14 +246,16 @@ class Bert_mitigator(nn.Module):
   def __init__(self, LMRec, business_price, DECODER, EMBEDDING):
     super().__init__()
     self.LMRec = LMRec
-    # for param in self.LMRec.parameters():
-    #     param.requires_grad = False
-    # if DECODER:
-    #     for param in self.LMRec.classifier.parameters():
-    #         param.requires_grad = True
-    # if EMBEDDING:
-    #     for param in self.LMRec.bert.embeddings.parameters():
-    #         param.requires_grad = True
+
+    if DECODER or EMBEDDING:
+        for param in self.LMRec.parameters():
+            param.requires_grad = False
+        if DECODER:
+            for param in self.LMRec.classifier[-1].parameters():
+                param.requires_grad = True
+        if EMBEDDING:
+            for param in self.LMRec.bert.embeddings.parameters():
+                param.requires_grad = True
 
     nb_output = self.LMRec.classifier[-1].out_features
 
@@ -247,7 +265,7 @@ class Bert_mitigator(nn.Module):
     price_weight = price_weight.T
 
     self.mitigator = nn.Sequential(
-        nn.Softmax(1),
+        # nn.Softmax(1),
         nn.Linear(nb_output, 4),
     )
 
@@ -263,11 +281,10 @@ class Bert_mitigator(nn.Module):
   
 
 class MyMitDataset(Dataset):
-    def __init__(self, df, input_data, name_lab):
+    def __init__(self, input_data, name_lab):
         tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-        self.wrapped_input = tokenizer(df['input_sentence'].astype(str).tolist(), max_length=512, add_special_tokens=True, truncation=True,
+        self.wrapped_input = tokenizer(input_data['input_sentence'].astype(str).tolist(), max_length=512, add_special_tokens=True, truncation=True,
                           padding='max_length', return_tensors="pt")
-        self.df = df
         self.input_data = input_data
         self.name_lab= name_lab
 
@@ -276,7 +293,7 @@ class MyMitDataset(Dataset):
         for k in self.wrapped_input.keys():
             input_dict[k] = self.wrapped_input[k][idx]
 
-        idx2 = get_sentence_with_other_labels(self.df, idx, self.input_data, self.name_lab)
+        idx2 = get_sentence_with_other_labels(self.input_data, idx, self.name_lab)
         input_dict2 = {}
         for k in self.wrapped_input.keys():
             input_dict2[k] = self.wrapped_input[k][idx2]
@@ -284,7 +301,7 @@ class MyMitDataset(Dataset):
         return input_dict, input_dict2
 
     def __len__(self):
-        return self.df.shape[0]
+        return self.input_data.shape[0]
     
 
 class MyDataset(Dataset):
