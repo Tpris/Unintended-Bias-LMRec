@@ -1,12 +1,3 @@
-# import pickle
-
-# with open('data/bias_analysis/yelp/Category_set_2D.txt', 'rb') as f:
-#     Category_set_2D = pickle.load(f)
-# for name in Category_set_2D:  # USE THIS FOR CLEANER VERSION
-#     print(name)
-
-
-
 import pickle
 import matplotlib.pyplot as plt
 import nltk
@@ -33,12 +24,11 @@ stopwords = stopwords.words('english')
 sns.set_style("darkgrid")
 
 remove_neutral = False
+base_only = False
+
 prob_choice_2d_plot = 'difference'
-# prob_choice_2d_plot = 'ratio'
-# bias_placeholder_dir_base = 'data/bias_analysis/yelp/output_dataframes/save/Atlanta_output_dataframes_base/'
-# bias_placeholder_dir_mit = 'data/bias_analysis/yelp/output_dataframes/save/Atlanta_output_dataframes_biased/'
-bias_placeholder_dir_base = 'data/bias_analysis/yelp/output_dataframes/{}_output_dataframes_base/'
-bias_placeholder_dir_mit = 'data/bias_analysis/yelp/output_dataframes/{}_output_dataframes_2train_2/'
+bias_placeholder_dir_base = 'data/bias_analysis/yelp/output_dataframes/{}_output_dataframes_base_split_nt/'
+bias_placeholder_dir_mit = 'data/bias_analysis/yelp/output_dataframes/{}_output_dataframes_mit-50/'
 saveFigure_dir = 'bias_analysis/yelp/figures/'
 name_fig_base = 'all_categories_22D_base'
 name_fig_mit = 'all_categories_22D_mit'
@@ -277,13 +267,13 @@ def association_score(bias_placeholder_dir, name_figure):
         title=dict(
             text=r"$ \Large\mathrm{black} \longleftarrow \longrightarrow \mathrm{white}$",
             font=dict(size=40))
-        , range=[-0.4, 0.4]
+        , range=[-0.6, 0.6]
     ),
     yaxis=dict(
         title=dict(
             text=r"$ \Large\mathrm{male} \longleftarrow \longrightarrow \mathrm{female}$",
             font=dict(size=40))
-        , range=[-0.4, 0.4]
+        , range=[-0.6, 0.6]
     ),
     font=dict(
         family="Times New Roman",
@@ -328,34 +318,25 @@ def association_score(bias_placeholder_dir, name_figure):
     return point_list
 
 
+
+
+
 base_point = association_score(bias_placeholder_dir_base, name_fig_base)
-mit_point = association_score(bias_placeholder_dir_mit, name_fig_mit)
-
 base_point = pd.DataFrame(base_point, columns=['name', 'x_base', 'y_base', 'x_std', 'y_std'])
-mit_point = pd.DataFrame(mit_point, columns=['name', 'x_mit', 'y_mit', 'x_std', 'y_std'])
-
 base_point = base_point.drop(['x_std', 'y_std'], axis=1).set_index('name')
+
+if base_only:
+    exit()
+
+mit_point = association_score(bias_placeholder_dir_mit, name_fig_mit)
+mit_point = pd.DataFrame(mit_point, columns=['name', 'x_mit', 'y_mit', 'x_std', 'y_std'])
 mit_point = mit_point.drop(['x_std', 'y_std'], axis=1).set_index('name')
 
-print(base_point)
-print('='*20)
-print(mit_point)
-print('='*20)
-
 merge = pd.concat([base_point, mit_point], axis=1).replace(np.nan, 0)
-
-# merge_drop = merge[(merge['x_base'] == 0) & (merge['y_base'] == 0) & (merge['x_mit'] == 0) & (merge['y_mit'] == 0)].index
-# merge.drop(merge_drop, inplace=True)
-print(merge)
-print('='*20)
-
 
 merge['distance'] = merge.apply(lambda r: distance.euclidean((r.x_base,r.y_base),(r.x_mit,r.y_mit)), axis=1)
 merge['distance_x'] = merge.apply(lambda r: distance.euclidean((r.x_base,),(r.x_mit,)), axis=1)
 merge['distance_y'] = merge.apply(lambda r: distance.euclidean((r.y_base,),(r.y_mit,)), axis=1)
-print(merge)
-print('='*20)
-# print('fast food\n', merge.loc['fast food'])
 
 df00 = merge.drop(['x_base', 'y_base','x_mit', 'y_mit'], axis=1)
 df00 = df00.sort_values(by=['distance'])
@@ -397,19 +378,6 @@ if remove_neutral:
 else:
     fig.write_image("{}distance_y_full.pdf".format(saveFigure_dir), scale=1)
 
-# white_b = merge[merge['x_base']>0]
-# black_b = merge[merge['x_base']<0]
-# man_b   = merge[merge['y_base']<0]
-# woman_b = merge[merge['y_base']>0]
-
-# white_m = merge[merge['x_mit']>0]
-# black_m = merge[merge['x_mit']<0]
-# man_m   = merge[merge['y_mit']<0]
-# woman_m = merge[merge['y_mit']>0]
-
-# wm_b = merge[(merge.isin(white_b)) & (merge.isin(man_b))]
-# print(wm_b)
-
 def init_cat(df_x, df_y):
     if df_x ==0 and df_y == 0: # neutral
         return 0
@@ -435,7 +403,11 @@ f.close()
 
 merge['name'] = merge.index
 cat = merge.groupby(['init_cat', 'mit_cat'])['name'].apply(list)
-print(cat)
+
+if remove_neutral:
+    cat.to_csv("{}list_cat.csv".format(saveFigure_dir))
+else:
+    cat.to_csv("{}list_cat_full.csv".format(saveFigure_dir))
 
 mat = np.zeros((5,5))
 
@@ -458,20 +430,4 @@ if remove_neutral:
 else:
     fig.write_image("{}confusion_matrix_full.pdf".format(saveFigure_dir))
 
-cat = cat.to_frame('categories')
-cat['categories'] = cat.categories.apply(lambda x: ', '.join([str(i) for i in x]))
-
-fig = go.Figure(data=[go.Table(
-    columnwidth=[1/10,1/10,8/10],
-    header=dict(values=['init_cat', 'mit_cat']+list(cat.columns),
-                fill_color='paleturquoise',
-                align='left'),
-    cells=dict(values=[cat.index.get_level_values('init_cat'), cat.index.get_level_values('mit_cat'), cat.categories],
-               fill_color='lavender',
-               align='left'))
-])
-if remove_neutral:
-    fig.write_image("{}list_cat.pdf".format(saveFigure_dir))
-else:
-    fig.write_image("{}list_cat_full.pdf".format(saveFigure_dir))
 
