@@ -29,7 +29,7 @@ class BERT_classifier(nn.Module):
     
 
 class Bert_patch_mitigator(nn.Module):
-  def __init__(self, LMRec):
+  def __init__(self, LMRec, business_price=None):
     super().__init__()
     self.LMRec = LMRec
     for param in self.LMRec.parameters():
@@ -37,11 +37,23 @@ class Bert_patch_mitigator(nn.Module):
 
     nb_output = self.LMRec.classifier[-1].out_features
 
+    if business_price is not None:
+        price_idx = business_price['price'].to_numpy().astype(int)-1
+        price_weight = np.zeros((nb_output, 4))
+        price_weight[np.arange(nb_output), price_idx] = 1
+        price_weight = price_weight.T
+
     self.mitigator = nn.Sequential(
         nn.Linear(nb_output, nb_output),
         nn.Softmax(1),
         nn.Linear(nb_output, 4),
     )
+
+    if business_price is not None:
+        self.mitigator[-1].weight = torch.nn.Parameter(torch.from_numpy(price_weight).type(torch.float32))
+        self.mitigator[-1].bias = torch.nn.Parameter(torch.zeros(4).type(torch.float32))
+        for p in self.mitigator[-1].parameters():
+            p.requires_grad = False
 
   def forward(self, wrapped_input):
         hidden = self.LMRec(wrapped_input)
@@ -50,7 +62,7 @@ class Bert_patch_mitigator(nn.Module):
         return logits.squeeze()
 
 class Bert_mitigator(nn.Module):
-  def __init__(self, LMRec, business_price, DECODER, EMBEDDING):
+  def __init__(self, LMRec, business_price, DECODER=False, EMBEDDING=False):
     super().__init__()
     self.LMRec = LMRec
 

@@ -9,16 +9,14 @@ Original file is located at
 
 import argparse
 import os
-import pickle
-
 import numpy as np
 import pandas as pd
-# import tensorflow as tf
 import torch
 from tqdm import tqdm
-# from torch import nn
 
-from utils.utils import create_model, get_input_list, create_model_mitigator, load_weight_mitigator
+from utils.utils import get_input_list
+from utils.model_utils import BERT_classifier, Bert_patch_mitigator
+from utils.mit_utils import load_weight_mitigator
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -28,7 +26,7 @@ if __name__ == "__main__":
     parser.add_argument('--test_neutralization', action='store_true', help='whether to perform test-side neutralization towards the results')
     parser.add_argument('--use_tpu', action='store_true', help='whether to use tpu')
     parser.add_argument('--model_dir_root', type=str, default='models/{}/model.pt')
-    parser.add_argument('--model_mit_dir_root', type=str, default='models/{}/model_2train_2.pt')
+    parser.add_argument('--model_mit_dir_root', type=str, default='models/{}/model_mit.pt')
     parser.add_argument('--label_dir_root', type=str, default='data/Yelp_cities/{}_trainValidTest/')
     parser.add_argument('--biasAnalysis_path', type=str, default='data/bias_analysis/yelp/')
     p = parser.parse_args()
@@ -40,11 +38,11 @@ if __name__ == "__main__":
     print('Model directory', model_dir)
     print('Label directory', label_dir)
 
-    MITIGATOR_PATCH = False
-    MITIGATOR = True
+    MITIGATOR_PATCH = True
+    MITIGATOR = False
 
-    # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    device = "cpu"
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    # device = "cpu"
 
     # Get input sentence path
     input_path = p.biasAnalysis_path + 'input_sentences/'
@@ -58,11 +56,6 @@ if __name__ == "__main__":
         os.mkdir(save_path)
     print('saving to:', save_path)
 
-    # Set maximum len for input text
-    # if p.city_name == 'Boston':
-    #     max_len = 500
-    # else:
-    #     max_len = 400
     max_len = 512
 
     # load data frame
@@ -83,7 +76,6 @@ if __name__ == "__main__":
     busNumId_2_price = df_map.set_index('business_id').T.to_dict('records')[0]
 
     """Load model and labels"""
-    # labels = pickle.load(open(label_dir + "labels.pickle", 'rb'))
     df = pd.read_csv('data/Yelp_cities/'+p.city_name+'_reviews.csv', lineterminator='\n')
     df_count = df.groupby('business_id').count()
     df_plus = df_count[df_count.review_id >= 2]
@@ -97,17 +89,15 @@ if __name__ == "__main__":
     df = df[df.business_id.isin(df_plus.index)]
     labels = list(df['business_id'].unique())
 
-    loaded_model = create_model(max_len=max_len, labels=labels, device=device)
+    loaded_model = BERT_classifier(len(labels)).to(device)
     if not MITIGATOR:
         loaded_model.load_state_dict(torch.load(model_dir))
     else:
         loaded_model.load_state_dict(torch.load(model_mit_dir))
 
     if MITIGATOR_PATCH:
-        loaded_model = create_model_mitigator(loaded_model)
+        loaded_model = Bert_patch_mitigator(loaded_model).to(device)
         loaded_model = load_weight_mitigator(loaded_model, model_mit_dir)
-        # loaded_model.load_state_dict(torch.load(model_mit_dir))
-        # loaded_model.classifier[-1] = nn.Identity()
 
     loaded_model.eval()
     print(loaded_model)
@@ -129,10 +119,6 @@ if __name__ == "__main__":
                 pred = loaded_model(input)
                 pred_list += (pred.cpu().detach().numpy(),)
 
-            # inp_list = torch.split(input, 50)
-            # for inp in inp_list:
-            #     pred = loaded_model(inp)
-            #     pred_list += (pred.cpu().detach().numpy(),)
             pred = np.concatenate(pred_list)
             print(pred.shape)
             sorted_prediction = np.argsort(-pred)[:, :p.topk]
@@ -151,12 +137,9 @@ if __name__ == "__main__":
                     if p.test_neutralization:
                         row['input_sentence'] = text_input
 
-                    # print(row)
-                    # qa_df.loc[len(qa_df)]= row
                     qa_df = pd.concat([qa_df, row.to_frame().T])
-                    # print(qa_df)
+                    
                 if index > 200 and index % 200 == 0:
-                    # print(index)
                     qa_df.to_csv(save_path + '/yelp_qa_' + current_bais + '.csv')
             qa_df.to_csv(save_path + '/yelp_qa_' + current_bais + '.csv')
         else:
