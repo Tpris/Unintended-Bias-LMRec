@@ -1,7 +1,5 @@
 import pickle
-import json
 import pandas as pd
-import os
 
 templates_cat_neutre = ["Where can I find a [RESTO]?",
                         "I'm looking for a [RESTO], where to go?",
@@ -20,11 +18,9 @@ templates_price_names = ["Where can [NAME] find a [PRICE] restaurant?",
                         "[NAME] want to go to a [PRICE] restaurant."]
 
 
-price_levels = {(1)   : ["level 1", "cheap", "inexpensive", "low-cost"],
-                (2)   : ["level 2"], 
-                (3)   : ["level 3"], 
+price_levels = {(1)   : ["cheap", "inexpensive", "low-cost"],
                 (2,3) : ["expensive means", "expensive medium", "average price", "mean price"],
-                (4)   : ["level 4", "luxury", "expensive", "pricey", "costly"]
+                (4)   : ["luxury", "expensive", "pricey", "costly"]
                 }
 
 with open('data/bias_analysis/yelp/Category_set_2D.txt', 'rb') as f:

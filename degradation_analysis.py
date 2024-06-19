@@ -1,7 +1,7 @@
 import pandas as pd
 
 # path = 'data/bias_analysis/yelp/output_dataframes/'
-path = 'data/bias_analysis/yelp/output_dataframes/Atlanta_output_dataframes_2train/'
+path = 'data/bias_analysis/yelp/Atlanta_output_dataframes_test_degr_2train/'
 path_save = "bias_analysis/yelp/figures/"
 list_files = ["yelp_qa_cat_name.csv", 
               "yelp_qa_cat_neutre.csv",
@@ -11,27 +11,25 @@ list_files = ["yelp_qa_cat_name.csv",
 colToSee = {"price" : "price_lvl",
             "cat": "categories"}
 
-def find(colToSee,typeQ):
+def find(x_typeQ, colToSee):
     colToSee = colToSee.lower()
-    typeQ = typeQ.lower()
+    x_typeQ = x_typeQ.lower()
 
-    tab = colToSee.split()
-    for w in tab:
-        if w in typeQ:
-            return True
+    if colToSee in x_typeQ:
+        return True
     return False
 
 for f in list_files:
     df = pd.read_csv(path+f)
     print(f)
-    # df = df[df['rank']<=0]
+    df = df[df['rank']<=0]
     typeQ = f.split('_')[2]
     isNeutre = f.split('_')[3]=="neutre.csv"
     print(typeQ)
     print(isNeutre)
     if typeQ=="price":
         df.price = df.price.astype(int).astype(str)
-    print(df)
+    # print(df)
     df['correct'] = df.apply(lambda x: find(x[colToSee[typeQ]], x[typeQ]), axis=1).astype(int)
     nb_rows = df.shape[0]
     count = df['correct'].sum()
