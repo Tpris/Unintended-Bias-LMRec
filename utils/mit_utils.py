@@ -80,7 +80,7 @@ def load_weight_mitigator(model, model_dir):
     model.mitigator[-1] = nn.Identity()
     return model
 
-def train_review(model, train_loader, optimizer, criterion, epoch, device):
+def train_review(model, train_loader, optimizer, criterion, device):
     model.train()
     train_loss, correct = 0, 0
     for data, label in tqdm(train_loader):
@@ -128,7 +128,7 @@ def val_review(model, val_loader, criterion, device):
 
     return val_loss, acc
 
-def train_mit(model, train_loader, optimizer, criterion, device):
+def train_mit(model, train_loader, optimizer, criterion, device, n_firsts=-1):
     model.train()
     train_loss, correct = 0, 0
     for data, data2 in tqdm(train_loader):
@@ -141,6 +141,8 @@ def train_mit(model, train_loader, optimizer, criterion, device):
         optimizer.zero_grad()
         output = model(data)
         output2 = model(data2)
+        if n_firsts>0:
+            output, output2 = mask_after_n_first(output, output2, n_firsts, device)
         loss = criterion(output, output2)
         loss = Variable(loss, requires_grad = True)
         train_loss += loss.item()
@@ -157,7 +159,7 @@ def train_mit(model, train_loader, optimizer, criterion, device):
     return train_loss, acc
 
 
-def val_mit(model, val_loader, criterion, device):
+def val_mit(model, val_loader, criterion, device, n_firsts=-1):
     model.eval()
     val_loss, correct = 0, 0.
     with torch.no_grad():
@@ -170,6 +172,8 @@ def val_mit(model, val_loader, criterion, device):
 
             output = model(data)
             output2 = model(data2)
+            if n_firsts>0:
+                output, output2 = mask_after_n_first(output, output2, n_firsts, device)
             val_loss += criterion(output, output2).item()
 
             pred = output.argmax(dim=1)
