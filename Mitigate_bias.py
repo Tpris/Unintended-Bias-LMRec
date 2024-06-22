@@ -13,7 +13,7 @@ print(device)
 CITY = 'Atlanta'
 N_FIRSTS = -1
 DECODER = False
-EMBEDDING = True
+EMBEDDING = False
 NB_TOKEN = 512
 
 df = pd.read_csv('data/Yelp_cities/'+CITY+'_reviews.csv')
