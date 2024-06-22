@@ -109,7 +109,7 @@ def fit(model1, model2, train_loader1, val_loader1, train_loader2, val_loader2, 
 
     min_val_loss = 10000
     for epoch in range(epochs):
-        train_review_loss, train_review_acc = mit_utils.train_review(model1, train_loader1, optimizer1, criterion1, epoch+1, device)
+        train_review_loss, train_review_acc = mit_utils.train_review(model1, train_loader1, optimizer1, criterion1, device)
         train_mit_loss, train_mit_acc = mit_utils.train_mit(model2, train_loader2, optimizer2, criterion2, epoch+1, device)
 
         val_review_loss, val_review_acc = mit_utils.val_review(model1, val_loader1, criterion1, device)

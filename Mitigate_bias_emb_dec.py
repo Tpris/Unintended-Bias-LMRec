@@ -1,19 +1,10 @@
 import torch
-import pickle
-from tqdm import tqdm
-from transformers import BertTokenizer,BertModel
+from transformers import BertTokenizer
 import torch.nn.functional as F
 import torch.optim as optim
-from torch.utils.data import Dataset, random_split, DataLoader
-from transformers import BertTokenizer,BertModel
+from torch.utils.data import DataLoader
 from torch import nn
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn import metrics
-from sklearn.metrics import balanced_accuracy_score
 import pandas as pd
-import random
-from torch.autograd import Variable
 
 from utils import mit_utils
 
@@ -48,7 +39,7 @@ train_q = pd.read_csv('data/bias_analysis/yelp/input_sentences/name_templates_sp
 val_q = pd.read_csv('data/bias_analysis/yelp/input_sentences/name_templates_split/names_templates_validation.csv')
 
 
-# ## Add indice sequences
+### Add indice sequences
 train_q = mit_utils.add_index_question(train_q)
 val_q = mit_utils.add_index_question(val_q)
 
@@ -87,25 +78,6 @@ model_mit = mit_utils.Bert_mitigator(model, business_price, DECODER, EMBEDDING).
 
 ### Training
 
-### DEBUG
-
-# batch_data, batch_label = next(iter(train_loader))
-# for k, v in batch_data.items():
-#     batch_data[k] = v.to(device)
-#     print(v.shape)
-# # batch_label = batch_label.to(device)
-# for k, v in batch_label.items():
-#     batch_label[k] = v.to(device)
-
-# print(batch_label)
-
-# batch_logits = model_mit(batch_data)
-# print(batch_logits.shape)
-# print(batch_logits)
-# print(batch_label)
-# print(batch_data['input_ids'].shape)
-# # print(batch_label[0])
-
 def fit(model, train_loader, val_loader, epochs, optimizer, criterion):
     loss_train_per_epoch = []
     acc_train_per_epoch = []
@@ -130,32 +102,11 @@ def fit(model, train_loader, val_loader, epochs, optimizer, criterion):
 
     return loss_train_per_epoch, loss_val_per_epoch, acc_train_per_epoch, acc_val_per_epoch
 
-optimizer = optim.Adam(model.parameters(), lr=1e-1)
+optimizer = optim.Adam(model.parameters(), lr=1e-10)
 criterion = nn.MSELoss()
-# criterion = nn.CrossEntropyLoss()
 epochs=10
 loss_train_per_epoch, loss_val_per_epoch, acc_train_per_epoch, acc_val_per_epoch = fit(model_mit, train_loader, val_loader, epochs, optimizer, criterion)
 
-
-
-# model_mit.classifier[-1] = nn.Identity()
-
-# batch_data, batch_label = next(iter(train_loader))
-# for k, v in batch_data.items():
-#     batch_data[k] = v.to(device)
-#     print(v.shape)
-# # batch_label = batch_label.to(device)
-# for k, v in batch_label.items():
-#     batch_label[k] = v.to(device)
-
-# print(batch_label)
-
-# batch_logits = model_mit(batch_data)
-# print(batch_logits.shape)
-# print(batch_logits)
-# print(batch_label)
-# print(batch_data['input_ids'].shape)
-# # print(batch_label[0])
 
 
 

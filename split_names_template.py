@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 from sklearn.model_selection import train_test_split
 
 ONLY_NAMES = False
@@ -29,18 +28,13 @@ tot_train = []
 tot_validation = []
 tot_test = []
 for r in names_grp['names']:
-    train, test = train_test_split(r, test_size=0.3, random_state=42)
-    train, validation = train_test_split(train, test_size=0.5, random_state=42)
+    train, test = train_test_split(r, test_size=0.2, random_state=42)
+    train, validation = train_test_split(train, test_size=0.25, random_state=42)
     lst += [[train, validation, test]]
     tot_train       += train
     tot_validation  += validation
     tot_test        += test
 
-    # print(len(r)/3)
-    # print(len(train))
-    # print(len(validation))
-    # print(len(test))
-    # print()
 df = pd.DataFrame(lst, columns = ['train', 'validation', 'test'], index = names_grp['labels']) 
 df.to_csv('data/bias_analysis/yelp/input_sentences/names_ratio.csv')
 
@@ -63,13 +57,6 @@ Templates = Templates['names'].to_list()
 
 train_tpl, test_tpl = train_test_split(Templates, test_size=0.2, random_state=42)
 train_tpl, validation_tpl = train_test_split(train_tpl, test_size=0.25, random_state=42)
-
-# print(3*len(Templates)/5)
-# print(len(Templates)/5)
-# print(len(train))
-# print(len(validation))
-# print(len(test))
-# print()
 
 train_tpl_df = pd.DataFrame(train_tpl, columns = ['template']) 
 train_tpl_df['part'] = 'Train'

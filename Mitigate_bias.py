@@ -11,6 +11,9 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print(device)
 
 CITY = 'Atlanta'
+N_FIRSTS = -1
+DECODER = False
+EMBEDDING = True
 NB_TOKEN = 512
 
 df = pd.read_csv('data/Yelp_cities/'+CITY+'_reviews.csv')
@@ -54,6 +57,8 @@ business_price.price = business_price.price.astype(float)
 
 ### Dataloader
 BATCH_SIZE = 100
+if EMBEDDING:
+    BATCH_SIZE = 5
 
 trainset = model_utils.MyMitDataset(train_q, name_lab_train)
 valset = model_utils.MyMitDataset(val_q, name_lab_val)
@@ -74,10 +79,10 @@ def fit(model, train_loader, val_loader, epochs, optimizer, criterion):
     acc_train_per_epoch = []
     loss_val_per_epoch = []
     acc_val_per_epoch = []
-    min_val_loss = 1000
+    min_val_loss = 1000000000
     for epoch in range(epochs):
-        train_loss, train_acc = mit_utils.train_mit(model, train_loader, optimizer, criterion, device)
-        val_loss, val_acc = mit_utils.val_mit(model, val_loader, criterion, device)
+        train_loss, train_acc = mit_utils.train_mit(model, train_loader, optimizer, criterion, device, N_FIRSTS)
+        val_loss, val_acc = mit_utils.val_mit(model, val_loader, criterion, device, N_FIRSTS)
 
         if min_val_loss>val_loss:
             min_val_loss = val_loss

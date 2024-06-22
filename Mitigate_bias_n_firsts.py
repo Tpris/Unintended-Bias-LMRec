@@ -3,7 +3,6 @@ from tqdm import tqdm
 from transformers import BertTokenizer
 import torch.optim as optim
 from torch.utils.data import DataLoader
-from transformers import BertTokenizer
 from torch import nn
 import pandas as pd
 from torch.autograd import Variable
@@ -15,7 +14,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print(device)
 
 CITY = 'Atlanta'
-N = 10
+N = 1
 
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 df = pd.read_csv('data/Yelp_cities/'+CITY+'_reviews.csv')
@@ -76,6 +75,7 @@ model.load_state_dict(torch.load('models/'+CITY+'/model.pt', map_location=torch.
 model_mit = model_utils.Bert_patch_mitigator(model, business_price).to(device)
 
 ### Training
+
 def train(model, train_loader, optimizer, criterion, epoch):
     model.train()
     train_loss, correct = 0, 0
@@ -157,8 +157,30 @@ def fit(model, train_loader, val_loader, epochs, optimizer, criterion):
 
 optimizer = optim.Adam(model.parameters(), lr=1e-50)
 criterion = nn.MSELoss()
+# criterion = nn.CrossEntropyLoss()
 epochs=5
 loss_train_per_epoch, loss_val_per_epoch, acc_train_per_epoch, acc_val_per_epoch = fit(model_mit, train_loader, val_loader, epochs, optimizer, criterion)
+
+
+
+# model_mit.classifier[-1] = nn.Identity()
+
+# batch_data, batch_label = next(iter(train_loader))
+# for k, v in batch_data.items():
+#     batch_data[k] = v.to(device)
+#     print(v.shape)
+# # batch_label = batch_label.to(device)
+# for k, v in batch_label.items():
+#     batch_label[k] = v.to(device)
+
+# print(batch_label)
+
+# batch_logits = model_mit(batch_data)
+# print(batch_logits.shape)
+# print(batch_logits)
+# print(batch_label)
+# print(batch_data['input_ids'].shape)
+# # print(batch_label[0])
 
 
 
