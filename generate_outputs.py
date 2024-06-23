@@ -16,7 +16,7 @@ from tqdm import tqdm
 
 from utils.utils import get_input_list
 from utils.model_utils import BERT_classifier, Bert_patch_mitigator
-from utils.mit_utils import load_weight_mitigator
+from utils.mit_utils import load_weight_mitigator, get_sup
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -38,7 +38,9 @@ if __name__ == "__main__":
     print('Model directory', model_dir)
     print('Label directory', label_dir)
 
+    # Set variable to True if the model use a patch
     MITIGATOR_PATCH = True
+    # Set variable to True if the model mitigate bias without patch
     MITIGATOR = False
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -77,16 +79,13 @@ if __name__ == "__main__":
 
     """Load model and labels"""
     df = pd.read_csv('data/Yelp_cities/'+p.city_name+'_reviews.csv', lineterminator='\n')
-    df_count = df.groupby('business_id').count()
-    df_plus = df_count[df_count.review_id >= 2]
-    df = df[df.business_id.isin(df_plus.index)]
-    # df_count = df_count[df_count.index.isin(labels)]
-    # df = df[df.business_id.isin(df_count.index)]
-    df['review_date'] = pd.to_datetime(df['review_date'])  
-    df = df.loc[(df['review_date'] > '2008-01-01') & (df['review_date'] <= '2020-01-01')]
-    df_count = df.groupby('business_id').count()
-    df_plus = df_count[df_count.review_id >= 100]
-    df = df[df.business_id.isin(df_plus.index)]
+    df = get_sup(df,2)
+    # apply good types
+    df.price = df.price.astype(float).fillna(0.0)
+    df.loc['review_date'] = pd.to_datetime(df['review_date'])
+    # filter data
+    df = df.loc[(df['review_date'] >= '2008-01-01') & (df['review_date'] <= '2020-01-01')]
+    df = get_sup(df,100)
     labels = list(df['business_id'].unique())
 
     loaded_model = BERT_classifier(len(labels)).to(device)
@@ -112,6 +111,7 @@ if __name__ == "__main__":
             pred_list = ()
             list_sent = current_df['input_sentence'].to_list()
             print(len(list_sent))
+            # Step is used for reducing batch memory given to the GPU (GPU memory issue)
             STEP = 200
             for i in tqdm(range(0, len(list_sent), STEP)):
                 max = i+STEP if i+STEP <len(list_sent) else len(list_sent)
@@ -121,11 +121,11 @@ if __name__ == "__main__":
 
             pred = np.concatenate(pred_list)
             print(pred.shape)
+            # Retreive the k top recommendations
             sorted_prediction = np.argsort(-pred)[:, :p.topk]
             restaurant_ids_list = [np.array(labels)[pred] for pred in sorted_prediction]
 
-            # print(current_df)
-
+            # Arrangement of information to be saved
             for index, row in current_df.iterrows():
                 text_input = row['input_sentence']
                 for rank, restaurant_id in enumerate(restaurant_ids_list[index]):
