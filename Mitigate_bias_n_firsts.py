@@ -1,6 +1,5 @@
 import torch
 from tqdm import tqdm
-from transformers import BertTokenizer
 import torch.optim as optim
 from torch.utils.data import DataLoader
 from torch import nn
@@ -16,7 +15,6 @@ print(device)
 CITY = 'Atlanta'
 N = 1
 
-tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 df = pd.read_csv('data/Yelp_cities/'+CITY+'_reviews.csv')
 
 df = mit_utils.get_sup(df,2)
@@ -61,8 +59,8 @@ business_price.price = business_price.price.astype(float)
 
 BATCH_SIZE = 100
 
-trainset = mit_utils.MyMitDataset(train_q, name_lab_train)
-valset = mit_utils.MyMitDataset(val_q, name_lab_val)
+trainset = model_utils.MyMitDataset(train_q, name_lab_train)
+valset = model_utils.MyMitDataset(val_q, name_lab_val)
 
 train_loader = DataLoader(trainset, batch_size=BATCH_SIZE, shuffle=True)
 val_loader = DataLoader(valset, batch_size=BATCH_SIZE, shuffle=False)
@@ -70,7 +68,7 @@ val_loader = DataLoader(valset, batch_size=BATCH_SIZE, shuffle=False)
 
 ### Model
 
-model = mit_utils.BERT_classifier(NB_CLASSES)
+model = model_utils.BERT_classifier(NB_CLASSES)
 model.load_state_dict(torch.load('models/'+CITY+'/model.pt', map_location=torch.device(device)))
 model_mit = model_utils.Bert_patch_mitigator(model, business_price).to(device)
 
@@ -157,30 +155,9 @@ def fit(model, train_loader, val_loader, epochs, optimizer, criterion):
 
 optimizer = optim.Adam(model.parameters(), lr=1e-50)
 criterion = nn.MSELoss()
-# criterion = nn.CrossEntropyLoss()
 epochs=5
 loss_train_per_epoch, loss_val_per_epoch, acc_train_per_epoch, acc_val_per_epoch = fit(model_mit, train_loader, val_loader, epochs, optimizer, criterion)
 
-
-
-# model_mit.classifier[-1] = nn.Identity()
-
-# batch_data, batch_label = next(iter(train_loader))
-# for k, v in batch_data.items():
-#     batch_data[k] = v.to(device)
-#     print(v.shape)
-# # batch_label = batch_label.to(device)
-# for k, v in batch_label.items():
-#     batch_label[k] = v.to(device)
-
-# print(batch_label)
-
-# batch_logits = model_mit(batch_data)
-# print(batch_logits.shape)
-# print(batch_logits)
-# print(batch_label)
-# print(batch_data['input_ids'].shape)
-# # print(batch_label[0])
 
 
 

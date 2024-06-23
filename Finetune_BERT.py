@@ -23,9 +23,12 @@ BATCH_SIZE = 80
 ##############################
 df = pd.read_csv('data/Yelp_cities/'+CITY+'_reviews.csv')
 
+# Clean the dataframe
 df = mit_utils.get_sup(df,2)
+# apply good types
 df.price = df.price.astype(float).fillna(0.0)
 df.loc['review_date'] = pd.to_datetime(df['review_date'])
+# filter data
 df = df.loc[(df['review_date'] >= '2008-01-01') & (df['review_date'] <= '2020-01-01')]
 df = mit_utils.get_sup(df,100)
 
@@ -36,7 +39,8 @@ LABELS = list(labels.unique())
 NB_CLASSES = len(LABELS)
 print(NB_CLASSES)
 
-
+# Use saved dataloaders or create them
+# The use of dataloaders help us to be faster and to use the same data everytime, it's better for comparing differents training
 if os.path.isfile('train_dataloader.pkl') and os.path.isfile('val_dataloader.pkl'):
     print("Load dataloaders")
     with open('train_dataloader.pkl', 'rb') as f:
@@ -62,6 +66,7 @@ else:
 
 
 ### Weight loss ###
+# It's used to correct imbalanced data
 nb_resto = mit_utils.get_groupby_business(df)['review_id'].tolist()
 MAX_NB_RESTO = max(nb_resto)
 ratio_resto = [MAX_NB_RESTO/p for p in nb_resto]

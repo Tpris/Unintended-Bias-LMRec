@@ -11,16 +11,27 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print(device)
 
 CITY = 'Atlanta'
+# Apply a mask that considers only the N largest logit values
+# if the value is less than or equal to 0 no mask is applied
 N_FIRSTS = -1
+NB_TOKEN = 512
+# If you want to train the model on decoder and embedding part instead of patch, set these variables to true
 DECODER = False
 EMBEDDING = False
-NB_TOKEN = 512
+
+BATCH_SIZE = 100
+# Batch size has to be reducted because of GPU memory issue
+if EMBEDDING:
+    BATCH_SIZE = 5 
 
 df = pd.read_csv('data/Yelp_cities/'+CITY+'_reviews.csv')
 
+# Clean the dataframe
 df = mit_utils.get_sup(df,2)
+# apply good types
 df.price = df.price.astype(float).fillna(0.0)
 df.loc['review_date'] = pd.to_datetime(df['review_date'])
+# filter data
 df = df.loc[(df['review_date'] >= '2008-01-01') & (df['review_date'] <= '2020-01-01')]
 df = mit_utils.get_sup(df,100)
 
@@ -32,33 +43,30 @@ NB_CLASSES = len(LABELS)
 print(NB_CLASSES)
 
 
-# ## Questions
+# Load split questions from files
 train_q = pd.read_csv('data/bias_analysis/yelp/input_sentences/name_templates_split/names_templates_train.csv')
 val_q = pd.read_csv('data/bias_analysis/yelp/input_sentences/name_templates_split/names_templates_validation.csv')
 
 
-# ## Add indice sequences
+# Add indice sequences
 train_q = mit_utils.add_index_question(train_q)
 val_q = mit_utils.add_index_question(val_q)
 
 
 ### Get labels
 
-### Group
+### Group of people
 name_lab_train = mit_utils.get_name_labels(train_q)
 name_lab_val = mit_utils.get_name_labels(val_q)
 
 
-### Price
+### Business price
 business_price = df.groupby('business_id')['price'].unique()
 business_price = business_price.to_frame()
 business_price.price = business_price.price.astype(float)
 
 
-### Dataloader
-BATCH_SIZE = 100
-if EMBEDDING:
-    BATCH_SIZE = 5
+### Wrap data
 
 trainset = model_utils.MyMitDataset(train_q, name_lab_train)
 valset = model_utils.MyMitDataset(val_q, name_lab_val)
@@ -71,6 +79,8 @@ val_loader = DataLoader(valset, batch_size=BATCH_SIZE, shuffle=False)
 model = model_utils.BERT_classifier(NB_CLASSES)
 model.load_state_dict(torch.load('models/'+CITY+'/model.pt', map_location=torch.device(device)))
 model_mit = model_utils.Bert_patch_mitigator(model, business_price).to(device)
+if EMBEDDING or DECODER:
+    model_mit = model_utils.Bert_mitigator(model, business_price, DECODER, EMBEDDING).to(device)
 
 ### Training
 
