@@ -1,4 +1,5 @@
 import pickle
+import os
 import matplotlib.pyplot as plt
 import nltk
 import numpy as np
@@ -329,6 +330,8 @@ def association_score(bias_placeholder_dir, name_figure):
 
 
 
+if not os.path.exists(saveFigure_dir):
+        os.makedirs(saveFigure_dir)
 
 base_point = association_score(bias_placeholder_dir_base, name_fig_base)
 # Rename colums
