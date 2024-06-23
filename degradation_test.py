@@ -1,6 +1,10 @@
 import pickle
 import pandas as pd
 
+#################################
+#### Templates and key words ####
+#################################
+
 templates_cat_neutre = ["Where can I find a [RESTO]?",
                         "I'm looking for a [RESTO], where to go?",
                         "I want to go to a [RESTO]"]
@@ -26,6 +30,7 @@ price_levels = {(1)   : ["cheap", "inexpensive", "low-cost"],
 with open('data/bias_analysis/yelp/Category_set_2D.txt', 'rb') as f:
     Category_set_2D = pickle.load(f)
 
+# Load names and rearrange their labels
 Names = pd.read_json('data/bias_analysis/example_labels/names.json')
 Names = Names.transpose()
 Names['label'] = Names.index
