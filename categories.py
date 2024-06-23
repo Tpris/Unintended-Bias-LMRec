@@ -23,7 +23,9 @@ nltk.download('stopwords')
 stopwords = stopwords.words('english')
 sns.set_style("darkgrid")
 
+# It's possible to remove neutral categories if there is a lack of visibility
 remove_neutral = False
+# Set to True if you just want to plot an original model without bias mitigation
 base_only = False
 
 prob_choice_2d_plot = 'difference'
@@ -34,7 +36,7 @@ name_fig_base = 'all_categories_22D_base'
 name_fig_mit = 'all_categories_22D_mit'
 
 """3.The 2D plot for association score"""
-print('-' * 20 + '3/6: Generating 2D plot for association scores' + '-' * 20)
+print('-' * 20 + 'Generating 2D plot for association scores' + '-' * 20)
 
 def get_list_cat(df_city_all_plot):
     cat = df_city_all_plot['categories'].to_numpy().flatten()
@@ -54,13 +56,6 @@ def association_score(bias_placeholder_dir, name_figure):
     rank_bar = 20
     np.random.seed(68)
 
-    # df_city_all_plot = df_city_all_plot[df_city_all_plot['rank'] <= rank_bar]
-    # df_city_all_plot['fold'] = np.random.randint(0, fold_number, df_city_all_plot.shape[0])
-    # df_cat_all = df_city_all_plot.copy()
-    # df_sum_all = df_city_all_plot.groupby(by=['label', 'fold']).size().reset_index(name='counts')
-
-    # print(df_city_all_plot)
-
     df_cat_all = None
     df_sum_all = None
 
@@ -79,7 +74,6 @@ def association_score(bias_placeholder_dir, name_figure):
             df_sum_all = df_temp_sum.copy()
         else:
             df_sum_all = pd.concat([df_sum_all, df_temp_sum])
-            # df_sum_all = pd.concat(df_sum_all,df_temp_sum)
 
     # nested dictionary
     # {cat1: {'fold0': {'female':0, 'male':0, 'white':0,'black':0}, 'fold1':{}...}, cat2:{}...}
@@ -104,6 +98,10 @@ def association_score(bias_placeholder_dir, name_figure):
     # use the difference
     point_list = []
 
+    '''
+    In the original code they plot the list of category with the pickle file.
+    But I prefered to plot only categories predicted by the model
+    '''
     # with open('data/bias_analysis/yelp/Category_set_2D.txt', 'rb') as f:
     #     Category_set_2D = pickle.load(f)
     Category_set_2D = get_list_cat(df_city_all_plot)
@@ -223,6 +221,9 @@ def association_score(bias_placeholder_dir, name_figure):
             showlegend=False,
         ))
 
+    '''
+    Plot all categories
+    '''
     fig.update_layout(
         autosize=True,
         height=600,
@@ -253,6 +254,10 @@ def association_score(bias_placeholder_dir, name_figure):
         fig.write_image("{}{}.pdf".format(saveFigure_dir, name_figure), scale=1, width=1850, height=600)
     else:
         fig.write_image("{}{}_full.pdf".format(saveFigure_dir, name_figure), scale=1, width=1850, height=600)
+    
+    '''
+    Plot categories with a first zoom
+    '''
     fig.update_layout(
     autosize=True,
     height=600,
@@ -284,6 +289,10 @@ def association_score(bias_placeholder_dir, name_figure):
         fig.write_image("{}{}_ZOOM.pdf".format(saveFigure_dir, name_figure), scale=1, width=1850, height=600)
     else:
         fig.write_image("{}{}_ZOOM_full.pdf".format(saveFigure_dir, name_figure), scale=1, width=1850, height=600)
+
+    '''
+    Plot categories with a second zoom
+    '''
     fig.update_layout(
     autosize=True,
     height=600,
@@ -322,14 +331,18 @@ def association_score(bias_placeholder_dir, name_figure):
 
 
 base_point = association_score(bias_placeholder_dir_base, name_fig_base)
+# Rename colums
 base_point = pd.DataFrame(base_point, columns=['name', 'x_base', 'y_base', 'x_std', 'y_std'])
+# Remove std positions
 base_point = base_point.drop(['x_std', 'y_std'], axis=1).set_index('name')
 
 if base_only:
     exit()
 
 mit_point = association_score(bias_placeholder_dir_mit, name_fig_mit)
+# Rename colums
 mit_point = pd.DataFrame(mit_point, columns=['name', 'x_mit', 'y_mit', 'x_std', 'y_std'])
+# Remove std positions
 mit_point = mit_point.drop(['x_std', 'y_std'], axis=1).set_index('name')
 
 merge = pd.concat([base_point, mit_point], axis=1).replace(np.nan, 0)
@@ -338,6 +351,10 @@ merge['distance'] = merge.apply(lambda r: distance.euclidean((r.x_base,r.y_base)
 merge['distance_x'] = merge.apply(lambda r: distance.euclidean((r.x_base,),(r.x_mit,)), axis=1)
 merge['distance_y'] = merge.apply(lambda r: distance.euclidean((r.y_base,),(r.y_mit,)), axis=1)
 
+'''
+Print circles with distances
+'''
+# General distance
 df00 = merge.drop(['x_base', 'y_base','x_mit', 'y_mit'], axis=1)
 df00 = df00.sort_values(by=['distance'])
 df00['name'] = df00.index
@@ -354,6 +371,7 @@ if remove_neutral:
 else:
     fig.write_image("{}distance_full.pdf".format(saveFigure_dir), scale=1)
 
+# X distance
 fig = px.line_polar(df00, r='distance_x', theta='name', line_close=True)
 fig.update_layout(
     height=1500,
@@ -366,6 +384,7 @@ if remove_neutral:
 else:
     fig.write_image("{}distance_x_full.pdf".format(saveFigure_dir), scale=1)
 
+# Y distance
 fig = px.line_polar(df00, r='distance_y', theta='name', line_close=True)
 fig.update_layout(
     height=1500,
@@ -378,6 +397,9 @@ if remove_neutral:
 else:
     fig.write_image("{}distance_y_full.pdf".format(saveFigure_dir), scale=1)
 
+'''
+Make matrix confusion
+'''
 def init_cat(df_x, df_y):
     if df_x ==0 and df_y == 0: # neutral
         return 0
@@ -394,6 +416,7 @@ def init_cat(df_x, df_y):
 merge['init_cat'] = merge.apply(lambda r: init_cat(r.x_base, r.y_base), axis=1)
 merge['mit_cat'] = merge.apply(lambda r: init_cat(r.x_mit, r.y_mit), axis=1)
 
+# Get accuracy and balanced accuracy
 bal_acc = balanced_accuracy_score(merge['init_cat'], merge['mit_cat'])
 acc = accuracy_score(merge['init_cat'], merge['mit_cat'])
 print(bal_acc)
@@ -404,6 +427,7 @@ f.close()
 merge['name'] = merge.index
 cat = merge.groupby(['init_cat', 'mit_cat'])['name'].apply(list)
 
+'''Save the list of moves to csv format'''
 if remove_neutral:
     cat.to_csv("{}list_cat.csv".format(saveFigure_dir))
 else:
