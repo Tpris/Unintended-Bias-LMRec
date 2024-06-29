@@ -58,8 +58,10 @@ python categories.py
 with the desired paths for `bias_placeholder_dir_base` and `bias_placeholder_dir_mit`. If `base_only` is put to `False` an analyse will be done between predictions of `bias_placeholder_dir_base` and `bias_placeholder_dir_mit`, else if it is put to `True` only `bias_placeholder_dir_base` will be concidered.
 
 All the results will be saved to `bias_analysis/yelp/figures/`.
----
 
+
+---
+## Basic documentaion
 Accepted paper at IPM2022
 
 ### Dataset
