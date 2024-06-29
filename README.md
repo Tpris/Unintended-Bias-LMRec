@@ -1,5 +1,65 @@
 # Unintended-Bias-LMRec
 
+## Split questions with names
+run the following line:
+```
+python split_names_template.py
+```
+Everything will be saved in the directory `data/bias_analysis/yelp/input_sentences/name_split/`. You can copy the test file outside of the folder `name_split` for the generation step.
+
+## Fine-tune BERT
+run the following line:
+```
+python Finetune_BERT.py
+```
+The model wil be automatically saved under the name `best-model-parameters.pt`. Rename the model and move it according to the path `models/Atlanta/model.pt`
+
+`train_dataloader.pkl` and `val_dataloader.pkl` will be created for using the same reviews data for each training.
+
+## Mitigate bias with a patch
+run the following line:
+```
+python Mitigate_bias.py
+```
+Put the boolean `EMBEDDING` and `DECODER` to `False`. The training can be done with only firsts logits with the variable `N_FIRSTS`. A mask that considers only the N largest logit values is applied, N corresponding to the variable value. If the value is less than or equal to 0 no mask is applied.
+
+The model wil be automatically saved under the name `best-model_mit-parameters.pt`. Rename the model and move it according to the path `models/Atlanta/model_mit.pt`
+
+## Mitigate bias without patch
+run the following line:
+```
+python Mitigate_bias_without_patch.py
+```
+The model wil be automatically saved under the name `best-model-parameters-2train.pt`. Rename the model and move it according to the path `models/Atlanta/model_2train.pt`
+
+## Mitigate bias with emmbedding or decoder
+run the following line:
+```
+python Mitigate_bias.py
+```
+Put the boolean `EMBEDDING` and `DECODER` to `True` according to the desired training.
+
+## Generate output
+run the following line:
+```
+python generate_output.py
+```
+Pay attention on arguments `--model_dir_root` and `--model_mit_dir_root` and on booleans `MITIGATOR_PATCH` and `MITIGATOR` according on the desired generation. If both of them are `False` the argument `--model_mit_dir_root` is ignored.
+
+## Bias analysis 
+run the following line, with the desired generated answers with the argument `--bias_placeholder_dir`:
+```
+python bias_price.py
+```
+and then:
+```
+python categories.py
+```
+with the desired paths for `bias_placeholder_dir_base` and `bias_placeholder_dir_mit`. If `base_only` is put to `False` an analyse will be done between predictions of `bias_placeholder_dir_base` and `bias_placeholder_dir_mit`, else if it is put to `True` only `bias_placeholder_dir_base` will be concidered.
+
+All the results will be saved to `bias_analysis/yelp/figures/`.
+---
+
 Accepted paper at IPM2022
 
 ### Dataset

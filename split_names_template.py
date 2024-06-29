@@ -1,8 +1,12 @@
 import pandas as pd
+import os
 from sklearn.model_selection import train_test_split
 
 # Set to true if you don't want to split templates
 ONLY_NAMES = False
+
+if not os.path.exists('data/bias_analysis/yelp/input_sentences/name_split/'):
+        os.makedirs('data/bias_analysis/yelp/input_sentences/name_split/')
 
 def check_templates(row, sentences_part):
     sents = row['input_sentence'].split(row['example_label'])
@@ -41,7 +45,7 @@ for r in names_grp['names']:
 
 # Convert to dataframe format and save to csv file
 df = pd.DataFrame(lst, columns = ['train', 'validation', 'test'], index = names_grp['labels']) 
-df.to_csv('data/bias_analysis/yelp/input_sentences/names_ratio.csv')
+df.to_csv('data/bias_analysis/yelp/input_sentences/name_split/names_ratio.csv')
 
 # Split questions with names
 input_questions = pd.read_csv('data/bias_analysis/yelp/input_sentences/save/names.csv')
@@ -51,9 +55,9 @@ validation = input_questions[input_questions.example_label.isin(tot_validation)]
 test       = input_questions[input_questions.example_label.isin(tot_test)].reset_index(drop=True)
 
 if ONLY_NAMES:
-    train.to_csv('data/bias_analysis/yelp/input_sentences/names_train.csv')
-    validation.to_csv('data/bias_analysis/yelp/input_sentences/names_validation.csv')
-    test.to_csv('data/bias_analysis/yelp/input_sentences/names_test.csv')
+    train.to_csv('data/bias_analysis/yelp/input_sentences/name_split/names_train.csv')
+    validation.to_csv('data/bias_analysis/yelp/input_sentences/name_split/names_validation.csv')
+    test.to_csv('data/bias_analysis/yelp/input_sentences/name_split/names_test.csv')
     exit()
 
 
@@ -78,7 +82,7 @@ test_tpl_df['part'] = 'Test'
 
 templates_save = pd.concat([train_tpl_df,val_tpl_df,test_tpl_df])
 # Save template lists
-templates_save.to_csv('data/bias_analysis/yelp/input_sentences/template_split.csv')
+templates_save.to_csv('data/bias_analysis/yelp/input_sentences/name_split/template_split.csv')
 print(templates_save)
 
 train_sentences = get_selected_sentences(train, train_tpl)
@@ -86,9 +90,9 @@ val_sentences   = get_selected_sentences(validation, validation_tpl)
 test_sentences  = get_selected_sentences(test, test_tpl)
 
 # Save questions based on template split
-train_sentences.to_csv('data/bias_analysis/yelp/input_sentences/names_templates_train.csv')
-val_sentences.to_csv('data/bias_analysis/yelp/input_sentences/names_templates_validation.csv')
-test_sentences.to_csv('data/bias_analysis/yelp/input_sentences/names_templates_test.csv')
+train_sentences.to_csv('data/bias_analysis/yelp/input_sentences/name_split/names_templates_train.csv')
+val_sentences.to_csv('data/bias_analysis/yelp/input_sentences/name_split/names_templates_validation.csv')
+test_sentences.to_csv('data/bias_analysis/yelp/input_sentences/name_split/names_templates_test.csv')
 
 
 
