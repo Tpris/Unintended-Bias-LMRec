@@ -39,12 +39,26 @@ python Mitigate_bias.py
 ```
 Put the boolean `EMBEDDING` and `DECODER` to `True` according to the desired training.
 
+## Generate degradation test
+run the following line:
+```
+python degradation_test.py
+```
+The questions will be saved in `data/bias_analysis/yelp/input_sentences/`
+
 ## Generate output
 run the following line:
 ```
 python generate_output.py
 ```
 Pay attention on arguments `--model_dir_root` and `--model_mit_dir_root` and on booleans `MITIGATOR_PATCH` and `MITIGATOR` according on the desired generation. If both of them are `False` the argument `--model_mit_dir_root` is ignored.
+
+## Degradation analysis
+run the following line:
+```
+python degradation_analysis.py
+```
+All the results will be saved to `bias_analysis/yelp/figures/`.
 
 ## Bias analysis 
 run the following line, with the desired generated answers with the argument `--bias_placeholder_dir`:
