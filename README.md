@@ -73,6 +73,11 @@ with the desired paths for `bias_placeholder_dir_base` and `bias_placeholder_dir
 
 All the results will be saved to `bias_analysis/yelp/figures/`.
 
+You can also run after the bias price analysis:
+```
+python proportion.py
+```
+It shows the predictions proportions for each price range in form of plot bars.
 
 ---
 ## Basic documentaion
